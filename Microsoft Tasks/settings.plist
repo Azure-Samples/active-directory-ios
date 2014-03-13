@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>authority</key>
+	<string>https://login.windows.net/common/oauth2/token</string>
+	<key>clientId</key>
+	<string>xxxxxxx-xxxxxx-xxxxxxx-xxxxxxx</string>
+	<key>resourceString</key>
+	<string>https://localhost/todolistservice</string>
+	<key>redirectUri</key>
+	<string>http://demo_todolist_app</string>
+	<key>userId</key>
+	<string>user@domain.com</string>
+	<key>taskWebAPI</key>
+	<string>https://localhost/api/todolist/</string>
+</dict>
+</plist>

@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13D12" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j3i-L0-Zqe">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--Samples Task List Table View Controller - My Tasks-->
+        <scene sceneID="9uk-Og-QtR">
+            <objects>
+                <tableViewController storyboardIdentifier="taskTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cdM-uN-w6S" customClass="samplesTaskListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yaA-Mr-Sg6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TaskPrototypeCell" id="9X0-L4-rlV">
+                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9X0-L4-rlV" id="Mnj-4J-S6h">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="cdM-uN-w6S" id="byk-rS-F9B"/>
+                            <outlet property="delegate" destination="cdM-uN-w6S" id="xLV-ZN-vcC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="My Tasks" id="gdK-1k-C54">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Bg8-7Y-ohU">
+                            <connections>
+                                <action selector="pressedLogout:" destination="cdM-uN-w6S" id="4EH-OO-Lk3"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="iJy-lY-bNW">
+                            <connections>
+                                <segue destination="YAQ-MH-xhj" kind="modal" id="4Be-KY-BtZ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RBS-Ot-NYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-176" y="-524"/>
+        </scene>
+        <!--Sample Add Task Item View Controller - Add New Task-->
+        <scene sceneID="dff-cz-dcj">
+            <objects>
+                <viewController storyboardIdentifier="addTaskView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75H-2L-TOK" customClass="sampleAddTaskItemViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="lK8-IB-rLX"/>
+                        <viewControllerLayoutGuide type="bottom" id="R7O-rQ-48b"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="l3O-AW-L6B">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SpI-nC-pyq">
+                                <rect key="frame" x="20" y="133" width="280" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="SpI-nC-pyq" secondAttribute="trailing" constant="20" id="35v-I6-qt1"/>
+                            <constraint firstItem="SpI-nC-pyq" firstAttribute="leading" secondItem="l3O-AW-L6B" secondAttribute="leading" constant="20" id="EoG-C4-lW8"/>
+                            <constraint firstItem="SpI-nC-pyq" firstAttribute="top" secondItem="lK8-IB-rLX" secondAttribute="bottom" constant="69" id="L3d-P9-EOc"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add New Task" id="0WQ-X9-QOv">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nAr-cE-Mfc">
+                            <connections>
+                                <segue destination="Slr-39-lVN" kind="unwind" unwindAction="unwindTaskList:" id="qLm-D1-onh"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="91A-NP-Jx4">
+                            <connections>
+                                <segue destination="Slr-39-lVN" kind="unwind" unwindAction="unwindTaskList:" id="ObL-qu-m4i"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="saveButton" destination="91A-NP-Jx4" id="o0N-4q-0XO"/>
+                        <outlet property="textField" destination="SpI-nC-pyq" id="O5d-EZ-oH1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="61U-2j-oWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="Slr-39-lVN" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="974" y="-524"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="RHP-4c-Rrw">
+            <objects>
+                <navigationController storyboardIdentifier="navAddTaskView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YAQ-MH-xhj" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q2u-dz-IiZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="75H-2L-TOK" kind="relationship" relationship="rootViewController" id="PtA-Bh-0kJ"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UbC-2h-7SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="378" y="-524"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="uX0-JS-am8">
+            <objects>
+                <navigationController storyboardIdentifier="navtaskListView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j3i-L0-Zqe" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="cnD-AF-tYq"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="PIS-Hb-3Bf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="cdM-uN-w6S" kind="relationship" relationship="rootViewController" id="1Pg-Wy-Vsj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ulN-0j-pW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-702" y="-524"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>
