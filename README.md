@@ -13,7 +13,7 @@ To use this sample you will need a Windows Azure Active Directory Tenant. If you
 
 ### Step 2: Register your Web API with your Windows Azure AD Tenant
 
-After you get your Windows Azure AD tenant, add this sample app to your tenant so you can use it to protect your API endpoints. If you need help with this step, see: [Register the REST API Service Windows Azure Active Directory](https://github.com/WindowsAzureAD/Azure-AD-TODO-Server-Sample-For-Node/wiki/Setup-Windows-Azure-AD)
+After you get your Windows Azure AD tenant, add this sample app to your tenant so you can use it to protect your API endpoints. If you need help with this step, see: [Register the REST API Service Windows Azure Active Directory](https://github.com/AzureADSamples/WebAPI-Nodejs/wiki/Setup-Windows-Azure-AD)
 
 ### Step 3: Download and run either the .Net or Node.js REST API TODO Sample Server
 
@@ -21,8 +21,8 @@ This sample is written specifically to work against our existing sample for buil
 
 For information on how to set this up, visit our existing samples here:
 
-* [Windows Azure Active Directory Sample REST API Service for Node.js](https://github.com/WindowsAzureADSamples/WebAPISingleOrg-Nodejs-Dev)
-* [Windows Azure Active Directory Sample Web API Single Sign-On for .Net](https://github.com/WindowsAzureADSamples/WebAppExistingCallWebAPISingleOrg-DotNet-Dev)
+* [Windows Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs)
+* [Windows Azure Active Directory Sample Web API Single Sign-On for .Net](https://github.com/AzureADSamples/NativeClient-DotNet)
 
 ### Step 3: Download the iOS Native Client Sample code
 
@@ -57,7 +57,7 @@ Replace the information in the plist file with your Web API settings.
 
 ##### NOTE
 
-The current defaults are set up to work with our [Windows Azure Active Directory Sample REST API Service for Node.js](https://github.com/WindowsAzureADSamples/WebAPISingleOrg-Nodejs-Dev). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
+The current defaults are set up to work with our [Windows Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
 
 ### Step 6: Build and Run the application
 
