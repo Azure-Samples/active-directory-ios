@@ -26,9 +26,28 @@ For information on how to set this up, visit our existing samples here:
 
 ### Step 3: Download the iOS Native Client Sample code
 
-* `$ git clone git@github.com:WindowsAzureADSamples/NativeClientCallWebAPISingleOrg-iOS-Dev.git`
+* `$ git clone git@github.com:AzureADSamples/NativeClientCallWebAPISingleOrg-iOS-Dev.git`
+
+### Step 4: Download ADAL for iOS and add it to your XCode Workspace
+
+#### Download the ADAL for iOS 
+
+* `git clone git@github.com:MSOpenTech/azure-activedirectory-library-for-ios.git`
+
+#### Import the library in to your Workspace
+
+In XCode, right mouse click on your project directory and select "Add files to iOS Sample"...
+
+When you are prompted, select the directory where you cloned ADAL for iOS
+
+#### Add the libADALiOS.a to your Linked Frameworks and libraries
+
+Click the add button under "Linked Frameworks and Libraries" and add the library file from the imported frameworks.
+
+Build the project to make sure everything compiles correctly.
+
  
-### Step 4: Configure the settings.plist file with your Web API information
+### Step 5: Configure the settings.plist file with your Web API information
 
 Under "Supporting Files"you will find a settings.plist file. It contains the following information:
 
