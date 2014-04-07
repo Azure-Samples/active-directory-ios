@@ -24,11 +24,11 @@ For information on how to set this up, visit our existing samples here:
 * [Windows Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs)
 * [Windows Azure Active Directory Sample Web API Single Sign-On for .Net](https://github.com/AzureADSamples/NativeClient-DotNet)
 
-### Step 3: Download the iOS Native Client Sample code
+### Step 4: Download the iOS Native Client Sample code
 
 * `$ git clone git@github.com:AzureADSamples/NativeClientCallWebAPISingleOrg-iOS-Dev.git`
 
-### Step 4: Download ADAL for iOS and add it to your XCode Workspace
+### Step 5: Download ADAL for iOS and add it to your XCode Workspace
 
 #### Download the ADAL for iOS 
 
@@ -47,7 +47,7 @@ Click the add button under "Linked Frameworks and Libraries" and add the library
 Build the project to make sure everything compiles correctly.
 
  
-### Step 5: Configure the settings.plist file with your Web API information
+### Step 6: Configure the settings.plist file with your Web API information
 
 Under "Supporting Files"you will find a settings.plist file. It contains the following information:
 
@@ -78,7 +78,7 @@ Replace the information in the plist file with your Web API settings.
 
 The current defaults are set up to work with our [Windows Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
 
-### Step 6: Build and Run the application
+### Step 7: Build and Run the application
 
 You should be able to connect to the REST API endpoint and be prompted with the credentials from your Windows Azure Active Directory account.
 
