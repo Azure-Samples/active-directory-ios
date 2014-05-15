@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface samplesTaskListTableViewController : UITableViewController
+@interface samplesTaskListTableViewController : UITableViewController<UIAlertViewDelegate>
 
-- (IBAction)unwindTaskList:(UIStoryboardSegue *)segue;
 - (IBAction)pressedLogout:(id)sender;
-
 
 @end

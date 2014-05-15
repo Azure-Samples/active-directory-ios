@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "samplesTaskItem.h"
 
-@interface sampleAddTaskItemViewController : UIViewController
+@interface sampleAddTaskItemViewController : UIViewController<UIAlertViewDelegate>
 
-@property samplesTaskItem *taskItem;
+- (IBAction)save:(id)sender;
+@property (weak, nonatomic) IBOutlet UITextField *textField;
 
 @end

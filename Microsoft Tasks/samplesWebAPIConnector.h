@@ -11,11 +11,8 @@
 
 @interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
 
-+(void) getTokenForNoReason;
-+(void) getTaskList:(void (^) (NSArray*))completionBlock;
-+(void) addTask:(samplesTaskItem*)task completionBlock:(void (^) (bool)) completionBlock;
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task;
++(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock;
++(void) addTask:(samplesTaskItem*)task completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 +(void) signOut;
-
 
 @end
