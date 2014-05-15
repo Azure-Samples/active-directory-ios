@@ -21,8 +21,6 @@ NSString* clientId;
 NSString* resourceId;
 NSString* redirectUriString;
 NSString* userId;
-NSString* tenantId;
-NSString* upn;
 
 bool loadedApplicationSettings;
 
@@ -48,24 +46,12 @@ bool loadedApplicationSettings;
 
 +(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 {
-    [self readApplicationSettings];
-    [self getToken:clearCache resource:resourceId completionHandler:completionBlock];
-}
-
-+(void) getToken : (BOOL) clearCache resource:(NSString*) resource completionHandler:(void (^) (NSString*, NSError*))completionBlock
-{
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority validateAuthority:NO error:&error];
-    [[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:@"J4DR8GHCZT.com.sri.Shared"];
     
     NSURL *redirectUri = [[NSURL alloc]initWithString:redirectUriString];
     
-    if(clearCache)
-    {
-        [authContext.tokenCacheStore removeAllWithError:nil];
-    }
-    
-    [authContext acquireTokenWithResource:resource clientId:clientId redirectUri:redirectUri userId:userId completionBlock:^(ADAuthenticationResult *result) {
+    [authContext acquireTokenWithResource:resourceId clientId:clientId redirectUri:redirectUri userId:userId completionBlock:^(ADAuthenticationResult *result) {
         
         if (result.tokenCacheStoreItem == nil)
         {
@@ -73,8 +59,6 @@ bool loadedApplicationSettings;
         }
         else
         {
-            tenantId = result.tokenCacheStoreItem.userInformation.tenantId;
-            upn = result.tokenCacheStoreItem.userInformation.userId;
             completionBlock(result.tokenCacheStoreItem.accessToken, nil);
         }
     }];
