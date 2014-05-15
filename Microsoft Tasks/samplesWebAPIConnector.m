@@ -47,7 +47,7 @@ bool loadedApplicationSettings;
 +(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 {
     ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority validateAuthority:NO error:&error];
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
     
     NSURL *redirectUri = [[NSURL alloc]initWithString:redirectUriString];
     
