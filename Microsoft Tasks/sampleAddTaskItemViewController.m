@@ -8,12 +8,7 @@
 
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
-
-@interface sampleAddTaskItemViewController ()
-@property (weak, nonatomic) IBOutlet UITextField *textField;
-@property (weak, nonatomic) IBOutlet UIBarButtonItem *saveButton;
-
-@end
+#import "samplesTaskItem.h"
 
 @implementation sampleAddTaskItemViewController
 
@@ -38,38 +33,44 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
+- (IBAction)save:(id)sender {
     
-    if (sender != self.saveButton) {
-        return;
-    }
     if (self.textField.text.length > 0) {
-        self.taskItem = [[samplesTaskItem alloc] init];
-        self.taskItem.itemName = self.textField.text;
-        self.taskItem.completed = NO;
-    }
-    
-    [samplesWebAPIConnector addTask:self.taskItem completionBlock:^(bool success) {
-        if (success)
-        {
-            dispatch_async(dispatch_get_main_queue(),^ {
-                
-                [self.navigationController popViewControllerAnimated:YES];
-            });
-        }
-        else
-        {
-            // display error
-        }
         
-    }];
-
+        samplesTaskItem* taskItem = [[samplesTaskItem alloc]init];
+        taskItem.itemName = self.textField.text;
+        taskItem.completed = NO;
+        
+        [samplesWebAPIConnector addTask:taskItem completionBlock:^(bool success, NSError* error) {
+            if (success)
+            {
+                dispatch_async(dispatch_get_main_queue(),^ {
+                    
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                });
+            }
+            else
+            {
+                UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+                
+                [alertView setDelegate:self];
+                
+                dispatch_async(dispatch_get_main_queue(),^ {
+                    [alertView show];
+                });
+            }
+            
+        }];
+    }
 }
 
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0)
+    {
+        [alertView dismissWithClickedButtonIndex:0 animated:NO];
+        [self save:nil];
+    }
+}
 
 @end

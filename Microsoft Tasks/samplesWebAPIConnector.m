@@ -9,32 +9,20 @@
 #import "samplesWebAPIConnector.h"
 #import "ADALiOS/ADAuthenticationContext.h"
 #import "samplesTaskItem.h"
+#import "ADALiOS/ADAuthenticationSettings.h"
 
 @implementation samplesWebAPIConnector
 
 ADAuthenticationContext* authContext;
-static NSMutableArray* tasks;
-static NSMutableDictionary *taskList;
-static NSMutableDictionary* taskDetails;
+
 NSString* taskWebApiUrlString;
 NSString* authority;
 NSString* clientId;
 NSString* resourceId;
 NSString* redirectUriString;
 NSString* userId;
-NSString* tenantId;
-NSString* upn;
 
-- (id)init
-{
-    self = [super init];
-    if (self)
-    {
-        
-        
-    }
-    return self;
-}
+bool loadedApplicationSettings;
 
 + (void) readApplicationSettings {
     NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
@@ -45,6 +33,8 @@ NSString* upn;
     redirectUriString = [dictionary objectForKey:@"redirectUri"];
     userId = [dictionary objectForKey:@"userId"];
     taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
+    
+    loadedApplicationSettings = YES;
 }
 
 +(NSString*) trimString: (NSString*) toTrim
@@ -54,72 +44,41 @@ NSString* upn;
     return [toTrim stringByTrimmingCharactersInSet:set];
 }
 
-+(void)getTokenForNoReason
-{
-   [self getToken:NO completionHandler:^(NSString* accessToken){ }];
-}
-
-+(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*))completionBlock;
-{
-    [self readApplicationSettings];
-    [self getToken:clearCache resource:resourceId completionHandler:completionBlock];
-}
-
-+(void) getToken : (BOOL) clearCache resource:(NSString*) resource completionHandler:(void (^) (NSString*))completionBlock
++(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 {
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
     
     NSURL *redirectUri = [[NSURL alloc]initWithString:redirectUriString];
     
-    NSUserDefaults* userDefaults = [NSUserDefaults standardUserDefaults];
-    NSString* userId = [userDefaults objectForKey:@"defaultUserId"];
-    
-    if(clearCache)
-    {
-        [authContext.tokenCacheStore removeAll];
-    }
-    
-    [authContext acquireTokenWithResource:resource clientId:clientId redirectUri:redirectUri userId:userId completionBlock:^(ADAuthenticationResult *result) {
+    [authContext acquireTokenWithResource:resourceId clientId:clientId redirectUri:redirectUri userId:userId completionBlock:^(ADAuthenticationResult *result) {
         
         if (result.tokenCacheStoreItem == nil)
         {
-            // display error on the screen
+            completionBlock(nil, result.error);
         }
         else
         {
-            tenantId = result.tokenCacheStoreItem.userInformation.tenantId;
-            upn = result.tokenCacheStoreItem.userInformation.userId;
-            completionBlock(result.tokenCacheStoreItem.accessToken);
+            completionBlock(result.tokenCacheStoreItem.accessToken, nil);
         }
-    }
-     ];
+    }];
 }
 
-
-+(void) getTaskList:(void (^) (NSArray*))completionBlock;
++(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock;
 {
-    if (taskDetails != nil && [taskDetails objectForKey:tasks] != nil)
+    if (!loadedApplicationSettings)
     {
- //       [delegate updateTaskList:[[taskDetails objectForKey:tasks] allValues]];
+        [self readApplicationSettings];
     }
-    else
-    {
-        if (taskDetails == nil)
+    
+    [self craftRequest:[self.class trimString:taskWebApiUrlString] completionHandler:^(NSMutableURLRequest *request, NSError *error) {
+        
+        if (error != nil)
         {
-            taskDetails = [[NSMutableDictionary alloc]init];
+            completionBlock(nil, error);
         }
-        
-        
-        [self getToken:NO completionHandler:^(NSString* accessToken){
-            
-           NSURL *taskWebApiURL = [[NSURL alloc]initWithString:[self.class trimString:taskWebApiUrlString]];
-            
-            NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:taskWebApiURL];
-            
-            NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-            
-            [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
+        else
+        {
             
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
             
@@ -127,107 +86,115 @@ NSString* upn;
                 
                 if (error == nil && data != nil){
                     
-    //                NSString* stringData = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                     NSArray *tasks = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                     
-                   //each object is a key value pair
+                    //each object is a key value pair
                     NSDictionary *keyValuePairs;
+                    NSMutableArray* sampleTaskItems = [[NSMutableArray alloc]init];
                     
                     for(int i =0; i < tasks.count; i++)
                     {
                         keyValuePairs = [tasks objectAtIndex:i];
                         
                         samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        
                         s.itemName = [keyValuePairs valueForKey:@"Title"];
                         
+                        [sampleTaskItems addObject:s];
                     }
                     
-                    completionBlock(tasks);
-                    
+                    completionBlock(sampleTaskItems, nil);
+                }
+                else
+                {
+                    completionBlock(nil, error);
                 }
                 
             }];
-            
-        }];
+        }
+    }];
+    
+}
+
++(void) addTask:(samplesTaskItem*)task completionBlock:(void (^) (bool, NSError* error)) completionBlock
+{
+    if (!loadedApplicationSettings)
+    {
+        [self readApplicationSettings];
     }
     
-
-}
-
-+(void) craftRequest : (NSString*)webApiUrlString completionHandler:(void (^)(NSMutableURLRequest*))completionBlock
-{
-    [self getToken:NO completionHandler:^(NSString* accessToken){
+    [self craftRequest:taskWebApiUrlString completionHandler:^(NSMutableURLRequest* request, NSError* error){
         
-        NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
-        
-        NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
-        
-        [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
-        
-        completionBlock(request);
-        
-    }
-     ];
-}
-
-+(void) addTask:(samplesTaskItem*)task completionBlock:(void (^) (bool)) completionBlock
-{
-    [self craftRequest:taskWebApiUrlString completionHandler:^(NSMutableURLRequest* request){
-        
-        NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
-        
-        NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
-        
-        [request setHTTPMethod:@"POST"];
-        [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-        [request setHTTPBody:requestBody];
-        
-        NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-        
-        [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-            
-            NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-            NSLog(@"%@", content);
-            
-            NSHTTPURLResponse* httpResponse = (NSHTTPURLResponse*)response;
-            int responseStatusCode = [httpResponse statusCode];
-            
-            if (error == nil && responseStatusCode == 200){
-                
-                completionBlock(true);
-            }
-            else
-            {
-                completionBlock(false);
-            }
+        if (error != nil)
+        {
+            completionBlock(NO, error);
         }
-         ];
-    }
-     ];
+        else
+        {
+            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
+            
+            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
+            
+            [request setHTTPMethod:@"POST"];
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:requestBody];
+            
+            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+            
+            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                
+                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", content);
+                
+                if (error == nil){
+                    
+                    completionBlock(true, nil);
+                }
+                else
+                {
+                    completionBlock(false, error);
+                }
+            }];
+        }
+    }];
+}
+
++(void) craftRequest : (NSString*)webApiUrlString completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
+{
+    [self getToken:NO completionHandler:^(NSString* accessToken, NSError* error){
+        
+        if (accessToken == nil)
+        {
+            completionBlock(nil,error);
+        }
+        else
+        {
+            NSURL *webApiURL = [[NSURL alloc]initWithString:webApiUrlString];
+            
+            NSMutableURLRequest *request = [[NSMutableURLRequest alloc]initWithURL:webApiURL];
+            
+            NSString *authHeader = [NSString stringWithFormat:@"Bearer %@", accessToken];
+            
+            [request addValue:authHeader forHTTPHeaderField:@"Authorization"];
+            
+            completionBlock(request, nil);
+        }
+    }];
 }
 
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
     
-    
     if (task.itemName){
         [dictionary setValue:task.itemName forKey:@"Title"];
     }
-    if (task.ownerName) {
-        [dictionary setValue:upn forKey:@"Owner"];
-    }
-    
     
     return dictionary;
 }
 
 +(void) signOut
 {
-    [authContext.tokenCacheStore removeAll];
+    [authContext.tokenCacheStore removeAllWithError:nil];
     
     NSHTTPCookie *cookie;
     
@@ -237,7 +204,5 @@ NSString* upn;
         [storage deleteCookie:cookie];
     }
 }
-
-
 
 @end
