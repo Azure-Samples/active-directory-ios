@@ -484,11 +484,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ADALiOS/build/Debug-iphoneos",
-					/Volumes/Development,
-					"HD/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
-					/Volumes/Development,
-					"HD/ADAL/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -517,11 +512,6 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/ADALiOS/build/Debug-iphoneos",
-					/Volumes/Development,
-					"HD/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
-					/Volumes/Development,
-					"HD/ADAL/azure-activedirectory-library-for-ios/ADALiOS/build/Debug-iphoneos",
-					"$(PROJECT_DIR)/Pods/build/Debug-iphoneos",
 				);
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
