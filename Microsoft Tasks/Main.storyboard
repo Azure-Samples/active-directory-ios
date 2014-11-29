@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j3i-L0-Zqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j3i-L0-Zqe">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
-        <!--Samples Task List Table View Controller - My Tasks-->
+        <!--My Tasks-->
         <scene sceneID="9uk-Og-QtR">
             <objects>
                 <tableViewController storyboardIdentifier="taskTableView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cdM-uN-w6S" customClass="samplesTaskListTableViewController" sceneMemberID="viewController">
@@ -28,9 +29,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Tasks" id="gdK-1k-C54">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Bg8-7Y-ohU">
+                        <barButtonItem key="leftBarButtonItem" title="Switch User" id="Bg8-7Y-ohU">
                             <connections>
-                                <action selector="pressedLogout:" destination="cdM-uN-w6S" id="4EH-OO-Lk3"/>
+                                <segue destination="zEp-cJ-DMA" kind="modal" id="TBT-pE-WIG"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iJy-lY-bNW">
@@ -44,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="-176" y="-524"/>
         </scene>
-        <!--Sample Add Task Item View Controller - Add New Task-->
+        <!--Add New Task-->
         <scene sceneID="dff-cz-dcj">
             <objects>
                 <viewController storyboardIdentifier="addTaskView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75H-2L-TOK" customClass="sampleAddTaskItemViewController" sceneMemberID="viewController">
@@ -58,7 +59,6 @@
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Task" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SpI-nC-pyq">
                                 <rect key="frame" x="20" y="133" width="280" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -73,7 +73,7 @@
                     <navigationItem key="navigationItem" title="Add New Task" id="0WQ-X9-QOv">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nAr-cE-Mfc">
                             <connections>
-                                <segue destination="Slr-39-lVN" kind="unwind" unwindAction="unwindTaskList:" id="qLm-D1-onh"/>
+                                <action selector="cancelPressed:" destination="75H-2L-TOK" id="zjS-dL-MwR"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="91A-NP-Jx4">
@@ -87,7 +87,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61U-2j-oWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Slr-39-lVN" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="974" y="-524"/>
         </scene>
@@ -127,6 +126,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulN-0j-pW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-702" y="-524"/>
+        </scene>
+        <!--Select User-->
+        <scene sceneID="s9K-uJ-1mM">
+            <objects>
+                <tableViewController id="9sT-06-rlI" customClass="SamplesSelectUserViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="CC0-LZ-LHA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="UserPrototypeCell" rowHeight="50" id="a4O-3r-LvL">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="a4O-3r-LvL" id="tN3-sg-53U">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="9sT-06-rlI" id="m71-Zv-htJ"/>
+                            <outlet property="delegate" destination="9sT-06-rlI" id="eQU-ZL-ksS"/>
+                        </connections>
+                    </tableView>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Select User" id="pai-dv-0CO">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="TnT-Db-QNC">
+                            <connections>
+                                <action selector="cancelPressed:" destination="9sT-06-rlI" id="qmX-6R-JkV"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Lmg-fy-HGw">
+                            <connections>
+                                <action selector="addPressed:" destination="9sT-06-rlI" id="54q-LP-hpz"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IpY-rp-EPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-456" y="219"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Mtk-RW-f9f">
+            <objects>
+                <navigationController id="zEp-cJ-DMA" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UJ-dJ-MQ7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="9sT-06-rlI" kind="relationship" relationship="rootViewController" id="nc2-ae-vZG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="P4e-uB-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-989" y="211"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

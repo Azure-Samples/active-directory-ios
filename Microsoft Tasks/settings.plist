@@ -3,15 +3,15 @@
 <plist version="1.0">
 <dict>
 	<key>authority</key>
-	<string>https://login.windows.net/common/oauth2/token</string>
+	<string>https://login.windows.net/common</string>
 	<key>clientId</key>
-	<string>xxxxxxx-xxxxxx-xxxxxxx-xxxxxxx</string>
+	<string>dd9caee2-38bd-484e-998c-7529bdef220f</string>
 	<key>resourceString</key>
-	<string>https://localhost/todolistservice</string>
+	<string>https://graph.windows.net</string>
 	<key>redirectUri</key>
-	<string>http://demo_todolist_app</string>
+	<string>MyTestiOSApp://com.MSOpenTech.MyTestiOSApp</string>
 	<key>userId</key>
-	<string>user@domain.com</string>
+	<string></string>
 	<key>taskWebAPI</key>
 	<string>https://localhost/api/todolist/</string>
 </dict>

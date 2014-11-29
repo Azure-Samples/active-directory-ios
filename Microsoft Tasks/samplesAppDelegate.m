@@ -15,12 +15,10 @@
     // Override point for customization after application launch.
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
-    
     UIPageControl *pageControl = [UIPageControl appearance];
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     pageControl.backgroundColor = [UIColor colorWithRed:0.106 green:0.286 blue:0.627 alpha:1];
-    
     
     return YES;
 }

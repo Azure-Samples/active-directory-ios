@@ -10,6 +10,6 @@
 
 @interface samplesTaskListTableViewController : UITableViewController<UIAlertViewDelegate>
 
-- (IBAction)pressedLogout:(id)sender;
+- (IBAction)switchUserPressed:(id)sender;
 
 @end

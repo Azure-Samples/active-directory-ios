@@ -45,10 +45,10 @@
                 [self.tableView reloadData];
             });
         }
-    }];
+    } parent:self];
 }
 
-- (IBAction)pressedLogout:(id)sender {
+- (IBAction)switchUserPressed:(id)sender {
     
     [samplesWebAPIConnector signOut];
     [self.taskItems removeAllObjects];

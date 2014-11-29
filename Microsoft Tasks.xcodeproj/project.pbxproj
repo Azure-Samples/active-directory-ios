@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
+		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		FB33714918CA5B7E00234804 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB33714818CA5B7E00234804 /* settings.plist */; };
-		FB381FEF18D10F0400BF7374 /* IPAL_iPhone_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB381FED18D10F0400BF7374 /* IPAL_iPhone_Storyboard.storyboard */; };
-		FB381FF018D10F0400BF7374 /* IPAL_iPad_Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB381FEE18D10F0400BF7374 /* IPAL_iPad_Storyboard.storyboard */; };
 		FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
 		FB3BF22118D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
 		FB3BF23518D03A88007E645E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main.storyboard */; };
@@ -50,9 +50,11 @@
 		075B6E5720AC4E29872664F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesSelectUserViewController.h; sourceTree = "<group>"; };
+		97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesSelectUserViewController.m; sourceTree = "<group>"; };
+		97C15AF51A280B69004A0419 /* SamplesApplicationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesApplicationData.h; sourceTree = "<group>"; };
+		97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesApplicationData.m; sourceTree = "<group>"; };
 		FB33714818CA5B7E00234804 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
-		FB381FED18D10F0400BF7374 /* IPAL_iPhone_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPhone_Storyboard.storyboard; sourceTree = "<group>"; };
-		FB381FEE18D10F0400BF7374 /* IPAL_iPad_Storyboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = IPAL_iPad_Storyboard.storyboard; sourceTree = "<group>"; };
 		FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesWebAPIConnector.h; sourceTree = "<group>"; };
 		FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesWebAPIConnector.m; sourceTree = "<group>"; };
 		FB3BF23218D03A88007E645E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -162,9 +164,8 @@
 		FB3F00E118C7016200173598 /* Microsoft Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				FB381FF118D1998400BF7374 /* iPad */,
-				FB381FED18D10F0400BF7374 /* IPAL_iPhone_Storyboard.storyboard */,
-				FB381FEE18D10F0400BF7374 /* IPAL_iPad_Storyboard.storyboard */,
 				FB3BF23218D03A88007E645E /* Main.storyboard */,
 				FB3F00E418C7016200173598 /* InfoPlist.strings */,
 				FB3F00EA18C7016200173598 /* samplesAppDelegate.h */,
@@ -180,6 +181,9 @@
 				FB3F011E18C713E600173598 /* samplesTaskItem.m */,
 				FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */,
 				FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */,
+				97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */,
+				97C15AF51A280B69004A0419 /* SamplesApplicationData.h */,
+				97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */,
 			);
 			path = "Microsoft Tasks";
 			sourceTree = "<group>";
@@ -296,9 +300,7 @@
 				FB3BF23518D03A88007E645E /* Main.storyboard in Resources */,
 				FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */,
 				FB3F00F118C7016200173598 /* Images.xcassets in Resources */,
-				FB381FF018D10F0400BF7374 /* IPAL_iPad_Storyboard.storyboard in Resources */,
 				FB33714918CA5B7E00234804 /* settings.plist in Resources */,
-				FB381FEF18D10F0400BF7374 /* IPAL_iPhone_Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,7 +388,9 @@
 				FB3F00EF18C7016200173598 /* Microsoft_Tasks.xcdatamodeld in Sources */,
 				FB3F011C18C709FE00173598 /* samplesTaskListTableViewController.m in Sources */,
 				FB3F00EC18C7016200173598 /* samplesAppDelegate.m in Sources */,
+				97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */,
 				FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */,
+				97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */,
 				FB3F00E818C7016200173598 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -516,9 +520,7 @@
 				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
 				INFOPLIST_FILE = "Microsoft Tasks/Microsoft Tasks-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -543,9 +545,7 @@
 				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
 				INFOPLIST_FILE = "Microsoft Tasks/Microsoft Tasks-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

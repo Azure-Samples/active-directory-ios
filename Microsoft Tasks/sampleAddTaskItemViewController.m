@@ -41,7 +41,7 @@
         taskItem.itemName = self.textField.text;
         taskItem.completed = NO;
         
-        [samplesWebAPIConnector addTask:taskItem completionBlock:^(bool success, NSError* error) {
+        [samplesWebAPIConnector addTask:taskItem parent:self completionBlock:^(bool success, NSError* error) {
             if (success)
             {
                 dispatch_async(dispatch_get_main_queue(),^ {
@@ -63,6 +63,13 @@
         }];
     }
 }
+
+
+- (IBAction)cancelPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

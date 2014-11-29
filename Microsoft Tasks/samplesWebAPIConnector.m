@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Microsoft. All rights reserved.
 //
 
+
+#import "SamplesApplicationData.h"
 #import "samplesWebAPIConnector.h"
 #import "ADALiOS/ADAuthenticationContext.h"
 #import "samplesTaskItem.h"
@@ -44,34 +46,52 @@ bool loadedApplicationSettings;
     return [toTrim stringByTrimmingCharactersInSet:set];
 }
 
-+(void) getToken : (BOOL) clearCache completionHandler:(void (^) (NSString*, NSError*))completionBlock;
++(void) getToken : (BOOL) clearCache
+           parent:(UIViewController*) parent
+completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 {
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    if(data.userItem){
+        completionBlock(data.userItem.accessToken, nil);
+        return;
+    }
+    
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
-    
+    authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:redirectUriString];
     
-    [authContext acquireTokenWithResource:resourceId clientId:clientId redirectUri:redirectUri userId:userId completionBlock:^(ADAuthenticationResult *result) {
+    [authContext acquireTokenWithResource:resourceId
+                                 clientId:clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_ALWAYS
+                                   userId:nil
+                     extraQueryParameters: @"nux=1"
+                          completionBlock:^(ADAuthenticationResult *result) {
         
-        if (result.tokenCacheStoreItem == nil)
+        if (result.status != AD_SUCCEEDED)
         {
             completionBlock(nil, result.error);
-        }
+        }   
         else
         {
+            data.userItem = result.tokenCacheStoreItem;
             completionBlock(result.tokenCacheStoreItem.accessToken, nil);
         }
     }];
 }
 
-+(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock;
++(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
+             parent:(UIViewController*) parent;
 {
     if (!loadedApplicationSettings)
     {
         [self readApplicationSettings];
     }
     
-    [self craftRequest:[self.class trimString:taskWebApiUrlString] completionHandler:^(NSMutableURLRequest *request, NSError *error) {
+    [self craftRequest:[self.class trimString:taskWebApiUrlString]
+                parent:parent
+     completionHandler:^(NSMutableURLRequest *request, NSError *error) {
         
         if (error != nil)
         {
@@ -115,14 +135,16 @@ bool loadedApplicationSettings;
     
 }
 
-+(void) addTask:(samplesTaskItem*)task completionBlock:(void (^) (bool, NSError* error)) completionBlock
++(void) addTask:(samplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock
 {
     if (!loadedApplicationSettings)
     {
         [self readApplicationSettings];
     }
     
-    [self craftRequest:taskWebApiUrlString completionHandler:^(NSMutableURLRequest* request, NSError* error){
+    [self craftRequest:taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
         
         if (error != nil)
         {
@@ -158,9 +180,11 @@ bool loadedApplicationSettings;
     }];
 }
 
-+(void) craftRequest : (NSString*)webApiUrlString completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
++(void) craftRequest : (NSString*)webApiUrlString
+               parent:(UIViewController*) parent
+    completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
 {
-    [self getToken:NO completionHandler:^(NSString* accessToken, NSError* error){
+    [self getToken:NO parent:parent completionHandler:^(NSString* accessToken, NSError* error){
         
         if (accessToken == nil)
         {

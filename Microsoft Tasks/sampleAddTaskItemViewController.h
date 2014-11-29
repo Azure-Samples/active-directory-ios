@@ -13,4 +13,5 @@
 - (IBAction)save:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *textField;
 
+- (IBAction)cancelPressed:(id)sender;
 @end

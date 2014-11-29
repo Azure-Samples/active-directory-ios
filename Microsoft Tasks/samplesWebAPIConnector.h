@@ -11,8 +11,13 @@
 
 @interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
 
-+(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock;
-+(void) addTask:(samplesTaskItem*)task completionBlock:(void (^) (bool, NSError* error)) completionBlock;
++(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
+             parent:(UIViewController*) parent;
+
++(void) addTask:(samplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock;
+
 +(void) signOut;
 
 @end
