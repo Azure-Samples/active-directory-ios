@@ -7,6 +7,7 @@
 //
 
 #import "samplesTaskListTableViewController.h"
+#import "SamplesApplicationData.h"
 #import "samplesTaskItem.h"
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
@@ -16,6 +17,7 @@
 
 @property NSMutableArray *taskItems;
 @property ADAuthenticationContext *authContext;
+@property (weak, nonatomic) IBOutlet UILabel* userLabel;
 
 @end
 
@@ -69,10 +71,24 @@
     [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
     
     [self setRefreshControl:self.refreshControl];
-    
     self.taskItems = [[NSMutableArray alloc] init];
     [self loadData];
 }
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+    SamplesApplicationData* appData = [SamplesApplicationData getInstance];
+    if(appData.userItem && appData.userItem.userInformation)
+    {
+        [self.userLabel setText:appData.userItem.userInformation.userId];
+    }
+    else
+    {
+        [self.userLabel setText:@"N/A" ];
+    }
+}
+
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
     // Refresh table here...

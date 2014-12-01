@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B22EE61A2C3622000C521C /* Main_iPad.storyboard */; };
 		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
+		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
 		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		FB33714918CA5B7E00234804 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB33714818CA5B7E00234804 /* settings.plist */; };
 		FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
 		FB3BF22118D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
-		FB3BF23518D03A88007E645E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main.storyboard */; };
-		FB3BF23618D03A88007E645E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main.storyboard */; };
+		FB3BF23518D03A88007E645E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */; };
+		FB3BF23618D03A88007E645E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */; };
 		FB3F00DA18C7016200173598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00D918C7016200173598 /* Foundation.framework */; };
 		FB3F00DC18C7016200173598 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DB18C7016200173598 /* CoreGraphics.framework */; };
 		FB3F00DE18C7016200173598 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DD18C7016200173598 /* UIKit.framework */; };
@@ -50,14 +52,17 @@
 		075B6E5720AC4E29872664F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		97B22EE61A2C3622000C521C /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesSelectUserViewController.h; sourceTree = "<group>"; };
 		97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesSelectUserViewController.m; sourceTree = "<group>"; };
 		97C15AF51A280B69004A0419 /* SamplesApplicationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesApplicationData.h; sourceTree = "<group>"; };
 		97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesApplicationData.m; sourceTree = "<group>"; };
+		97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesAppSettingsController.h; sourceTree = "<group>"; };
+		97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesAppSettingsController.m; sourceTree = "<group>"; };
 		FB33714818CA5B7E00234804 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesWebAPIConnector.h; sourceTree = "<group>"; };
 		FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesWebAPIConnector.m; sourceTree = "<group>"; };
-		FB3BF23218D03A88007E645E /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		FB3F00D618C7016200173598 /* Microsoft Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microsoft Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB3F00D918C7016200173598 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FB3F00DB18C7016200173598 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -166,7 +171,7 @@
 			children = (
 				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				FB381FF118D1998400BF7374 /* iPad */,
-				FB3BF23218D03A88007E645E /* Main.storyboard */,
+				FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */,
 				FB3F00E418C7016200173598 /* InfoPlist.strings */,
 				FB3F00EA18C7016200173598 /* samplesAppDelegate.h */,
 				FB3F00EB18C7016200173598 /* samplesAppDelegate.m */,
@@ -184,6 +189,9 @@
 				97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */,
 				97C15AF51A280B69004A0419 /* SamplesApplicationData.h */,
 				97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */,
+				97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */,
+				97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */,
+				97B22EE61A2C3622000C521C /* Main_iPad.storyboard */,
 			);
 			path = "Microsoft Tasks";
 			sourceTree = "<group>";
@@ -297,7 +305,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB3BF23518D03A88007E645E /* Main.storyboard in Resources */,
+				97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */,
+				FB3BF23518D03A88007E645E /* Main_iPhone.storyboard in Resources */,
 				FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */,
 				FB3F00F118C7016200173598 /* Images.xcassets in Resources */,
 				FB33714918CA5B7E00234804 /* settings.plist in Resources */,
@@ -309,7 +318,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FB3F010318C7016200173598 /* InfoPlist.strings in Resources */,
-				FB3BF23618D03A88007E645E /* Main.storyboard in Resources */,
+				FB3BF23618D03A88007E645E /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -383,6 +392,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */,
 				FB3F011618C7092700173598 /* sampleAddTaskItemViewController.m in Sources */,
 				FB3F011F18C713E600173598 /* samplesTaskItem.m in Sources */,
 				FB3F00EF18C7016200173598 /* Microsoft_Tasks.xcdatamodeld in Sources */,

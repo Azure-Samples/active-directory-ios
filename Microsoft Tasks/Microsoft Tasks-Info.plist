@@ -27,7 +27,9 @@
 	<key>NSMainNibFile~ipad</key>
 	<string>Main-iPad</string>
 	<key>UIMainStoryboardFile</key>
-	<string>Main</string>
+	<string>Main_iPhone</string>
+	<key>UIMainStoryboardFile~ipad</key>
+	<string>Main_iPad</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

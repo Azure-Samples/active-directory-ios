@@ -14,5 +14,7 @@
 	<string></string>
 	<key>taskWebAPI</key>
 	<string>https://localhost/api/todolist/</string>
+	<key>fullScreen</key>
+	<true/>
 </dict>
 </plist>
