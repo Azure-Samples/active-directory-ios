@@ -7,6 +7,7 @@
 //
 
 #import "samplesAppDelegate.h"
+#import "SamplesApplicationData.h"
 
 @implementation samplesAppDelegate
 
@@ -19,6 +20,16 @@
     pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     pageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     pageControl.backgroundColor = [UIColor colorWithRed:0.106 green:0.286 blue:0.627 alpha:1];
+    
+    
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
+    
+    data.clientId = [dictionary objectForKey:@"clientId"];
+    data.authority = [dictionary objectForKey:@"authority"];
+    data.resourceId = [dictionary objectForKey:@"resourceString"];
+    data.redirectUriString = [dictionary objectForKey:@"redirectUri"];
+    data.taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
     
     return YES;
 }

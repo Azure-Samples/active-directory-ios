@@ -136,6 +136,7 @@
     }
     
     authContext.parentController = self;
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = appData.fullScreen;
     
     NSURL *redirectUri = [[NSURL alloc]initWithString:appData.redirectUriString];
     [authContext acquireTokenWithResource:appData.resourceId

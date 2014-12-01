@@ -16,26 +16,9 @@
 @implementation samplesWebAPIConnector
 
 ADAuthenticationContext* authContext;
-
-NSString* taskWebApiUrlString;
-NSString* authority;
-NSString* clientId;
-NSString* resourceId;
-NSString* redirectUriString;
-NSString* userId;
-
 bool loadedApplicationSettings;
 
 + (void) readApplicationSettings {
-    NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
-    
-    clientId = [dictionary objectForKey:@"clientId"];
-    authority = [dictionary objectForKey:@"authority"];
-    resourceId = [dictionary objectForKey:@"resourceString"];
-    redirectUriString = [dictionary objectForKey:@"redirectUri"];
-    userId = [dictionary objectForKey:@"userId"];
-    taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
-    
     loadedApplicationSettings = YES;
 }
 
@@ -57,12 +40,13 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     }
     
     ADAuthenticationError *error;
-    authContext = [ADAuthenticationContext authenticationContextWithAuthority:authority error:&error];
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
     authContext.parentController = parent;
-    NSURL *redirectUri = [[NSURL alloc]initWithString:redirectUriString];
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
     
-    [authContext acquireTokenWithResource:resourceId
-                                 clientId:clientId
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_ALWAYS
                                    userId:nil
@@ -89,7 +73,9 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         [self readApplicationSettings];
     }
     
-    [self craftRequest:[self.class trimString:taskWebApiUrlString]
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    
+    [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
                 parent:parent
      completionHandler:^(NSMutableURLRequest *request, NSError *error) {
         
@@ -144,7 +130,8 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
         [self readApplicationSettings];
     }
     
-    [self craftRequest:taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
         
         if (error != nil)
         {
