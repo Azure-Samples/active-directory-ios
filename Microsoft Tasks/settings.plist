@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>authority</key>
-	<string>https://login.windows.net/common</string>
+	<string>https://login.windows.net/aadadfs.onmicrosoft.com</string>
 	<key>clientId</key>
-	<string>dd9caee2-38bd-484e-998c-7529bdef220f</string>
+	<string>2b65b795-6db4-4e76-b53a-496804437941</string>
 	<key>resourceString</key>
-	<string>https://graph.windows.net</string>
+	<string>https://aadadfs.onmicrosoft.com/TodoListService</string>
 	<key>redirectUri</key>
-	<string>MyTestiOSApp://com.MSOpenTech.MyTestiOSApp</string>
+	<string>http://TodoListClient</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>
-	<string>https://localhost/api/todolist/</string>
+	<string>https://aadadfstodolistservice.azurewebsites.net/api/todolist</string>
 	<key>fullScreen</key>
 	<true/>
 </dict>

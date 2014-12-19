@@ -142,7 +142,7 @@
     [authContext acquireTokenWithResource:appData.resourceId
                                  clientId:appData.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_REFRESH_SESSION
+                           promptBehavior:AD_PROMPT_AUTO
                                    userId:userId
                      extraQueryParameters: @"nux=1"
                           completionBlock:^(ADAuthenticationResult *result) {

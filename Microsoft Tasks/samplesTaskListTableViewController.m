@@ -87,6 +87,7 @@
     {
         [self.userLabel setText:@"N/A" ];
     }
+    [self loadData];
 }
 
 
