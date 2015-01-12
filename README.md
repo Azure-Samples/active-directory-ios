@@ -47,32 +47,6 @@ Steps to register a Web API with Microsoft Azure AD
 9. For the App ID URI, enter `https://<your_tenant_name>/TodoListService`, replacing `<your_tenant_name>` with the name of your Azure AD tenant.  Click OK to complete the registration.
 10. While still in the Azure portal, click the Configure tab of your application.
 11. **Find the Client ID value and copy it aside**, you will need this later when configuring your application.
-12. Using the Manage Manifest button in the drawer, download the manifest file for the application.
-13. Add a permission to the application by replacing the appPermissions section with the block of JSON below.  You will need to create a new GUID and replace the example permissionId GUID.
-14. Using the Manage Manfiest button, upload the updated manifest file.  Save the configuration of the app.
-
-```JSON
-"appPermissions": [
-{
-	"claimValue": "user_impersonation",
-	"description": "Allow full access to the To Do List service on behalf of the signed-in user",
-	"directAccessGrantTypes": [],
-	"displayName": "Have full access to the To Do List service",
-	"impersonationAccessGrantTypes": [
-		{
-			"impersonated": "User",
-		    "impersonator": "Application"
-		}
-	],
-	"isDisabled": false,
-	"origin": "Application",
-	"permissionId": "b69ee3c9-c40d-4f2a-ac80-961cd1534e40",
-	"resourceScopeType": "Personal",
-	"userConsentDescription": "Allow full access to the To Do service on your behalf",
-	"userConsentDisplayName": "Have full access to the To Do service"
-	}
-],
-```
 
 ### Step 4: Register the sample iOS Native Client application
 
@@ -98,7 +72,7 @@ Registering your web application is the first step. Next, you'll need to tell Az
 8. For the Redirect URI, enter `http://TodoListClient`.  Click finish.
 9. Click the Configure tab of the application.
 10. Find the Client ID value and copy it aside, you will need this later when configuring your application.
-11. In "Permissions to Other Applications", select the TodoListService, and request the delegated permission "Have full access to the To Do List service".  Save the configuration.
+11. In "Permissions to Other Applications", click "Add Application."  Select "Other" in the "Show" dropdown, and click the upper check mark.  Locate & click on the TodoListService, and click the bottom check mark to add the application.  Select "Access TodoListService" from the "Delegated Permissions" dropdown, and save the configuration.
 
 
 ### Step 5: Download the iOS Native Client Sample code
