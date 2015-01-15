@@ -79,15 +79,19 @@
 {
     
     SamplesApplicationData* appData = [SamplesApplicationData getInstance];
+    
+    if(appData.userItem)
+    {
+        [self loadData];
+    }
+    
     if(appData.userItem && appData.userItem.userInformation)
     {
-        [self.userLabel setText:appData.userItem.userInformation.userId];
-    }
+        [self.userLabel setText:appData.userItem.userInformation.userId];    }
     else
     {
         [self.userLabel setText:@"N/A" ];
     }
-    [self loadData];
 }
 
 
