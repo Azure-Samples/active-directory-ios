@@ -44,6 +44,12 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     authContext.parentController = parent;
     NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
     
+    if(!data.correlationId ||
+       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+    }
+    
     [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId

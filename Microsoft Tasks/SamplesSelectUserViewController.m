@@ -138,6 +138,12 @@
     authContext.parentController = self;
     [ADAuthenticationSettings sharedInstance].enableFullScreen = appData.fullScreen;
     
+    if(!appData.correlationId ||
+       [[appData.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:appData.correlationId];
+    }
+    
     NSURL *redirectUri = [[NSURL alloc]initWithString:appData.redirectUriString];
     [authContext acquireTokenWithResource:appData.resourceId
                                  clientId:appData.clientId
