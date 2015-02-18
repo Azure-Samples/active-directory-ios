@@ -17,6 +17,7 @@
         instance.resourceId = [dictionary objectForKey:@"resourceString"];
         instance.redirectUriString = [dictionary objectForKey:@"redirectUri"];
         instance.taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
+        instance.correlationId = [dictionary objectForKey:@"correlationId"];
         
     });
     

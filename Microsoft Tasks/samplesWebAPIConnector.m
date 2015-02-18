@@ -48,7 +48,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_ALWAYS
+                           promptBehavior:AD_PROMPT_AUTO
                                    userId:nil
                      extraQueryParameters: @"nux=1"
                           completionBlock:^(ADAuthenticationResult *result) {

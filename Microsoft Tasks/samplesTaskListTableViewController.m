@@ -45,6 +45,15 @@
             // Refresh main thread since we are async
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
+                SamplesApplicationData* appData = [SamplesApplicationData getInstance];
+                if(appData.userItem && appData.userItem.userInformation)
+                {
+                    [self.userLabel setText:appData.userItem.userInformation.userId];
+                }
+                else
+                {
+                    [self.userLabel setText:@"N/A" ];
+                }
             });
         }
     } parent:self];

@@ -9,6 +9,7 @@
 @property (strong) NSString* clientId;
 @property (strong) NSString* resourceId;
 @property (strong) NSString* redirectUriString;
+@property (strong) NSString* correlationId;
 @property BOOL fullScreen;
 
 +(id) getInstance;

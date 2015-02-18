@@ -8,6 +8,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *resourceLabel;
 @property (weak, nonatomic) IBOutlet UITextField *redirectUriLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *fullScreenSwitch;
+@property (weak, nonatomic) IBOutlet UITextField *correlationIdLabel;
 @end
 
 @implementation SamplesAppSettingsController
@@ -21,6 +22,7 @@
     self->_clientIdLabel.text = data.clientId;
     self->_resourceLabel.text = data.resourceId;
     self->_redirectUriLabel.text = data.redirectUriString;
+    self->_correlationIdLabel.text = data.correlationId;
     [self configureControl:self->_fullScreenSwitch forValue:data.fullScreen];
 }
 
@@ -33,6 +35,8 @@
     data.resourceId = self->_resourceLabel.text;
     data.redirectUriString = self->_redirectUriLabel.text;
     data.fullScreen = [self isEnabled:self->_fullScreenSwitch];
+    data.correlationId = self->_correlationIdLabel.text;
+    [self cancelPressed:sender];
 }
 
 
@@ -53,9 +57,9 @@
 }
 
 
-- (NSNumber*) isEnabled:(UISegmentedControl *)control
+- (BOOL) isEnabled:(UISegmentedControl *)control
 {
-    return [NSNumber numberWithBool:[control selectedSegmentIndex] != 0];
+    return [control selectedSegmentIndex] != 0;
 }
 
 @end
