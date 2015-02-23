@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>authority</key>
-	<string>https://login.windows.net/aadadfs.onmicrosoft.com</string>
+	<string>https://login.windows.net/common</string>
 	<key>clientId</key>
-	<string>2b65b795-6db4-4e76-b53a-496804437941</string>
+	<string>e3786e2a-0dcb-449a-8eba-b4042c9bec01</string>
 	<key>resourceString</key>
 	<string>https://aadadfs.onmicrosoft.com/TodoListService</string>
 	<key>redirectUri</key>
-	<string>http://TodoListClient</string>
+	<string>https://aadadfstodolistservice.azurewebsites.net</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>

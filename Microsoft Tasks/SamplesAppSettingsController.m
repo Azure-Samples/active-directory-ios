@@ -1,5 +1,6 @@
 #import "SamplesAppSettingsController.h"
 #import "SamplesApplicationData.h"
+#import <ADALiOS/ADAL.h>
 
 @interface SamplesAppSettingsController ()
 
@@ -56,6 +57,15 @@
     }
 }
 
+
+
+- (IBAction)clearKeychainPressed:(id)sender
+{
+    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+    [cache removeAllWithError:nil];
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    data.userItem = nil;
+}
 
 - (BOOL) isEnabled:(UISegmentedControl *)control
 {

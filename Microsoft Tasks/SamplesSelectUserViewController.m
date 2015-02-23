@@ -144,13 +144,18 @@
         authContext.correlationId = [[NSUUID alloc] initWithUUIDString:appData.correlationId];
     }
     
+    ADPromptBehavior promptBehavior = AD_PROMPT_AUTO;
+    if(!userItem){
+        promptBehavior = AD_PROMPT_ALWAYS;
+    }
+    
     NSURL *redirectUri = [[NSURL alloc]initWithString:appData.redirectUriString];
     [authContext acquireTokenWithResource:appData.resourceId
                                  clientId:appData.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_REFRESH_SESSION
+                           promptBehavior:promptBehavior
                                    userId:userId
-                     extraQueryParameters: @"nux=1"
+                     extraQueryParameters:@"nux=1"
                           completionBlock:^(ADAuthenticationResult *result) {
                               
                               if (result.status != AD_SUCCEEDED)
