@@ -162,7 +162,6 @@
     if (buttonIndex == 0)
     {
         [alertView dismissWithClickedButtonIndex:0 animated:NO];
-        [self loadData];
     }
 }
 
