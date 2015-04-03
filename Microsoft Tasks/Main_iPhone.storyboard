@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1510" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j3i-L0-Zqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="j3i-L0-Zqe">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -17,15 +17,6 @@
                             <rect key="frame" x="0.0" y="64" width="320" height="51"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2J-5w-oJd">
-                                    <rect key="frame" x="83" y="0.0" width="154" height="21"/>
-                                    <state key="normal" title="Application Settings">
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <connections>
-                                        <segue destination="Q3U-Om-gw4" kind="modal" id="yMv-2d-ZKa"/>
-                                    </connections>
-                                </button>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="N/A" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m3i-S3-qEF">
                                     <rect key="frame" x="48" y="30" width="264" height="21"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -57,14 +48,14 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="My Tasks" id="gdK-1k-C54">
-                        <barButtonItem key="leftBarButtonItem" title="Switch User" id="Bg8-7Y-ohU">
+                        <barButtonItem key="leftBarButtonItem" title="Settings" id="ZZE-As-nGe">
                             <connections>
-                                <segue destination="zEp-cJ-DMA" kind="modal" id="TBT-pE-WIG"/>
+                                <segue destination="hf6-a4-gzu" kind="push" id="s2L-Ln-TpH"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="iJy-lY-bNW">
                             <connections>
-                                <segue destination="YAQ-MH-xhj" kind="modal" id="4Be-KY-BtZ"/>
+                                <segue destination="75H-2L-TOK" kind="push" id="m9V-8O-69j"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,7 +65,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RBS-Ot-NYG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-184" y="-524"/>
+            <point key="canvasLocation" x="-486" y="-444"/>
         </scene>
         <!--Add New Task-->
         <scene sceneID="dff-cz-dcj">
@@ -104,7 +95,7 @@
                     <navigationItem key="navigationItem" title="Add New Task" id="0WQ-X9-QOv">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="nAr-cE-Mfc">
                             <connections>
-                                <action selector="cancelPressed:" destination="75H-2L-TOK" id="zjS-dL-MwR"/>
+                                <action selector="cancelPressed:" destination="75H-2L-TOK" id="oRS-N9-GuA"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="91A-NP-Jx4">
@@ -119,25 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="61U-2j-oWA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="974" y="-524"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="RHP-4c-Rrw">
-            <objects>
-                <navigationController storyboardIdentifier="navAddTaskView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YAQ-MH-xhj" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q2u-dz-IiZ">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="75H-2L-TOK" kind="relationship" relationship="rootViewController" id="PtA-Bh-0kJ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="UbC-2h-7SX" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="378" y="-524"/>
+            <point key="canvasLocation" x="304" y="-444"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="uX0-JS-am8">
@@ -156,7 +129,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ulN-0j-pW0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-702" y="-524"/>
+            <point key="canvasLocation" x="-1146" y="-514"/>
         </scene>
         <!--Select User-->
         <scene sceneID="s9K-uJ-1mM">
@@ -196,7 +169,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IpY-rp-EPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-456" y="219"/>
+            <point key="canvasLocation" x="472" y="1647"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BoI-jW-REo">
@@ -212,7 +185,215 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gtf-QY-se6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-77" y="219"/>
+            <point key="canvasLocation" x="1111" y="1607"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="5KC-nG-aka">
+            <objects>
+                <viewController id="hf6-a4-gzu" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ReK-tq-zqc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Ex1-8e-4py"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fis-nQ-pFd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="q2J-5w-oJd">
+                                <rect key="frame" x="23" y="243" width="154" height="21"/>
+                                <state key="normal" title="Application Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="Q3U-Om-gw4" kind="modal" id="yMv-2d-ZKa"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sample Settings" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="seq-Uv-ah8">
+                                <rect key="frame" x="33" y="203" width="126" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sample Actions" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uCW-z8-Un5">
+                                <rect key="frame" x="28" y="82" width="121" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sN4-UD-Ek8">
+                                <rect key="frame" x="28" y="125" width="87" height="30"/>
+                                <state key="normal" title="Use A Policy">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="LgC-MQ-Sz3" kind="push" id="H5f-fF-eaQ"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hqw-qQ-mEb">
+                                <rect key="frame" x="33" y="269" width="102" height="30"/>
+                                <state key="normal" title="Policy Settings">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="ykd-bS-D23" kind="push" id="DaM-sP-6sl"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Settings" id="bYI-jP-G0M">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="xy0-Ql-SZk"/>
+                        <barButtonItem key="rightBarButtonItem" title="Switch User" id="Bg8-7Y-ohU">
+                            <connections>
+                                <segue destination="zEp-cJ-DMA" kind="modal" id="TBT-pE-WIG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Tim-Zt-JYZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-486" y="398"/>
+        </scene>
+        <!--Policy Chooser-->
+        <scene sceneID="6Xn-W7-8Fq">
+            <objects>
+                <tableViewController title="Policy Chooser" id="LgC-MQ-Sz3" customClass="samplesUsePolicyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="Ecq-0b-I30">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell tag="1" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="ListPrototypeCell" id="vbr-sP-mcv">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vbr-sP-mcv" id="FAO-rR-CaU">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="xeS-V2-i6y" kind="push" id="LpS-lB-NWd"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="LgC-MQ-Sz3" id="OUo-U5-DuO"/>
+                            <outlet property="delegate" destination="LgC-MQ-Sz3" id="gzr-qH-z1k"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="R8Y-1i-Qby"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uV0-cf-8Kj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="90" y="406"/>
+        </scene>
+        <!--Policy Launcher-->
+        <scene sceneID="FZY-ex-Sqw">
+            <objects>
+                <viewController title="Policy Launcher" id="xeS-V2-i6y" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UFa-1v-ubh"/>
+                        <viewControllerLayoutGuide type="bottom" id="N0L-GF-hjO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="dIR-S7-Yd7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ukz-5N-LQI"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tMf-DT-rAz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="612" y="406"/>
+        </scene>
+        <!--PolicyTable-->
+        <scene sceneID="NBX-sN-2Mc">
+            <objects>
+                <tableViewController title="PolicyTable" id="ykd-bS-D23" customClass="samplesPolicyTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="aDe-wA-PPh">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ListPrototypeCell" id="ob4-uR-n00" customClass="samples">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ob4-uR-n00" id="ROF-I3-35u">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration" label="Item"/>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ykd-bS-D23" id="VcP-eo-IK5"/>
+                            <outlet property="delegate" destination="ykd-bS-D23" id="NR1-WL-l3j"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Policies" id="r26-Dy-pvg">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="XdN-c0-hAe">
+                            <connections>
+                                <segue destination="hPh-r9-kM7" kind="push" id="hXt-Fc-vDg"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qXc-b6-74z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1303" y="1591"/>
+        </scene>
+        <!--Samples Add Policy View Controller-->
+        <scene sceneID="qn9-HP-HUp">
+            <objects>
+                <viewController id="hPh-r9-kM7" customClass="samplesAddPolicyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oS9-yt-77x"/>
+                        <viewControllerLayoutGuide type="bottom" id="wEg-BC-kOk"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Fwo-Pa-hWO">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o1u-Ny-xxf">
+                                <rect key="frame" x="116" y="124" width="188" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Oo1-1q-YtC">
+                                <rect key="frame" x="116" y="191" width="188" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Policy Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ETy-DX-oNV">
+                                <rect key="frame" x="11" y="128" width="97" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Policy ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pS0-gf-iT2">
+                                <rect key="frame" x="11" y="200" width="68" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="g89-Fs-aAI">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="WZp-aD-8pL">
+                            <connections>
+                                <segue destination="hYg-O7-NGD" kind="unwind" unwindAction="unwindToList:" id="xh1-F0-agG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="policyIDTextField" destination="Oo1-1q-YtC" id="W5B-hM-4u3"/>
+                        <outlet property="policyNameTextField" destination="o1u-Ny-xxf" id="OO7-0Q-LDN"/>
+                        <outlet property="saveButton" destination="WZp-aD-8pL" id="SRb-cS-t4Z"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YL1-Q8-n8f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="hYg-O7-NGD" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-741" y="1591"/>
         </scene>
         <!--Samples App Settings Controller-->
         <scene sceneID="V0I-4S-I30">
@@ -331,7 +512,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSF-U4-Bcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="481" y="219"/>
+            <point key="canvasLocation" x="1579" y="1607"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Mtk-RW-f9f">
@@ -347,7 +528,43 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4e-uB-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-989" y="211"/>
+            <point key="canvasLocation" x="-57" y="1653"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="gH2-gb-njR">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gMO-lB-sOL" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="WcS-Hx-0bd">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hf6-a4-gzu" kind="relationship" relationship="rootViewController" id="1Tx-Vm-jKL"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3KU-xp-yDr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-966" y="398"/>
+        </scene>
+        <!--Policy Settings-->
+        <scene sceneID="fgC-Cb-ds7">
+            <objects>
+                <navigationController title="Policy Settings" automaticallyAdjustsScrollViewInsets="NO" id="3SD-FB-3d5" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="g4A-xP-tgQ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ykd-bS-D23" kind="relationship" relationship="rootViewController" id="nrM-fJ-bTk"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbP-NJ-uJ7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1870" y="1591"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -355,4 +572,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="s2L-Ln-TpH"/>
+        <segue reference="DaM-sP-6sl"/>
+    </inferredMetricsTieBreakers>
 </document>

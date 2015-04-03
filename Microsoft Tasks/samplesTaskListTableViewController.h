@@ -11,5 +11,6 @@
 @interface samplesTaskListTableViewController : UITableViewController<UIAlertViewDelegate>
 
 - (IBAction)switchUserPressed:(id)sender;
+- (IBAction)unwindToList:(UIStoryboardSegue *)segue;
 
 @end

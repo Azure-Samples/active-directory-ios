@@ -12,6 +12,13 @@
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
 		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
+		B8D009CC1ACDBD3A00C842CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */; };
+		B8D009D21ACDC37500C842CC /* samplesPolicyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D11ACDC37500C842CC /* samplesPolicyData.m */; };
+		B8D009D61ACDD8A400C842CC /* samplesPolicyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D51ACDD8A400C842CC /* samplesPolicyTableViewController.m */; };
+		B8D009D91ACDDF3B00C842CC /* samplesAddPolicyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D81ACDDF3B00C842CC /* samplesAddPolicyViewController.m */; };
+		B8D009DC1ACDF0B300C842CC /* Policy.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B8D009DA1ACDF0B300C842CC /* Policy.xcdatamodeld */; };
+		B8D00A181ACE085700C842CC /* samplesUsePolicyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D00A171ACE085700C842CC /* samplesUsePolicyTableViewController.m */; };
+		B8D00A1F1ACE4DF800C842CC /* samplesUseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D00A1E1ACE4DF800C842CC /* samplesUseViewController.m */; };
 		EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		FB33714918CA5B7E00234804 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB33714818CA5B7E00234804 /* settings.plist */; };
 		FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
@@ -21,7 +28,7 @@
 		FB3F00DA18C7016200173598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00D918C7016200173598 /* Foundation.framework */; };
 		FB3F00DC18C7016200173598 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DB18C7016200173598 /* CoreGraphics.framework */; };
 		FB3F00DE18C7016200173598 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DD18C7016200173598 /* UIKit.framework */; };
-		FB3F00E018C7016200173598 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DF18C7016200173598 /* CoreData.framework */; };
+		FB3F00E018C7016200173598 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DF18C7016200173598 /* CoreData.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3F00E418C7016200173598 /* InfoPlist.strings */; };
 		FB3F00E818C7016200173598 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F00E718C7016200173598 /* main.m */; };
 		FB3F00EC18C7016200173598 /* samplesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F00EB18C7016200173598 /* samplesAppDelegate.m */; };
@@ -60,6 +67,19 @@
 		97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesApplicationData.m; sourceTree = "<group>"; };
 		97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesAppSettingsController.h; sourceTree = "<group>"; };
 		97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesAppSettingsController.m; sourceTree = "<group>"; };
+		B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
+		B8D009D11ACDC37500C842CC /* samplesPolicyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesPolicyData.m; sourceTree = "<group>"; };
+		B8D009D31ACDC39300C842CC /* samplesPolicyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesPolicyData.h; sourceTree = "<group>"; };
+		B8D009D41ACDD8A400C842CC /* samplesPolicyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesPolicyTableViewController.h; sourceTree = "<group>"; };
+		B8D009D51ACDD8A400C842CC /* samplesPolicyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesPolicyTableViewController.m; sourceTree = "<group>"; };
+		B8D009D71ACDDF3B00C842CC /* samplesAddPolicyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesAddPolicyViewController.h; sourceTree = "<group>"; };
+		B8D009D81ACDDF3B00C842CC /* samplesAddPolicyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesAddPolicyViewController.m; sourceTree = "<group>"; };
+		B8D009DB1ACDF0B300C842CC /* Policy.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Policy.xcdatamodel; sourceTree = "<group>"; };
+		B8D00A151ACDFBA700C842CC /* Policy 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Policy 2.xcdatamodel"; sourceTree = "<group>"; };
+		B8D00A161ACE085700C842CC /* samplesUsePolicyTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesUsePolicyTableViewController.h; sourceTree = "<group>"; };
+		B8D00A171ACE085700C842CC /* samplesUsePolicyTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesUsePolicyTableViewController.m; sourceTree = "<group>"; };
+		B8D00A1D1ACE4DF800C842CC /* samplesUseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesUseViewController.h; sourceTree = "<group>"; };
+		B8D00A1E1ACE4DF800C842CC /* samplesUseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesUseViewController.m; sourceTree = "<group>"; };
 		FB33714818CA5B7E00234804 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesWebAPIConnector.h; sourceTree = "<group>"; };
 		FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesWebAPIConnector.m; sourceTree = "<group>"; };
@@ -170,6 +190,7 @@
 		FB3F00E118C7016200173598 /* Microsoft Tasks */ = {
 			isa = PBXGroup;
 			children = (
+				B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */,
 				971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */,
 				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				FB381FF118D1998400BF7374 /* iPad */,
@@ -194,6 +215,17 @@
 				97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */,
 				97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */,
 				97B22EE61A2C3622000C521C /* Main_iPad.storyboard */,
+				B8D009D11ACDC37500C842CC /* samplesPolicyData.m */,
+				B8D009D31ACDC39300C842CC /* samplesPolicyData.h */,
+				B8D009D41ACDD8A400C842CC /* samplesPolicyTableViewController.h */,
+				B8D009D51ACDD8A400C842CC /* samplesPolicyTableViewController.m */,
+				B8D009D71ACDDF3B00C842CC /* samplesAddPolicyViewController.h */,
+				B8D009D81ACDDF3B00C842CC /* samplesAddPolicyViewController.m */,
+				B8D009DA1ACDF0B300C842CC /* Policy.xcdatamodeld */,
+				B8D00A161ACE085700C842CC /* samplesUsePolicyTableViewController.h */,
+				B8D00A171ACE085700C842CC /* samplesUsePolicyTableViewController.m */,
+				B8D00A1D1ACE4DF800C842CC /* samplesUseViewController.h */,
+				B8D00A1E1ACE4DF800C842CC /* samplesUseViewController.m */,
 			);
 			path = "Microsoft Tasks";
 			sourceTree = "<group>";
@@ -280,7 +312,7 @@
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
 					FB3F00D518C7016200173598 = {
-						DevelopmentTeam = 4XAC8VP2M2;
+						DevelopmentTeam = QPA5Y64RGS;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -288,6 +320,7 @@
 						};
 					};
 					FB3F00F518C7016200173598 = {
+						DevelopmentTeam = QPA5Y64RGS;
 						TestTargetID = FB3F00D518C7016200173598;
 					};
 				};
@@ -316,6 +349,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */,
+				B8D009CC1ACDBD3A00C842CC /* InfoPlist.strings in Resources */,
 				FB3BF23518D03A88007E645E /* Main_iPhone.storyboard in Resources */,
 				FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */,
 				FB3F00F118C7016200173598 /* Images.xcassets in Resources */,
@@ -402,16 +436,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8D00A181ACE085700C842CC /* samplesUsePolicyTableViewController.m in Sources */,
 				97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */,
 				FB3F011618C7092700173598 /* sampleAddTaskItemViewController.m in Sources */,
 				FB3F011F18C713E600173598 /* samplesTaskItem.m in Sources */,
 				FB3F00EF18C7016200173598 /* Microsoft_Tasks.xcdatamodeld in Sources */,
 				FB3F011C18C709FE00173598 /* samplesTaskListTableViewController.m in Sources */,
+				B8D00A1F1ACE4DF800C842CC /* samplesUseViewController.m in Sources */,
+				B8D009DC1ACDF0B300C842CC /* Policy.xcdatamodeld in Sources */,
 				FB3F00EC18C7016200173598 /* samplesAppDelegate.m in Sources */,
+				B8D009D21ACDC37500C842CC /* samplesPolicyData.m in Sources */,
+				B8D009D61ACDD8A400C842CC /* samplesPolicyTableViewController.m in Sources */,
 				97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */,
 				FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */,
 				97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */,
 				FB3F00E818C7016200173598 /* main.m in Sources */,
+				B8D009D91ACDDF3B00C842CC /* samplesAddPolicyViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -651,6 +691,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		B8D009DA1ACDF0B300C842CC /* Policy.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B8D00A151ACDFBA700C842CC /* Policy 2.xcdatamodel */,
+				B8D009DB1ACDF0B300C842CC /* Policy.xcdatamodel */,
+			);
+			currentVersion = B8D009DB1ACDF0B300C842CC /* Policy.xcdatamodel */;
+			path = Policy.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		FB3F00ED18C7016200173598 /* Microsoft_Tasks.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (

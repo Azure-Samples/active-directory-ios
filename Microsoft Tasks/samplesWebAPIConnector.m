@@ -11,6 +11,7 @@
 #import "samplesWebAPIConnector.h"
 #import "ADALiOS/ADAuthenticationContext.h"
 #import "samplesTaskItem.h"
+#import "samplesPolicyData.h"
 #import "ADALiOS/ADAuthenticationSettings.h"
 
 @implementation samplesWebAPIConnector
@@ -173,6 +174,53 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }];
 }
 
++(void) doPolicy:(samplesPolicyData *)policy
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock
+{
+    if (!loadedApplicationSettings)
+    {
+        [self readApplicationSettings];
+    }
+    
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
+        
+        if (error != nil)
+        {
+            completionBlock(NO, error);
+        }
+        else
+        {
+            NSDictionary* policyInDictionaryFormat = [self convertPolicyToDictionary:policy];
+            
+            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:policyInDictionaryFormat options:0 error:nil];
+            
+            [request setHTTPMethod:@"POST"];
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:requestBody];
+            
+            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+            
+            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                
+                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", content);
+                
+                if (error == nil){
+                    
+                    completionBlock(true, nil);
+                }
+                else
+                {
+                    completionBlock(false, error);
+                }
+            }];
+        }
+    }];
+}
+
+
 +(void) craftRequest : (NSString*)webApiUrlString
                parent:(UIViewController*) parent
     completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
@@ -204,6 +252,17 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     
     if (task.itemName){
         [dictionary setValue:task.itemName forKey:@"Title"];
+    }
+    
+    return dictionary;
+}
+
++(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
+{
+    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
+    
+    if (policy.policyID){
+        [dictionary setValue:policy.policyID forKey:@"id"];
     }
     
     return dictionary;

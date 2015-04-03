@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "samplesTaskItem.h"
+#import "samplesPolicyData.h"
 
 @interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
 
@@ -15,6 +16,10 @@
              parent:(UIViewController*) parent;
 
 +(void) addTask:(samplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock;
+
++(void) doPolicy:(samplesPolicyData*)policy
          parent:(UIViewController*) parent
 completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 
