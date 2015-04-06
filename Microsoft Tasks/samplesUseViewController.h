@@ -10,4 +10,10 @@
 
 @interface samplesUseViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *useLabel;
+@property (weak, nonatomic) IBOutlet UIScrollView *tokenView;
+@property (weak, nonatomic) IBOutlet UITextView *tokenText;
+@property (nonatomic, strong) NSString *claims;
+
+
 @end

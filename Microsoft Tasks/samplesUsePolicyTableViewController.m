@@ -14,6 +14,7 @@
 @interface samplesUsePolicyTableViewController ()
 
 @property (strong) NSMutableArray *policies;
+@property (strong) NSString *token;
 
 
 @end
@@ -96,14 +97,14 @@
     
     
     
-    [samplesWebAPIConnector doPolicy:aPolicy parent:self completionBlock:^(bool success, NSError* error) {
-        if (success)
+    [samplesWebAPIConnector doPolicy:aPolicy parent:self completionBlock:^(ADUserInformation* userInfo, NSError* error) {
+        if (userInfo)
         {
-            dispatch_async(dispatch_get_main_queue(),^ {
-                
-                [self dismissViewControllerAnimated:YES completion:nil];
-            });
+            samplesUseViewController* claimsController = [self.storyboard instantiateViewControllerWithIdentifier:@"ClaimsView"];
+            claimsController.claims = [NSString stringWithFormat:@" Claims : %@", userInfo.allClaims];
+            [self.navigationController pushViewController:claimsController animated:NO];
         }
+        
         else
         {
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
@@ -186,16 +187,6 @@
     return YES;
 }
 */
-
-/*
-#pragma mark - Navigation
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    
-}
- */
 
 
 @end

@@ -14,8 +14,13 @@
 
 @implementation samplesUseViewController
 
+@synthesize tokenText;
+@synthesize claims;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    tokenText.text = claims;
     // Do any additional setup after loading the view.
 }
 

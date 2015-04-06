@@ -111,8 +111,6 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
     }
     
-    
-    
     [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
@@ -133,6 +131,47 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                           }];
 }
+
++(void) getClaimsWithExtraParams : (BOOL) clearCache
+                          params:(NSDictionary*) params
+                          parent:(UIViewController*) parent
+               completionHandler:(void (^) (ADUserInformation*, NSError*))completionBlock;
+{
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    
+    
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    authContext.parentController = parent;
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+    
+    if(!data.correlationId ||
+       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+    }
+    
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_AUTO
+                                   userId:nil
+                     extraQueryParameters: params.urlEncodedString
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);
+                              }
+                              else
+                              {
+                                  data.userItem = result.tokenCacheStoreItem;
+                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                              }
+                          }];
+}
+
 
 
 +(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
@@ -239,7 +278,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 +(void) doPolicy:(samplesPolicyData *)policy
          parent:(UIViewController*) parent
-completionBlock:(void (^) (bool, NSError* error)) completionBlock
+completionBlock:(void (^) (NSString* accessToken, NSError* error)) completionBlock
 {
     if (!loadedApplicationSettings)
     {
@@ -248,11 +287,16 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     
     NSDictionary* params = [self convertPolicyToDictionary:policy];
     
-    [self getTokenWithExtraParams:NO params:params parent:parent completionHandler:^(NSString* accessToken, NSError* error) {
+    [self getClaimsWithExtraParams:NO params:params parent:parent completionHandler:^(ADUserInformation* userInfo, NSError* error) {
         
-        if (accessToken == nil)
+        if (userInfo == nil)
         {
-            completionBlock(nil,error);
+            completionBlock(nil, error);
+        }
+        
+        else {
+            
+            completionBlock(userInfo, nil);
         }
     }];
     
