@@ -13,8 +13,24 @@
 #import "samplesTaskItem.h"
 #import "samplesPolicyData.h"
 #import "ADALiOS/ADAuthenticationSettings.h"
+#import "NSDictionary+UrlEncoding.h"
 
 @implementation samplesWebAPIConnector
+
+// Set up to read Policies from CoreData
+//
+// TODO: Add Application Settings to CoreData as well
+//
+
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
+
 
 ADAuthenticationContext* authContext;
 bool loadedApplicationSettings;
@@ -71,6 +87,53 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         }
     }];
 }
+
+//getToken for support of sending extra (and unknown) params to the authorization and token endpoints
+//
+//
+
++(void) getTokenWithExtraParams : (BOOL) clearCache
+           params:(NSDictionary*) params
+           parent:(UIViewController*) parent
+completionHandler:(void (^) (NSString*, NSError*))completionBlock;
+{
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+
+    
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    authContext.parentController = parent;
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+    
+    if(!data.correlationId ||
+       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+    }
+    
+    
+    
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_AUTO
+                                   userId:nil
+                     extraQueryParameters: params.urlEncodedString
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);
+                              }
+                              else
+                              {
+                                  data.userItem = result.tokenCacheStoreItem;
+                                  completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                              }
+                          }];
+}
+
 
 +(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
              parent:(UIViewController*) parent;
@@ -183,41 +246,16 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
         [self readApplicationSettings];
     }
     
-    SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
+    NSDictionary* params = [self convertPolicyToDictionary:policy];
+    
+    [self getTokenWithExtraParams:NO params:params parent:parent completionHandler:^(NSString* accessToken, NSError* error) {
         
-        if (error != nil)
+        if (accessToken == nil)
         {
-            completionBlock(NO, error);
-        }
-        else
-        {
-            NSDictionary* policyInDictionaryFormat = [self convertPolicyToDictionary:policy];
-            
-            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:policyInDictionaryFormat options:0 error:nil];
-            
-            [request setHTTPMethod:@"POST"];
-            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-            [request setHTTPBody:requestBody];
-            
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
-            
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
-                
-                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"%@", content);
-                
-                if (error == nil){
-                    
-                    completionBlock(true, nil);
-                }
-                else
-                {
-                    completionBlock(false, error);
-                }
-            }];
+            completionBlock(nil,error);
         }
     }];
+    
 }
 
 
