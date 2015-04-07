@@ -12,6 +12,7 @@
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
 #import "ADALiOS/ADAuthenticationContext.h"
+#import "SamplesSelectUserViewController.h"
 
 @interface samplesTaskListTableViewController ()
 
@@ -30,14 +31,12 @@
         
         if (error != nil)
         {
-            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
-            
-            [alertView setDelegate:self];
-            
             dispatch_async(dispatch_get_main_queue(),^ {
-                [alertView show];
+            SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectUserView"];
+            [self.navigationController pushViewController:userSelectController animated:YES];
             });
-        }
+        
+                           }
         else
         {
             self.taskItems = (NSMutableArray*)tasks;

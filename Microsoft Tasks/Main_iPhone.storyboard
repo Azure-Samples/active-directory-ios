@@ -134,7 +134,7 @@
         <!--Select User-->
         <scene sceneID="s9K-uJ-1mM">
             <objects>
-                <tableViewController id="9sT-06-rlI" customClass="SamplesSelectUserViewController" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="SelectUserView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9sT-06-rlI" customClass="SamplesSelectUserViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="CC0-LZ-LHA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

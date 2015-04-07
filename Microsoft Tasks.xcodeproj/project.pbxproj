@@ -12,6 +12,7 @@
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
 		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
+		B81583EE1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B81583ED1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m */; };
 		B8D009CC1ACDBD3A00C842CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */; };
 		B8D009D21ACDC37500C842CC /* samplesPolicyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D11ACDC37500C842CC /* samplesPolicyData.m */; };
 		B8D009D61ACDD8A400C842CC /* samplesPolicyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D51ACDD8A400C842CC /* samplesPolicyTableViewController.m */; };
@@ -67,6 +68,8 @@
 		97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesApplicationData.m; sourceTree = "<group>"; };
 		97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesAppSettingsController.h; sourceTree = "<group>"; };
 		97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesAppSettingsController.m; sourceTree = "<group>"; };
+		B81583EC1AD318CB00CCA892 /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
+		B81583ED1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
 		B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B8D009D11ACDC37500C842CC /* samplesPolicyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesPolicyData.m; sourceTree = "<group>"; };
 		B8D009D31ACDC39300C842CC /* samplesPolicyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesPolicyData.h; sourceTree = "<group>"; };
@@ -226,6 +229,8 @@
 				B8D00A171ACE085700C842CC /* samplesUsePolicyTableViewController.m */,
 				B8D00A1D1ACE4DF800C842CC /* samplesUseViewController.h */,
 				B8D00A1E1ACE4DF800C842CC /* samplesUseViewController.m */,
+				B81583EC1AD318CB00CCA892 /* NSDictionary+UrlEncoding.h */,
+				B81583ED1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m */,
 			);
 			path = "Microsoft Tasks";
 			sourceTree = "<group>";
@@ -437,6 +442,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8D00A181ACE085700C842CC /* samplesUsePolicyTableViewController.m in Sources */,
+				B81583EE1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m in Sources */,
 				97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */,
 				FB3F011618C7092700173598 /* sampleAddTaskItemViewController.m in Sources */,
 				FB3F011F18C713E600173598 /* samplesTaskItem.m in Sources */,
