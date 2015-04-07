@@ -169,7 +169,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IpY-rp-EPA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="472" y="1647"/>
+            <point key="canvasLocation" x="-245" y="1333"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="BoI-jW-REo">
@@ -246,7 +246,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="xy0-Ql-SZk"/>
                         <barButtonItem key="rightBarButtonItem" title="Switch User" id="Bg8-7Y-ohU">
                             <connections>
-                                <segue destination="zEp-cJ-DMA" kind="modal" id="TBT-pE-WIG"/>
+                                <segue destination="9sT-06-rlI" kind="push" id="vqR-uk-I5n"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -537,22 +537,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YSF-U4-Bcq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1579" y="1607"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Mtk-RW-f9f">
-            <objects>
-                <navigationController id="zEp-cJ-DMA" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="0UJ-dJ-MQ7">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="9sT-06-rlI" kind="relationship" relationship="rootViewController" id="nc2-ae-vZG"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="P4e-uB-jea" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-57" y="1653"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gH2-gb-njR">

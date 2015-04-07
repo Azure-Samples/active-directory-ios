@@ -26,17 +26,36 @@
 
 -(void)loadData {
     
+     SamplesApplicationData* appData = [SamplesApplicationData getInstance];
+    
+    if (!appData.userItem.userInformation.userId) {
+        
+        dispatch_async(dispatch_get_main_queue(),^ {
+        
+        SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectUserView"];
+        [self.navigationController pushViewController:userSelectController animated:YES];
+        });
+    }
+
+    
     // Load data from the webservice
     [samplesWebAPIConnector getTaskList:^(NSArray *tasks, NSError* error) {
         
+        
         if (error != nil)
         {
+            
+            UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+            
+            [alertView setDelegate:self];
+            
             dispatch_async(dispatch_get_main_queue(),^ {
-            SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectUserView"];
-            [self.navigationController pushViewController:userSelectController animated:YES];
+                [alertView show];
             });
+
+        }
         
-                           }
+                           
         else
         {
             self.taskItems = (NSMutableArray*)tasks;
@@ -44,14 +63,14 @@
             // Refresh main thread since we are async
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
-                SamplesApplicationData* appData = [SamplesApplicationData getInstance];
-                if(appData.userItem && appData.userItem.userInformation)
+                if(appData.userItem &&
+                   appData.userItem.userInformation)
                 {
                     [self.userLabel setText:appData.userItem.userInformation.userId];
                 }
                 else
                 {
-                    [self.userLabel setText:@"N/A" ];
+                    [self.userLabel setText:@"N/A"];
                 }
             });
         }

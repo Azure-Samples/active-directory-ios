@@ -9,7 +9,7 @@
 	<key>resourceString</key>
 	<string>https://aadadfs.onmicrosoft.com/TodoListService</string>
 	<key>redirectUri</key>
-	<string>https://aadadfstodolistservice.azurewebsites.net</string>
+	<string>msauth://com.microsoft.windowsazure.activedirectory.samples.Microsoft-Tasks</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>
