@@ -15,6 +15,13 @@
 #import "ADALiOS/ADAuthenticationSettings.h"
 #import "NSDictionary+UrlEncoding.h"
 
+@interface samplesWebAPIConnector ()
+
+@property (strong) NSString *userID;
+
+
+@end
+
 @implementation samplesWebAPIConnector
 
 // Set up to read Policies from CoreData
@@ -51,10 +58,22 @@ bool loadedApplicationSettings;
 completionHandler:(void (^) (NSString*, NSError*))completionBlock;
 {
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
+   // NSString *userId = [[NSString alloc]init];
     if(data.userItem){
         completionBlock(data.userItem.accessToken, nil);
         return;
     }
+    
+ /*   
+    if(data.userItem && data.userItem.userInformation)
+    {
+        userId = data.userItem.userInformation.userId;    }
+    else
+    {
+        userId = nil;
+    }
+  */
+
     
     ADAuthenticationError *error;
     authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
@@ -72,7 +91,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                  clientId:data.clientId
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_AUTO
-                                   userId:nil
+                                   userId:data.userItem.userInformation.userId
                      extraQueryParameters: @"nux=1"
                           completionBlock:^(ADAuthenticationResult *result) {
         
@@ -116,7 +135,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                  clientId:data.clientId
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_AUTO
-                                   userId:nil
+                                   userId:data.userItem.userInformation.userId
                      extraQueryParameters: params.urlEncodedString
                           completionBlock:^(ADAuthenticationResult *result) {
                               
@@ -156,7 +175,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                  clientId:data.clientId
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_AUTO
-                                   userId:nil
+                                   userId:data.userItem.userInformation.userId
                      extraQueryParameters: params.urlEncodedString
                           completionBlock:^(ADAuthenticationResult *result) {
                               
@@ -278,7 +297,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
 
 +(void) doPolicy:(samplesPolicyData *)policy
          parent:(UIViewController*) parent
-completionBlock:(void (^) (NSString* accessToken, NSError* error)) completionBlock
+completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock
 {
     if (!loadedApplicationSettings)
     {
@@ -342,9 +361,16 @@ completionBlock:(void (^) (NSString* accessToken, NSError* error)) completionBlo
 +(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
+
+    // Using UUID for nonce. Not recommended.
+    
+    NSString *UUID = [[NSUUID UUID] UUIDString];
+
     
     if (policy.policyID){
         [dictionary setValue:policy.policyID forKey:@"id"];
+        [dictionary setValue:@"do_not_track" forKey:@"scope"];
+        [dictionary setValue:UUID forKey:@"nonce"];
     }
     
     return dictionary;
