@@ -174,7 +174,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_AUTO
+                           promptBehavior:AD_PROMPT_ALWAYS
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: params.urlEncodedString
                           completionBlock:^(ADAuthenticationResult *result) {
@@ -231,7 +231,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                         keyValuePairs = [tasks objectAtIndex:i];
                         
                         samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        s.itemName = [keyValuePairs valueForKey:@"Title"];
+                        s.itemName = [keyValuePairs valueForKey:@"task"];
                         
                         [sampleTaskItems addObject:s];
                     }
@@ -274,6 +274,11 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
             [request setHTTPMethod:@"POST"];
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:requestBody];
+            
+            NSString *myString = [[NSString alloc] initWithData:requestBody encoding:NSUTF8StringEncoding];
+
+            NSLog(@"Request was: %@", request);
+            NSLog(@"Request body was: %@", myString);
             
             NSOperationQueue *queue = [[NSOperationQueue alloc]init];
             
@@ -350,9 +355,11 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
     
     if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"Title"];
+        [dictionary setValue:data.userItem.userInformation.userObjectId forKey:@"name"];
+        [dictionary setValue:task.itemName forKey:@"task"];
     }
     
     return dictionary;
@@ -368,9 +375,10 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
 
     
     if (policy.policyID){
-        [dictionary setValue:policy.policyID forKey:@"id"];
-        [dictionary setValue:@"do_not_track" forKey:@"scope"];
+        [dictionary setValue:policy.policyID forKey:@"p"];
+        [dictionary setValue:@"openid" forKey:@"scope"];
         [dictionary setValue:UUID forKey:@"nonce"];
+        [dictionary setValue:@"query" forKey:@"response_mode"];
     }
     
     return dictionary;

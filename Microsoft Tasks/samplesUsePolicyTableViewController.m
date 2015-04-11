@@ -102,7 +102,7 @@
         {
             samplesUseViewController* claimsController = [self.storyboard instantiateViewControllerWithIdentifier:@"ClaimsView"];
             claimsController.claims = [NSString stringWithFormat:@" Claims : %@", userInfo.allClaims];
-            [self.navigationController pushViewController:claimsController animated:NO];
+            [self.navigationController pushViewController:claimsController animated:YES];
         }
         
         else

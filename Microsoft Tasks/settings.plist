@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>authority</key>
-	<string>https://login.windows.net/common</string>
+	<string>https://login.microsoftonline.com/hypercubeb2c.onmicrosoft.com/oauth2/authorize?api-version=1.0</string>
 	<key>clientId</key>
-	<string>e3786e2a-0dcb-449a-8eba-b4042c9bec01</string>
+	<string>31367e67-6ccc-41fb-8613-ad8be09951ef</string>
 	<key>resourceString</key>
-	<string>https://aadadfs.onmicrosoft.com/TodoListService</string>
+	<string>http://localhost:8888</string>
 	<key>redirectUri</key>
-	<string>msauth://com.microsoft.windowsazure.activedirectory.samples.Microsoft-Tasks</string>
+	<string>https://com.microsoft.windowsazure.activedirectory.samples.Microsoft-Tasks</string>
 	<key>userId</key>
-	<string></string>
+	<string>test@hypercubeb2c.onmicrosoft.com</string>
 	<key>taskWebAPI</key>
-	<string>https://aadadfstodolistservice.azurewebsites.net/api/todolist</string>
+	<string>http://localhost:8888/tasks</string>
 	<key>fullScreen</key>
 	<true/>
 </dict>

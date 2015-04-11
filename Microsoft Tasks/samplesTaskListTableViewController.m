@@ -124,10 +124,13 @@
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
     // Refresh table here...
+    
+
     [self.taskItems removeAllObjects];
     [self.tableView reloadData];
     [self loadData];
     [self.refreshControl endRefreshing];
+
 }
 
 - (void)didReceiveMemoryWarning

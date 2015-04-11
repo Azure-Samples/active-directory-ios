@@ -17,6 +17,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [super viewDidLoad];
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+    
+    [self setRefreshControl:self.refreshControl];
+    self.userList = [[NSMutableArray alloc] init];
+
+    
     [self loadData];
 }
 
@@ -63,6 +72,7 @@
 - (IBAction)addPressed:(id)sender
 {
     [self getToken:nil];
+
 }
 
 - (IBAction)cancelPressed:(id)sender
@@ -70,6 +80,13 @@
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
 
+-(void) refreshInvoked:(id)sender forState:(UIControlState)state {
+    // Refresh table here...
+    [self.userList removeAllObjects];
+    [self.tableView reloadData];
+    [self loadData];
+    [self.refreshControl endRefreshing];
+}
 
 
 #pragma mark - Table view data source
@@ -160,7 +177,7 @@
                               
                               if (result.status != AD_SUCCEEDED)
                               {
-                                  UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                  UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", result.error] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
                                   
                                   [alertView setDelegate:self];
                                   
