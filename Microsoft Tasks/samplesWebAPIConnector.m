@@ -358,7 +358,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     
     if (task.itemName){
-        [dictionary setValue:data.userItem.userInformation.userObjectId forKey:@"name"];
+        [dictionary setValue:data.userItem.userInformation.userObjectId forKey:@"owner"];
         [dictionary setValue:task.itemName forKey:@"task"];
     }
     
