@@ -12,6 +12,7 @@
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
 #import "ADALiOS/ADAuthenticationContext.h"
+#import "SamplesSelectUserViewController.h"
 
 @interface samplesTaskListTableViewController ()
 
@@ -25,10 +26,24 @@
 
 -(void)loadData {
     
+    SamplesApplicationData* appData = [SamplesApplicationData getInstance];
+    
+    if (!appData.userItem.userInformation.userId) {
+        
+        dispatch_async(dispatch_get_main_queue(),^ {
+            
+            SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+            [self.navigationController pushViewController:userSelectController animated:YES];
+        });
+    }
+
+    
     // Load data from the webservice
+    if (appData.userItem) {
+        
     [samplesWebAPIConnector getTaskList:^(NSArray *tasks, NSError* error) {
         
-        if (error != nil)
+        if (error != nil && appData.userItem)
         {
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
             
@@ -57,20 +72,7 @@
             });
         }
     } parent:self];
-}
-
-- (IBAction)switchUserPressed:(id)sender {
-    
-    [samplesWebAPIConnector signOut];
-    [self.taskItems removeAllObjects];
-    
-    // Refresh main thread since we are async
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.tableView reloadData];
-    });
-    
-    [self loadData];
-}
+    } }
 
 - (void)viewDidLoad
 {

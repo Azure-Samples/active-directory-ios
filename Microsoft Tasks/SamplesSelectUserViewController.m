@@ -2,6 +2,7 @@
 #import <ADAuthenticationSettings.h>
 #import "ADALiOS/ADAuthenticationContext.h"
 #import "SamplesApplicationData.h"
+#import "samplesTaskListTableViewController.h"
 
 @interface SamplesSelectUserViewController ()
 
@@ -15,9 +16,21 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    self.refreshControl = [[UIRefreshControl alloc] init];
+    
+    [self.refreshControl addTarget:self action:@selector(refreshInvoked:forState:) forControlEvents:UIControlEventValueChanged];
+    
+    [self setRefreshControl:self.refreshControl];
+    self.userList = [[NSMutableArray alloc] init];
     
     [self loadData];
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    
+[self loadData];
+    
 }
 
 -(void) loadData
@@ -70,6 +83,14 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void) refreshInvoked:(id)sender forState:(UIControlState)state {
+    // Refresh table here...
+    [self.userList removeAllObjects];
+    [self.tableView reloadData];
+    [self loadData];
+    [self.refreshControl endRefreshing];
+}
+
 
 
 #pragma mark - Table view data source
@@ -120,6 +141,8 @@
     
     //tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+    
 }
 
 - (void) getToken:(ADTokenCacheStoreItem*) userItem
