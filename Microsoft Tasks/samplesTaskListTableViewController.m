@@ -42,7 +42,7 @@
     [samplesWebAPIConnector getTaskList:^(NSArray *tasks, NSError* error) {
         
         
-        if (error != nil)
+        if (error != nil && appData.userItem)
         {
             
             UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"%@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];

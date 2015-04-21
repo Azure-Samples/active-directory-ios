@@ -332,7 +332,7 @@
 					};
 				};
 			};
-			buildConfigurationList = FB3F00D118C7016200173598 /* Build configuration list for PBXProject "Microsoft Tasks" */;
+			buildConfigurationList = FB3F00D118C7016200173598 /* Build configuration list for PBXProject "Microsoft Tasks B2C" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -669,7 +669,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		FB3F00D118C7016200173598 /* Build configuration list for PBXProject "Microsoft Tasks" */ = {
+		FB3F00D118C7016200173598 /* Build configuration list for PBXProject "Microsoft Tasks B2C" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FB3F010618C7016200173598 /* Debug */,
