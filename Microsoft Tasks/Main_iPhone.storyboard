@@ -493,6 +493,7 @@
                         <outlet property="fullScreenSwitch" destination="6ZC-71-eRu" id="S3t-VT-j1y"/>
                         <outlet property="redirectUriLabel" destination="pvD-GD-xNS" id="tTL-dI-bAz"/>
                         <outlet property="resourceLabel" destination="2Gl-ey-zak" id="pdz-Z1-wO0"/>
+                        <outlet property="signInPolicyLabel" destination="pc0-NM-MWN" id="4j9-vd-TDV"/>
                         <outlet property="signUpPolicyLabel" destination="RSj-Uc-jXf" id="bNA-Zu-QNw"/>
                     </connections>
                 </viewController>
