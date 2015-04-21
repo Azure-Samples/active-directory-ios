@@ -2,6 +2,7 @@
 #import <ADAuthenticationSettings.h>
 #import "ADALiOS/ADAuthenticationContext.h"
 #import "SamplesApplicationData.h"
+#import "samplesUserLoginViewController.h"
 
 @interface SamplesSelectUserViewController ()
 
@@ -14,8 +15,6 @@
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
     
     [super viewDidLoad];
     self.refreshControl = [[UIRefreshControl alloc] init];
@@ -69,16 +68,11 @@
     }
 }
 
-- (IBAction)addPressed:(id)sender
-{
-    [self getToken:nil];
-
-}
-
 - (IBAction)cancelPressed:(id)sender
 {
     [self.navigationController popToRootViewControllerAnimated:TRUE];
 }
+
 
 -(void) refreshInvoked:(id)sender forState:(UIControlState)state {
     // Refresh table here...
@@ -94,7 +88,27 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     // Return the number of sections.
+    if (self.userList.count < 1) {
+        
     return 1;
+    
+    }
+    else {
+        // Display a message when the table is empty
+        UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
+        
+        messageLabel.text = @"No users are currently available. Please add a user above.";
+        messageLabel.textColor = [UIColor blackColor];
+        messageLabel.numberOfLines = 0;
+        messageLabel.textAlignment = NSTextAlignmentCenter;
+        messageLabel.font = [UIFont fontWithName:@"Palatino-Italic" size:20];
+        [messageLabel sizeToFit];
+        
+        self.tableView.backgroundView = messageLabel;
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    }
+    
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -113,12 +127,15 @@
     {
         if(userItem.userInformation){
             
-            cell.textLabel.text = userItem.userInformation.userId;
+            cell.textLabel.text = userItem.userInformation.eMail;
         }
         else
         {
             cell.textLabel.text = @"ADFS User";
         }
+    }
+    else {
+        cell.textLabel.text= @"No logged in users. Add a user above";
     }
     //    if (taskItem.completed) {
     //        cell.accessoryType = UITableViewCellAccessoryCheckmark;

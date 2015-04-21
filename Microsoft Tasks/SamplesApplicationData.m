@@ -18,6 +18,8 @@
         instance.redirectUriString = [dictionary objectForKey:@"redirectUri"];
         instance.taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
         instance.correlationId = [dictionary objectForKey:@"correlationId"];
+        instance.signInPolicyId = [dictionary objectForKey:@"signInPolicyId"];
+        instance.signUpPolicyId = [dictionary objectForKey:@"signUpPolicyId"];
         
     });
     

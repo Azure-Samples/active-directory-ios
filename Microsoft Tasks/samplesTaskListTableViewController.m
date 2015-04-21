@@ -32,7 +32,7 @@
         
         dispatch_async(dispatch_get_main_queue(),^ {
         
-        SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectUserView"];
+        SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginUserView"];
         [self.navigationController pushViewController:userSelectController animated:YES];
         });
     }
@@ -66,7 +66,7 @@
                 if(appData.userItem &&
                    appData.userItem.userInformation)
                 {
-                    [self.userLabel setText:appData.userItem.userInformation.userId];
+                    [self.userLabel setText:appData.userItem.userInformation.getGivenName];
                 }
                 else
                 {

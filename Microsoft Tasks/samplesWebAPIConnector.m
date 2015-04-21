@@ -175,7 +175,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                  clientId:data.clientId
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_ALWAYS
-                                   userId:data.userItem.userInformation.userId
+                                   userId:nil
                      extraQueryParameters: params.urlEncodedString
                           completionBlock:^(ADAuthenticationResult *result) {
                               

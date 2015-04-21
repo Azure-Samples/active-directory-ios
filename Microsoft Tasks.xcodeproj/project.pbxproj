@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B22EE61A2C3622000C521C /* Main_iPad.storyboard */; };
 		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
 		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		B81583EE1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B81583ED1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m */; };
+		B8B06D0A1AE581E900A4B04A /* samplesUserLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8B06D091AE581E900A4B04A /* samplesUserLoginViewController.m */; };
 		B8D009CC1ACDBD3A00C842CC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */; };
 		B8D009D21ACDC37500C842CC /* samplesPolicyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D11ACDC37500C842CC /* samplesPolicyData.m */; };
 		B8D009D61ACDD8A400C842CC /* samplesPolicyTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8D009D51ACDD8A400C842CC /* samplesPolicyTableViewController.m */; };
@@ -61,7 +61,6 @@
 		268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microsoft Tasks.entitlements"; sourceTree = "<group>"; };
-		97B22EE61A2C3622000C521C /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesSelectUserViewController.h; sourceTree = "<group>"; };
 		97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesSelectUserViewController.m; sourceTree = "<group>"; };
 		97C15AF51A280B69004A0419 /* SamplesApplicationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesApplicationData.h; sourceTree = "<group>"; };
@@ -70,6 +69,8 @@
 		97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesAppSettingsController.m; sourceTree = "<group>"; };
 		B81583EC1AD318CB00CCA892 /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
 		B81583ED1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
+		B8B06D081AE581E900A4B04A /* samplesUserLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesUserLoginViewController.h; sourceTree = "<group>"; };
+		B8B06D091AE581E900A4B04A /* samplesUserLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesUserLoginViewController.m; sourceTree = "<group>"; };
 		B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = InfoPlist.strings; sourceTree = "<group>"; };
 		B8D009D11ACDC37500C842CC /* samplesPolicyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesPolicyData.m; sourceTree = "<group>"; };
 		B8D009D31ACDC39300C842CC /* samplesPolicyData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesPolicyData.h; sourceTree = "<group>"; };
@@ -195,7 +196,6 @@
 			children = (
 				B8D009CB1ACDBD3A00C842CC /* InfoPlist.strings */,
 				971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */,
-				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				FB381FF118D1998400BF7374 /* iPad */,
 				FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */,
 				FB3F00E418C7016200173598 /* InfoPlist.strings */,
@@ -213,11 +213,11 @@
 				FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */,
 				FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */,
 				97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */,
+				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				97C15AF51A280B69004A0419 /* SamplesApplicationData.h */,
 				97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */,
 				97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */,
 				97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */,
-				97B22EE61A2C3622000C521C /* Main_iPad.storyboard */,
 				B8D009D11ACDC37500C842CC /* samplesPolicyData.m */,
 				B8D009D31ACDC39300C842CC /* samplesPolicyData.h */,
 				B8D009D41ACDD8A400C842CC /* samplesPolicyTableViewController.h */,
@@ -231,6 +231,8 @@
 				B8D00A1E1ACE4DF800C842CC /* samplesUseViewController.m */,
 				B81583EC1AD318CB00CCA892 /* NSDictionary+UrlEncoding.h */,
 				B81583ED1AD318CB00CCA892 /* NSDictionary+UrlEncoding.m */,
+				B8B06D081AE581E900A4B04A /* samplesUserLoginViewController.h */,
+				B8B06D091AE581E900A4B04A /* samplesUserLoginViewController.m */,
 			);
 			path = "Microsoft Tasks";
 			sourceTree = "<group>";
@@ -353,7 +355,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */,
 				B8D009CC1ACDBD3A00C842CC /* InfoPlist.strings in Resources */,
 				FB3BF23518D03A88007E645E /* Main_iPhone.storyboard in Resources */,
 				FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */,
@@ -451,6 +452,7 @@
 				B8D00A1F1ACE4DF800C842CC /* samplesUseViewController.m in Sources */,
 				B8D009DC1ACDF0B300C842CC /* Policy.xcdatamodeld in Sources */,
 				FB3F00EC18C7016200173598 /* samplesAppDelegate.m in Sources */,
+				B8B06D0A1AE581E900A4B04A /* samplesUserLoginViewController.m in Sources */,
 				B8D009D21ACDC37500C842CC /* samplesPolicyData.m in Sources */,
 				B8D009D61ACDD8A400C842CC /* samplesPolicyTableViewController.m in Sources */,
 				97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */,

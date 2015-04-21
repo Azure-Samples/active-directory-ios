@@ -10,6 +10,9 @@
 @property (weak, nonatomic) IBOutlet UITextField *redirectUriLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *fullScreenSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *correlationIdLabel;
+@property (weak, nonatomic) IBOutlet UITextField *signInPolicyLabel;
+@property (weak, nonatomic) IBOutlet UITextField *signUpPolicyLabel;
+
 @end
 
 @implementation SamplesAppSettingsController
@@ -24,6 +27,8 @@
     self->_resourceLabel.text = data.resourceId;
     self->_redirectUriLabel.text = data.redirectUriString;
     self->_correlationIdLabel.text = data.correlationId;
+    self->_signInPolicyLabel.text = data.signInPolicyId;
+    self->_signUpPolicyLabel.text = data.signUpPolicyId;
     [self configureControl:self->_fullScreenSwitch forValue:data.fullScreen];
 }
 
@@ -37,6 +42,8 @@
     data.redirectUriString = self->_redirectUriLabel.text;
     data.fullScreen = [self isEnabled:self->_fullScreenSwitch];
     data.correlationId = self->_correlationIdLabel.text;
+    data.signInPolicyId = self->_signInPolicyLabel.text;
+    data.signUpPolicyId = self->_signUpPolicyLabel.text;
     [self cancelPressed:sender];
 }
 
