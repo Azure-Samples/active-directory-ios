@@ -1,10 +1,21 @@
 PODS:
-  - ADALiOS (1.2.1)
+  - ADALiOS (1.2.2)
 
 DEPENDENCIES:
-  - ADALiOS
+  - ADALiOS (from `https://github.com/AzureAD/azure-activedirectory-library-for-objc.git`,
+    branch `B2C-ADAL`)
+
+EXTERNAL SOURCES:
+  ADALiOS:
+    :branch: B2C-ADAL
+    :git: https://github.com/AzureAD/azure-activedirectory-library-for-objc.git
+
+CHECKOUT OPTIONS:
+  ADALiOS:
+    :commit: 426d1507b73ae948cbadc291ebd6ad04dad50968
+    :git: https://github.com/AzureAD/azure-activedirectory-library-for-objc.git
 
 SPEC CHECKSUMS:
-  ADALiOS: b34041305d5ef0b90530ef95ecac1d314da86336
+  ADALiOS: c32489782fa3b646cfaa581b9e84e394396fc6ac
 
-COCOAPODS: 0.35.0
+COCOAPODS: 0.36.3

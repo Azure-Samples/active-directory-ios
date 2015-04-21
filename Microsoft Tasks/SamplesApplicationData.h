@@ -10,6 +10,8 @@
 @property (strong) NSString* resourceId;
 @property (strong) NSString* redirectUriString;
 @property (strong) NSString* correlationId;
+@property (strong) NSString* signInPolicyId;
+@property (strong) NSString* signUpPolicyId;
 @property BOOL fullScreen;
 
 +(id) getInstance;

@@ -9,6 +9,7 @@
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
 #import "samplesTaskItem.h"
+#import "SamplesSelectUserViewController.h"
 
 @implementation sampleAddTaskItemViewController
 
@@ -46,11 +47,12 @@
             {
                 dispatch_async(dispatch_get_main_queue(),^ {
                     
-                    [self dismissViewControllerAnimated:YES completion:nil];
+                    [self.navigationController popViewControllerAnimated:TRUE];
                 });
             }
             else
             {
+                
                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
                 
                 [alertView setDelegate:self];
@@ -67,7 +69,7 @@
 
 - (IBAction)cancelPressed:(id)sender
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:TRUE];
 }
 
 
