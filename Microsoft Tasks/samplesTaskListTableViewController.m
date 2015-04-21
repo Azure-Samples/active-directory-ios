@@ -39,6 +39,8 @@
 
     
     // Load data from the webservice
+    
+    if (appData.userItem) {
     [samplesWebAPIConnector getTaskList:^(NSArray *tasks, NSError* error) {
         
         
@@ -75,7 +77,7 @@
             });
         }
     } parent:self];
-}
+    } }
 
 - (IBAction)switchUserPressed:(id)sender {
     

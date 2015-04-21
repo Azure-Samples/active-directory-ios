@@ -72,6 +72,15 @@
     [cache removeAllWithError:nil];
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     data.userItem = nil;
+    
+    // This clears cookies for new sign-in flow. We shouldn't need to do this. Server should accept PROMPT_ALWAYS in B2C
+    
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (BOOL) isEnabled:(UISegmentedControl *)control
