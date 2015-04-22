@@ -10,6 +10,6 @@
 
 @interface samplesTaskListTableViewController : UITableViewController<UIAlertViewDelegate>
 
-- (IBAction)switchUserPressed:(id)sender;
+
 
 @end

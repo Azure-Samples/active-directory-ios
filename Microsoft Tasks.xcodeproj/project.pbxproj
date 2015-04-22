@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 97B22EE61A2C3622000C521C /* Main_iPad.storyboard */; };
 		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
 		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
+		B82906B71AE6C98300E1977C /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906B61AE6C98300E1977C /* NSDictionary+UrlEncoding.m */; };
+		B82906B91AE6CA8100E1977C /* samplesPolicyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906B81AE6CA8100E1977C /* samplesPolicyData.m */; };
+		B82906BD1AE6CD1100E1977C /* samplesShowClaimsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906BC1AE6CD1100E1977C /* samplesShowClaimsViewController.m */; };
+		B82906C01AE6DA2A00E1977C /* samplesLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906BF1AE6DA2A00E1977C /* samplesLoginViewController.m */; };
 		EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		FB33714918CA5B7E00234804 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB33714818CA5B7E00234804 /* settings.plist */; };
 		FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
@@ -53,13 +56,20 @@
 		268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microsoft Tasks.entitlements"; sourceTree = "<group>"; };
-		97B22EE61A2C3622000C521C /* Main_iPad.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPad.storyboard; sourceTree = "<group>"; };
 		97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesSelectUserViewController.h; sourceTree = "<group>"; };
 		97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesSelectUserViewController.m; sourceTree = "<group>"; };
 		97C15AF51A280B69004A0419 /* SamplesApplicationData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesApplicationData.h; sourceTree = "<group>"; };
 		97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesApplicationData.m; sourceTree = "<group>"; };
 		97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesAppSettingsController.h; sourceTree = "<group>"; };
 		97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesAppSettingsController.m; sourceTree = "<group>"; };
+		B82906B51AE6C98300E1977C /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
+		B82906B61AE6C98300E1977C /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
+		B82906B81AE6CA8100E1977C /* samplesPolicyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesPolicyData.m; sourceTree = "<group>"; };
+		B82906BA1AE6CA9400E1977C /* samplesPolicyData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = samplesPolicyData.h; sourceTree = "<group>"; };
+		B82906BB1AE6CD1100E1977C /* samplesShowClaimsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesShowClaimsViewController.h; sourceTree = "<group>"; };
+		B82906BC1AE6CD1100E1977C /* samplesShowClaimsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesShowClaimsViewController.m; sourceTree = "<group>"; };
+		B82906BE1AE6DA2A00E1977C /* samplesLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesLoginViewController.h; sourceTree = "<group>"; };
+		B82906BF1AE6DA2A00E1977C /* samplesLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesLoginViewController.m; sourceTree = "<group>"; };
 		FB33714818CA5B7E00234804 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesWebAPIConnector.h; sourceTree = "<group>"; };
 		FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesWebAPIConnector.m; sourceTree = "<group>"; };
@@ -171,7 +181,6 @@
 			isa = PBXGroup;
 			children = (
 				971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */,
-				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				FB381FF118D1998400BF7374 /* iPad */,
 				FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */,
 				FB3F00E418C7016200173598 /* InfoPlist.strings */,
@@ -189,11 +198,19 @@
 				FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */,
 				FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */,
 				97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */,
+				97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */,
 				97C15AF51A280B69004A0419 /* SamplesApplicationData.h */,
 				97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */,
 				97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */,
 				97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */,
-				97B22EE61A2C3622000C521C /* Main_iPad.storyboard */,
+				B82906B51AE6C98300E1977C /* NSDictionary+UrlEncoding.h */,
+				B82906B61AE6C98300E1977C /* NSDictionary+UrlEncoding.m */,
+				B82906B81AE6CA8100E1977C /* samplesPolicyData.m */,
+				B82906BA1AE6CA9400E1977C /* samplesPolicyData.h */,
+				B82906BB1AE6CD1100E1977C /* samplesShowClaimsViewController.h */,
+				B82906BC1AE6CD1100E1977C /* samplesShowClaimsViewController.m */,
+				B82906BE1AE6DA2A00E1977C /* samplesLoginViewController.h */,
+				B82906BF1AE6DA2A00E1977C /* samplesLoginViewController.m */,
 			);
 			path = "Microsoft Tasks";
 			sourceTree = "<group>";
@@ -315,7 +332,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97B22EE71A2C3622000C521C /* Main_iPad.storyboard in Resources */,
 				FB3BF23518D03A88007E645E /* Main_iPhone.storyboard in Resources */,
 				FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */,
 				FB3F00F118C7016200173598 /* Images.xcassets in Resources */,
@@ -404,11 +420,15 @@
 			files = (
 				97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */,
 				FB3F011618C7092700173598 /* sampleAddTaskItemViewController.m in Sources */,
+				B82906B71AE6C98300E1977C /* NSDictionary+UrlEncoding.m in Sources */,
 				FB3F011F18C713E600173598 /* samplesTaskItem.m in Sources */,
 				FB3F00EF18C7016200173598 /* Microsoft_Tasks.xcdatamodeld in Sources */,
+				B82906B91AE6CA8100E1977C /* samplesPolicyData.m in Sources */,
+				B82906BD1AE6CD1100E1977C /* samplesShowClaimsViewController.m in Sources */,
 				FB3F011C18C709FE00173598 /* samplesTaskListTableViewController.m in Sources */,
 				FB3F00EC18C7016200173598 /* samplesAppDelegate.m in Sources */,
 				97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */,
+				B82906C01AE6DA2A00E1977C /* samplesLoginViewController.m in Sources */,
 				FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */,
 				97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */,
 				FB3F00E818C7016200173598 /* main.m in Sources */,
@@ -545,7 +565,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -571,7 +591,7 @@
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

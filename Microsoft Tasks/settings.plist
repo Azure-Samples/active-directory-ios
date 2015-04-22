@@ -16,5 +16,7 @@
 	<string>https://aadadfstodolistservice.azurewebsites.net/api/todolist</string>
 	<key>fullScreen</key>
 	<true/>
+	<key>showClaims</key>
+	<true/>
 </dict>
 </plist>

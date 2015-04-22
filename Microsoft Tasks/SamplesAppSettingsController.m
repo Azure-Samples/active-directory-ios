@@ -10,6 +10,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *redirectUriLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *fullScreenSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *correlationIdLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *showClaimsSwitch;
 @end
 
 @implementation SamplesAppSettingsController
@@ -25,6 +26,7 @@
     self->_redirectUriLabel.text = data.redirectUriString;
     self->_correlationIdLabel.text = data.correlationId;
     [self configureControl:self->_fullScreenSwitch forValue:data.fullScreen];
+    [self configureControl:self->_showClaimsSwitch forValue:data.showClaims];
 }
 
 
@@ -37,13 +39,9 @@
     data.redirectUriString = self->_redirectUriLabel.text;
     data.fullScreen = [self isEnabled:self->_fullScreenSwitch];
     data.correlationId = self->_correlationIdLabel.text;
+    data.showClaims = [self isEnabled:self->_showClaimsSwitch];
     [self cancelPressed:sender];
-}
-
-
-- (IBAction)cancelPressed:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    
 }
 
 
@@ -57,6 +55,10 @@
     }
 }
 
+- (IBAction)cancelPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 
 - (IBAction)clearKeychainPressed:(id)sender
@@ -65,6 +67,15 @@
     [cache removeAllWithError:nil];
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
     data.userItem = nil;
+    
+    // This clears cookies for new sign-in flow. We shouldn't need to do this. Server should accept PROMPT_ALWAYS
+    
+    NSHTTPCookieStorage *storage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (NSHTTPCookie *cookie in [storage cookies]) {
+        [storage deleteCookie:cookie];
+    }
+    
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (BOOL) isEnabled:(UISegmentedControl *)control

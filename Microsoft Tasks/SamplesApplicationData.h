@@ -11,6 +11,7 @@
 @property (strong) NSString* redirectUriString;
 @property (strong) NSString* correlationId;
 @property BOOL fullScreen;
+@property BOOL showClaims;
 
 +(id) getInstance;
 

@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "samplesTaskItem.h"
+#import "samplesPolicyData.h"
+#import "ADALiOS/ADAuthenticationContext.h"
 
 @interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
 
@@ -17,6 +19,14 @@
 +(void) addTask:(samplesTaskItem*)task
          parent:(UIViewController*) parent
 completionBlock:(void (^) (bool, NSError* error)) completionBlock;
+
++(void) doPolicy:(samplesPolicyData*)policy
+          parent:(UIViewController*) parent
+ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock;
+
++(void) doLogin:(BOOL)prompt
+          parent:(UIViewController*) parent
+ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock;
 
 +(void) signOut;
 

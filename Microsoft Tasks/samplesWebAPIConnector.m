@@ -11,7 +11,9 @@
 #import "samplesWebAPIConnector.h"
 #import "ADALiOS/ADAuthenticationContext.h"
 #import "samplesTaskItem.h"
+#import "samplesPolicyData.h"
 #import "ADALiOS/ADAuthenticationSettings.h"
+#import "NSDictionary+UrlEncoding.h"
 
 @implementation samplesWebAPIConnector
 
@@ -28,6 +30,10 @@ bool loadedApplicationSettings;
     NSCharacterSet* set = [NSCharacterSet whitespaceAndNewlineCharacterSet];
     return [toTrim stringByTrimmingCharactersInSet:set];
 }
+
+//getToken for generic Web API flows. Returns a token with no additional parameters provided.
+//
+//
 
 +(void) getToken : (BOOL) clearCache
            parent:(UIViewController*) parent
@@ -55,8 +61,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                                  clientId:data.clientId
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_AUTO
-                                   userId:nil
-                     extraQueryParameters: @"nux=1"
+                                   userId:data.userItem.userInformation.userId
+                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
                           completionBlock:^(ADAuthenticationResult *result) {
         
         if (result.status != AD_SUCCEEDED)
@@ -69,6 +75,136 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
             completionBlock(result.tokenCacheStoreItem.accessToken, nil);
         }
     }];
+}
+
+//getToken for support of sending extra (and unknown) params to the authorization and token endpoints
+//
+//
+
++(void) getTokenWithExtraParams : (BOOL) clearCache
+                          params:(NSDictionary*) params
+                          parent:(UIViewController*) parent
+               completionHandler:(void (^) (NSString*, NSError*))completionBlock;
+{
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    
+    
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    authContext.parentController = parent;
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+    
+    if(!data.correlationId ||
+       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+    }
+    
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_AUTO
+                                   userId:data.userItem.userInformation.userId
+                     extraQueryParameters: params.urlEncodedString
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);
+                              }
+                              else
+                              {
+                                  data.userItem = result.tokenCacheStoreItem;
+                                  completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                              }
+                          }];
+}
+
+// getToken for support of sending extra (and unknown) params to the authorization and token endpoints.
+// This method returns the entire claimset as stored in the userInformation collection instead of a token.
+// Use this only for display purposes, it is not necessary
+
++(void) getClaimsWithExtraParams : (BOOL) clearCache
+                           params:(NSDictionary*) params
+                           parent:(UIViewController*) parent
+                completionHandler:(void (^) (ADUserInformation*, NSError*))completionBlock;
+{
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    
+    
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    authContext.parentController = parent;
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+    
+    if(!data.correlationId ||
+       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+    }
+    
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_AUTO
+                                   userId:data.userItem.userInformation.userId
+                     extraQueryParameters: params.urlEncodedString
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);
+                              }
+                              else
+                              {
+                                  data.userItem = result.tokenCacheStoreItem;
+                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                              }
+                          }];
+}
+
+
+// This method returns the entire claimset as stored in the userInformation collection instead of a token.
+// This is meant to show that Claims can be retreived without extra query params. You could easily pass getClaimsWithExtraParams with params = nil.
+
++(void) getClaims : (BOOL) clearCache
+            parent:(UIViewController*) parent
+ completionHandler:(void (^) (ADUserInformation*, NSError*))completionBlock;
+{
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    
+    ADAuthenticationError *error;
+    authContext = [ADAuthenticationContext authenticationContextWithAuthority:data.authority error:&error];
+    authContext.parentController = parent;
+    NSURL *redirectUri = [[NSURL alloc]initWithString:data.redirectUriString];
+    
+    if(!data.correlationId ||
+       [[data.correlationId stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length] == 0)
+    {
+        authContext.correlationId = [[NSUUID alloc] initWithUUIDString:data.correlationId];
+    }
+    
+    [ADAuthenticationSettings sharedInstance].enableFullScreen = data.fullScreen;
+    [authContext acquireTokenWithResource:data.resourceId
+                                 clientId:data.clientId
+                              redirectUri:redirectUri
+                           promptBehavior:AD_PROMPT_ALWAYS
+                                   userId:nil
+                     extraQueryParameters: nil
+                          completionBlock:^(ADAuthenticationResult *result) {
+                              
+                              if (result.status != AD_SUCCEEDED)
+                              {
+                                  completionBlock(nil, result.error);
+                              }
+                              else
+                              {
+                                  data.userItem = result.tokenCacheStoreItem;
+                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                              }
+                          }];
 }
 
 +(void) getTaskList:(void (^) (NSArray*, NSError*))completionBlock
@@ -173,6 +309,62 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }];
 }
 
+
+// A simple callback that makes sense of all the getClaims* above.
+
++(void) doLogin:(BOOL) prompt
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock
+{
+    if (!loadedApplicationSettings)
+    {
+        [self readApplicationSettings];
+    }
+    
+    [self getClaims:NO parent:parent completionHandler:^(ADUserInformation* userInfo, NSError* error) {
+        
+        if (userInfo == nil)
+        {
+            completionBlock(nil, error);
+        }
+        
+        else {
+            
+            completionBlock(userInfo, nil);
+        }
+    }];
+    
+}
+
+// Although not yet used in this sample, this demonstrates how you could pass policies to the server.
+// See the Native-iOS-B2C sample for more information.
+
++(void) doPolicy:(samplesPolicyData *)policy
+          parent:(UIViewController*) parent
+ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock
+{
+    if (!loadedApplicationSettings)
+    {
+        [self readApplicationSettings];
+    }
+    
+    NSDictionary* params = [self convertPolicyToDictionary:policy];
+    
+    [self getClaimsWithExtraParams:NO params:params parent:parent completionHandler:^(ADUserInformation* userInfo, NSError* error) {
+        
+        if (userInfo == nil)
+        {
+            completionBlock(nil, error);
+        }
+        
+        else {
+            
+            completionBlock(userInfo, nil);
+        }
+    }];
+    
+}
+
 +(void) craftRequest : (NSString*)webApiUrlString
                parent:(UIViewController*) parent
     completionHandler:(void (^)(NSMutableURLRequest*, NSError* error))completionBlock
@@ -198,6 +390,8 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }];
 }
 
+// Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
+
 +(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
@@ -208,6 +402,27 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     
     return dictionary;
 }
+
++(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
+{
+    NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
+    
+    // Using UUID for nonce. Not recommended.
+    
+    NSString *UUID = [[NSUUID UUID] UUIDString];
+    
+    
+    if (policy.policyID){
+        [dictionary setValue:policy.policyID forKey:@"p"];
+        [dictionary setValue:@"openid" forKey:@"scope"];
+        [dictionary setValue:UUID forKey:@"nonce"];
+        [dictionary setValue:@"query" forKey:@"response_mode"];
+    }
+    
+    return dictionary;
+}
+
+
 
 +(void) signOut
 {
