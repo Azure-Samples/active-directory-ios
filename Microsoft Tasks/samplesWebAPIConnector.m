@@ -190,7 +190,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_ALWAYS
+                           promptBehavior:AD_PROMPT_AUTO
                                    userId:nil
                      extraQueryParameters: nil
                           completionBlock:^(ADAuthenticationResult *result) {
@@ -245,7 +245,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                         keyValuePairs = [tasks objectAtIndex:i];
                         
                         samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        s.itemName = [keyValuePairs valueForKey:@"Title"];
+                        s.itemName = [keyValuePairs valueForKey:@"task"];
                         
                         [sampleTaskItems addObject:s];
                     }
@@ -397,7 +397,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
     
     if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"Title"];
+        [dictionary setValue:task.itemName forKey:@"task"];
     }
     
     return dictionary;
