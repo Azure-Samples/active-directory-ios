@@ -43,10 +43,7 @@
 
 - (IBAction)homePressed:(id)sender {
     
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        samplesTaskListTableViewController* homeController = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeView"];
-        [self.navigationController pushViewController:homeController animated:YES];
-    });
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
 
 }
 @end

@@ -43,11 +43,11 @@
         
         [samplesWebAPIConnector addTask:taskItem parent:self completionBlock:^(bool success, NSError* error) {
             if (success)
-            {
-                dispatch_async(dispatch_get_main_queue(),^ {
-                    
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                });
+                
+            {dispatch_async(dispatch_get_main_queue(),^ {
+                
+                [self.navigationController popViewControllerAnimated:TRUE];
+            });
             }
             else
             {

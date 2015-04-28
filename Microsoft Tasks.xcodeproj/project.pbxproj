@@ -137,13 +137,6 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		FB381FF118D1998400BF7374 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
 		FB3F00CD18C7016200173598 = {
 			isa = PBXGroup;
 			children = (
@@ -181,7 +174,6 @@
 			isa = PBXGroup;
 			children = (
 				971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */,
-				FB381FF118D1998400BF7374 /* iPad */,
 				FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */,
 				FB3F00E418C7016200173598 /* InfoPlist.strings */,
 				FB3F00EA18C7016200173598 /* samplesAppDelegate.h */,
@@ -256,6 +248,7 @@
 				FB3F00D318C7016200173598 /* Frameworks */,
 				FB3F00D418C7016200173598 /* Resources */,
 				2E16D7D83C534279873FC06F /* Copy Pods Resources */,
+				B844A9A71AEF103A00224ED9 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -297,7 +290,7 @@
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
 					FB3F00D518C7016200173598 = {
-						DevelopmentTeam = 4XAC8VP2M2;
+						DevelopmentTeam = QPA5Y64RGS;
 						SystemCapabilities = {
 							com.apple.Keychain = {
 								enabled = 1;
@@ -410,6 +403,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		B844A9A71AEF103A00224ED9 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "FILE=\"${SRCROOT}/HockeySDK-iOS/BuildAgent\"\nif [ -f \"$FILE\" ]; then\n\"$FILE\"\nfi";
 		};
 /* End PBXShellScriptBuildPhase section */
 
