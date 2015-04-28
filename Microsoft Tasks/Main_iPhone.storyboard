@@ -182,6 +182,7 @@
                                 </state>
                                 <connections>
                                     <action selector="signInPressed:" destination="wCZ-wz-A5S" eventType="touchUpInside" id="lBo-bR-rCJ"/>
+                                    <segue destination="voh-Oe-Hk5" kind="push" id="2o7-Sw-t04"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZK-gA-DxX">
@@ -201,7 +202,7 @@
             </objects>
             <point key="canvasLocation" x="738" y="219"/>
         </scene>
-        <!--Samples Show Claims View Controller-->
+        <!--Claims Received-->
         <scene sceneID="V9L-h6-qMQ">
             <objects>
                 <viewController storyboardIdentifier="ClaimsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="voh-Oe-Hk5" customClass="samplesShowClaimsViewController" sceneMemberID="viewController">
@@ -213,30 +214,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cb-14-EkC">
-                                <rect key="frame" x="-4" y="0.0" width="328" height="44"/>
-                                <items>
-                                    <navigationItem title="Claims" id="gnr-1h-f8n">
-                                        <barButtonItem key="rightBarButtonItem" style="plain" id="By3-QU-0b3">
-                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qHr-2E-FTw">
-                                                <rect key="frame" x="-23" y="-15" width="72" height="30"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" title="Home">
-                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="homePressed:" destination="voh-Oe-Hk5" eventType="touchUpInside" id="y0c-7F-7yI"/>
-                                                </connections>
-                                            </button>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Aj5-QW-kt8">
                                 <rect key="frame" x="0.0" y="44" width="320" height="429"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="sEk-hW-W4b">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="429"/>
+                                        <rect key="frame" x="0.0" y="-9" width="320" height="448"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -246,6 +228,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Claims Received" id="d9I-S3-iQE">
+                        <barButtonItem key="rightBarButtonItem" title="Home" id="qrJ-aD-YCq">
+                            <connections>
+                                <action selector="homePressed:" destination="voh-Oe-Hk5" id="3yc-IQ-Yh1"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tokenText" destination="sEk-hW-W4b" id="JwP-gU-4mx"/>
                         <outlet property="tokenView" destination="Aj5-QW-kt8" id="duW-02-zXa"/>
@@ -253,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bV6-Nf-qWD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1188" y="219"/>
+            <point key="canvasLocation" x="1212" y="219"/>
         </scene>
         <!--App Settings-->
         <scene sceneID="V0I-4S-I30">
@@ -439,31 +428,10 @@
             </objects>
             <point key="canvasLocation" x="-412" y="219"/>
         </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="3FS-Up-6UR">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vQn-FY-wtT" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ni6-tG-GvL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aWb-xp-2td" kind="relationship" relationship="rootViewController" id="DSM-KI-XKU"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7v5-0a-lBe" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-876" y="219"/>
-        </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
-    <inferredMetricsTieBreakers>
-        <segue reference="5uX-3K-dQu"/>
-    </inferredMetricsTieBreakers>
 </document>

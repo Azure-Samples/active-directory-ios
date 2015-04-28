@@ -142,6 +142,7 @@
     //tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
     
+    [self.navigationController popToRootViewControllerAnimated:TRUE];
     
 }
 

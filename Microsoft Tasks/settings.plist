@@ -5,15 +5,15 @@
 	<key>authority</key>
 	<string>https://login.windows.net/common</string>
 	<key>clientId</key>
-	<string>e3786e2a-0dcb-449a-8eba-b4042c9bec01</string>
+	<string>e6d65cc4-f9e8-444a-9ba6-c3c82ce8086b</string>
 	<key>resourceString</key>
-	<string>https://aadadfs.onmicrosoft.com/TodoListService</string>
+	<string>http://kidventus.com/TodoListService</string>
 	<key>redirectUri</key>
-	<string>https://aadadfstodolistservice.azurewebsites.net</string>
+	<string>msauth://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>
-	<string>https://aadadfstodolistservice.azurewebsites.net/api/todolist</string>
+	<string>http://localhost/tasks</string>
 	<key>fullScreen</key>
 	<true/>
 	<key>showClaims</key>

@@ -148,7 +148,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_AUTO
+                           promptBehavior:AD_PROMPT_ALWAYS
                                    userId:data.userItem.userInformation.userId
                      extraQueryParameters: params.urlEncodedString
                           completionBlock:^(ADAuthenticationResult *result) {
@@ -190,9 +190,10 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     [authContext acquireTokenWithResource:data.resourceId
                                  clientId:data.clientId
                               redirectUri:redirectUri
-                           promptBehavior:AD_PROMPT_AUTO
+                           promptBehavior:AD_PROMPT_ALWAYS
                                    userId:nil
-                     extraQueryParameters: nil
+                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+
                           completionBlock:^(ADAuthenticationResult *result) {
                               
                               if (result.status != AD_SUCCEEDED)
@@ -417,6 +418,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
         [dictionary setValue:@"openid" forKey:@"scope"];
         [dictionary setValue:UUID forKey:@"nonce"];
         [dictionary setValue:@"query" forKey:@"response_mode"];
+        [dictionary setValue:@"1" forKey:@"nux"];
     }
     
     return dictionary;
