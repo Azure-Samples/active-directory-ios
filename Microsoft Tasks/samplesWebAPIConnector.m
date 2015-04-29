@@ -310,6 +310,54 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }];
 }
 
++(void) deleteTask:(samplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock
+{
+    if (!loadedApplicationSettings)
+    {
+        [self readApplicationSettings];
+    }
+    
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
+        
+        if (error != nil)
+        {
+            completionBlock(NO, error);
+        }
+        else
+        {
+            NSDictionary* taskInDictionaryFormat = [self convertTaskToDictionary:task];
+            
+            NSData* requestBody = [NSJSONSerialization dataWithJSONObject:taskInDictionaryFormat options:0 error:nil];
+            
+            [request setHTTPMethod:@"DELETE"];
+            [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+            [request setHTTPBody:requestBody];
+            
+            NSLog(@"%@", request);
+            
+            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+            
+            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+                
+                NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                NSLog(@"%@", content);
+                
+                if (error == nil){
+                    
+                    completionBlock(true, nil);
+                }
+                else
+                {
+                    completionBlock(false, error);
+                }
+            }];
+        }
+    }];
+}
+
 
 // A simple callback that makes sense of all the getClaims* above.
 
