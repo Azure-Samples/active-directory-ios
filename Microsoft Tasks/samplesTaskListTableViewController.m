@@ -120,6 +120,7 @@
     // Dispose of any resources that can be recreated.
 }
 
+
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -158,6 +159,51 @@
     tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
+
+
+ // Override to support conditional editing of the table view.
+ - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+ // Return NO if you do not want the specified item to be editable.
+ return YES;
+ }
+
+
+
+ // Override to support editing the table view.
+ - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+ if (editingStyle == UITableViewCellEditingStyleDelete) {
+     
+         
+         samplesTaskItem *selectedItem = [self.taskItems objectAtIndex:indexPath.row];
+         [samplesWebAPIConnector deleteTask:selectedItem parent:self completionBlock:^(bool success, NSError* error) {
+            
+             if (error != nil) {
+
+                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+                 
+                 [alertView setDelegate:self];
+                 
+                 dispatch_async(dispatch_get_main_queue(),^ {
+                     [alertView show];
+                 });
+             }
+             
+             }];
+     
+     [self.taskItems removeObjectAtIndex:indexPath.row];
+     [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+     
+     }
+     
+     [self.taskItems removeAllObjects];
+     [self.tableView reloadData];
+     [self loadData];
+
+ 
+ }
+
+
+
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {

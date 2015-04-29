@@ -20,6 +20,10 @@
          parent:(UIViewController*) parent
 completionBlock:(void (^) (bool, NSError* error)) completionBlock;
 
++(void) deleteTask:(samplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock;
+
 +(void) doPolicy:(samplesPolicyData*)policy
           parent:(UIViewController*) parent
  completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock;
