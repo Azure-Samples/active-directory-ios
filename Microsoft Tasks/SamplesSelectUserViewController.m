@@ -38,6 +38,7 @@
     ADAuthenticationError* error;
     id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
     NSArray* array = [cache allItemsWithError:&error];
+    
     if (error)
     {
         UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"%@", error.errorDetails] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
@@ -71,11 +72,6 @@
             [self.tableView reloadData];
         });
     }
-}
-
-- (IBAction)addPressed:(id)sender
-{
-    [self getToken:nil];
 }
 
 - (IBAction)cancelPressed:(id)sender

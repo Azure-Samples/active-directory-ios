@@ -32,7 +32,7 @@
         
         dispatch_async(dispatch_get_main_queue(),^ {
             
-            SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginView"];
+            SamplesSelectUserViewController* userSelectController = [self.storyboard instantiateViewControllerWithIdentifier:@"SelectUserView"];
             [self.navigationController pushViewController:userSelectController animated:YES];
         });
     }
