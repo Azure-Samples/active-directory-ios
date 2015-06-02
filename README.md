@@ -49,7 +49,7 @@ Integrating client project
 Launch XCode and load the `Microsoft Tasks.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
 
 
-#### Dte6 5. Determine what your Redirect URI will be for iOS
+#### Step 5. Determine what your Redirect URI will be for iOS
 
 In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
 
