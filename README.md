@@ -42,14 +42,29 @@ Installing ADALiOS (1.2.2)
 Generating Pods project
 Integrating client project
 
-[!] Please close any current Xcode sessions and use `Microsoft Tasks B2C.xcworkspace` for this project from now on.
+[!] Please close any current Xcode sessions and use `Microsoft Tasks.xcworkspace` for this project from now on.
 ```
 ### Step 4: Run the application in Xcode
 
-Launch XCode and load the `Microsoft Tasks.xcworkspace` file. The application will run in an emulator as soon as it is loaded. 
+Launch XCode and load the `Microsoft Tasks.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
 
- 
-### Step 5: Configure the settings.plist file with your Web API information
+
+#### Dte6 5. Determine what your Redirect URI will be for iOS
+
+In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
+
+The iOS format for a Redirect URI is:
+
+```
+<app-scheme>://<bundle-id>
+```
+
+- 	**aap-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
+- 	**bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
+
+An example would be: ***mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks***
+
+### Step 6: Configure the settings.plist file with your Web API information
 
 You will need to configure your application to work with the Azure AD tenant you've created. Under "Supporting Files"you will find a settings.plist file. It contains the following information:
 
@@ -59,13 +74,13 @@ You will need to configure your application to work with the Azure AD tenant you
 <plist version="1.0">
 <dict>
 	<key>authority</key>
-	<string>https://login.windows.net/common/oauth2/token</string>
+	<string>https://login.microsoftonline.com/common</string>
 	<key>clientId</key>
 	<string>xxxxxxx-xxxxxx-xxxxxxx-xxxxxxx</string>
 	<key>resourceString</key>
 	<string>https://localhost/todolistservice</string>
 	<key>redirectUri</key>
-	<string>http://demo_todolist_app</string>
+	<string>mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
 	<key>userId</key>
 	<string>user@domain.com</string>
 	<key>taskWebAPI</key>
@@ -74,13 +89,8 @@ You will need to configure your application to work with the Azure AD tenant you
 </plist>
 ```
 
-Replace the information in the plist file with your Web API settings. 
+Replace the information in the plist file with your Web API settings.
 
 ##### NOTE
 
 The current defaults are set up to work with our [Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
-
-
-
-
-
