@@ -1,4 +1,4 @@
-#Microsft Azure Active Directory Native Client for iOS (iPhone)
+#Microsoft Azure Active Directory Native Client for iOS (iPhone)
 
 
 This sample shows how to build an iOS application that calls a web API that requires a Work Account for authentication. This sample uses the Active Directory authentication library for iOS to do the interactive OAuth 2.0 authorization code flow with public client.
