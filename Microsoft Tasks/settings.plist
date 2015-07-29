@@ -3,13 +3,13 @@
 <plist version="1.0">
 <dict>
 	<key>authority</key>
-	<string>https://login.windows.net/common</string>
+	<string>https://login.microsoftonline.com/common</string>
 	<key>clientId</key>
 	<string>e6d65cc4-f9e8-444a-9ba6-c3c82ce8086b</string>
 	<key>resourceString</key>
 	<string>http://kidventus.com/TodoListService</string>
 	<key>redirectUri</key>
-	<string>msauth://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
+	<string>mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>
