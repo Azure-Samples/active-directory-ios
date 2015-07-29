@@ -8,7 +8,6 @@
 
 #import "samplesAppDelegate.h"
 #import "SamplesApplicationData.h"
-#import "HockeySDK.h"
 
 
 @implementation samplesAppDelegate
@@ -17,11 +16,6 @@
 {
     // Override point for customization after application launch.
     
-    [[BITHockeyManager sharedHockeyManager] configureWithIdentifier:@"d33f57b02aa77d1c6f34fe28e07b51b9"];
-    [[BITHockeyManager sharedHockeyManager] startManager];
-    [[BITHockeyManager sharedHockeyManager].authenticator
-     authenticateInstallation];
-
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     
