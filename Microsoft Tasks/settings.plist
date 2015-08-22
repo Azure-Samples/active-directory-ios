@@ -7,13 +7,13 @@
 	<key>clientId</key>
 	<string>e6d65cc4-f9e8-444a-9ba6-c3c82ce8086b</string>
 	<key>resourceString</key>
-	<string>http://kidventus.com/TodoListService</string>
+	<string>https://kidventus.net/tasks</string>
 	<key>redirectUri</key>
 	<string>mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>
-	<string>http://localhost/tasks</string>
+	<string>https://kidventus.net/tasks</string>
 	<key>fullScreen</key>
 	<true/>
 	<key>showClaims</key>
