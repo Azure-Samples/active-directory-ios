@@ -1,3 +1,9 @@
+---
+services:
+platforms:
+author: azure
+---
+
 #Microsoft Azure Active Directory Native Client for iOS (iPhone)
 
 **NOTE regarding iOS 9:**
