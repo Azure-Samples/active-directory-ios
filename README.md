@@ -4,7 +4,7 @@ platforms:
 author: azure
 ---
 
-#Microsoft Azure Active Directory Native Client for iOS (iPhone)
+# Integrate Azure AD into an iOS application
 
 **NOTE regarding iOS 9:**
 
