@@ -1,7 +1,7 @@
 ---
-services:
-platforms:
-author: azure
+services: active-directory
+platforms: ios
+author: dstrockis
 ---
 
 # Integrate Azure AD into an iOS application
@@ -26,7 +26,7 @@ Getting started with the sample is easy. It is configured to run out of the box 
 
 ### Step 1: Download the iOS B2C Native Client Sample code
 
-* `$ git clone git@github.com:AzureADSamples/NativeClient-iOS.git`
+* `$ git clone git@github.com:Azure-Samples/active-directory-ios.git`
 
 ### Step 2: Download Cocoapods (if you don't already have it)
 
@@ -48,7 +48,7 @@ You should see the following output:
 $ pod install
 Analyzing dependencies
 
-Pre-downloading: `ADALiOS` from `https://github.com/AzureAD/azure-activedirectory-library-for-objc.git`, branch `B2C-ADAL`
+Pre-downloading: `ADALiOS` from `https://github.com/Azure-Samples/azure-activedirectory-library-for-objc.git`, branch `B2C-ADAL`
 Downloading dependencies
 Installing ADALiOS (1.2.2)
 Generating Pods project
@@ -105,4 +105,4 @@ Replace the information in the plist file with your Web API settings.
 
 ##### NOTE
 
-The current defaults are set up to work with our [Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
+The current defaults are set up to work with our [Azure Active Directory Sample REST API Service for Node.js](https://github.com/Azure-Samples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
