@@ -15,16 +15,12 @@ Apple has released iOS 9 which includes support for App Transport Security (ATS)
 
 This sample shows how to build an iOS application that calls a web API that requires a Work Account for authentication. This sample uses the Active Directory authentication library for iOS to do the interactive OAuth 2.0 authorization code flow with public client.
 
-**What is a Work Account?**
-
-*A Work Account is an identity you use to get work done no matter if at your business or on a college campus. Anywhere you need to get access to your work life you'll use a Work Account. The Work Account can be tied to an Active Directory server running in your datacenter or live completely in the cloud like when you use Office365. A Work Account will be how your users know that they are accessing their important documents and data backed my Microsoft security.*
-
 
 ## Quick Start
 
 Getting started with the sample is easy. It is configured to run out of the box with minimal setup. If you'd like a more detailed walkthrough including how to setup the REST API and register an Azure AD Directory follow the walk-through here.
 
-### Step 1: Download the iOS B2C Native Client Sample code
+### Step 1: Download the iOS Native Client Sample code
 
 * `$ git clone git@github.com:Azure-Samples/active-directory-ios.git`
 
