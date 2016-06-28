@@ -7,15 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9369174CBAA851246D8E26A1 /* libPods-Microsoft TasksTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A77AE6C280E4F43F0755FBA7 /* libPods-Microsoft TasksTests.a */; };
 		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
-		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		B82906B71AE6C98300E1977C /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906B61AE6C98300E1977C /* NSDictionary+UrlEncoding.m */; };
 		B82906B91AE6CA8100E1977C /* samplesPolicyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906B81AE6CA8100E1977C /* samplesPolicyData.m */; };
 		B82906BD1AE6CD1100E1977C /* samplesShowClaimsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906BC1AE6CD1100E1977C /* samplesShowClaimsViewController.m */; };
 		B82906C01AE6DA2A00E1977C /* samplesLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906BF1AE6DA2A00E1977C /* samplesLoginViewController.m */; };
-		EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
+		EBECE5C9AB1D355E155F7EA2 /* libPods-Microsoft Tasks.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FBA254F7A6D5CF6FF71831FF /* libPods-Microsoft Tasks.a */; };
 		FB33714918CA5B7E00234804 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB33714818CA5B7E00234804 /* settings.plist */; };
 		FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
 		FB3BF22118D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
@@ -53,8 +53,9 @@
 
 /* Begin PBXFileReference section */
 		075B6E5720AC4E29872664F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		09D8D78AE447DC85DA3FB388 /* Pods-Microsoft Tasks.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microsoft Tasks.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Microsoft Tasks/Pods-Microsoft Tasks.debug.xcconfig"; sourceTree = "<group>"; };
+		2F23DE40C999A59719D83FB8 /* Pods-Microsoft Tasks.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microsoft Tasks.release.xcconfig"; path = "Pods/Target Support Files/Pods-Microsoft Tasks/Pods-Microsoft Tasks.release.xcconfig"; sourceTree = "<group>"; };
+		8DA08EE92A4D9F941E261E35 /* Pods-Microsoft TasksTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microsoft TasksTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Microsoft TasksTests/Pods-Microsoft TasksTests.release.xcconfig"; sourceTree = "<group>"; };
 		971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microsoft Tasks.entitlements"; sourceTree = "<group>"; };
 		97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesSelectUserViewController.h; sourceTree = "<group>"; };
 		97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesSelectUserViewController.m; sourceTree = "<group>"; };
@@ -62,6 +63,7 @@
 		97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesApplicationData.m; sourceTree = "<group>"; };
 		97C15AF81A29C9E3004A0419 /* SamplesAppSettingsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SamplesAppSettingsController.h; sourceTree = "<group>"; };
 		97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesAppSettingsController.m; sourceTree = "<group>"; };
+		A77AE6C280E4F43F0755FBA7 /* libPods-Microsoft TasksTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Microsoft TasksTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B82906B51AE6C98300E1977C /* NSDictionary+UrlEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+UrlEncoding.h"; sourceTree = "<group>"; };
 		B82906B61AE6C98300E1977C /* NSDictionary+UrlEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+UrlEncoding.m"; sourceTree = "<group>"; };
 		B82906B81AE6CA8100E1977C /* samplesPolicyData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesPolicyData.m; sourceTree = "<group>"; };
@@ -70,6 +72,7 @@
 		B82906BC1AE6CD1100E1977C /* samplesShowClaimsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesShowClaimsViewController.m; sourceTree = "<group>"; };
 		B82906BE1AE6DA2A00E1977C /* samplesLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesLoginViewController.h; sourceTree = "<group>"; };
 		B82906BF1AE6DA2A00E1977C /* samplesLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesLoginViewController.m; sourceTree = "<group>"; };
+		C246CB4E51A78EA44C845C92 /* Pods-Microsoft TasksTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Microsoft TasksTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Microsoft TasksTests/Pods-Microsoft TasksTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FB33714818CA5B7E00234804 /* settings.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = settings.plist; sourceTree = "<group>"; };
 		FB3BF21E18D0106C007E645E /* samplesWebAPIConnector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesWebAPIConnector.h; sourceTree = "<group>"; };
 		FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesWebAPIConnector.m; sourceTree = "<group>"; };
@@ -98,6 +101,7 @@
 		FB3F011B18C709FE00173598 /* samplesTaskListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesTaskListTableViewController.m; sourceTree = "<group>"; };
 		FB3F011D18C713E600173598 /* samplesTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesTaskItem.h; sourceTree = "<group>"; };
 		FB3F011E18C713E600173598 /* samplesTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesTaskItem.m; sourceTree = "<group>"; };
+		FBA254F7A6D5CF6FF71831FF /* libPods-Microsoft Tasks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Microsoft Tasks.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +113,7 @@
 				FB3F00E018C7016200173598 /* CoreData.framework in Frameworks */,
 				FB3F00DE18C7016200173598 /* UIKit.framework in Frameworks */,
 				FB3F00DA18C7016200173598 /* Foundation.framework in Frameworks */,
-				A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */,
+				EBECE5C9AB1D355E155F7EA2 /* libPods-Microsoft Tasks.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,7 +125,7 @@
 				FB3F00FB18C7016200173598 /* CoreData.framework in Frameworks */,
 				FB3F00FA18C7016200173598 /* UIKit.framework in Frameworks */,
 				FB3F00F918C7016200173598 /* Foundation.framework in Frameworks */,
-				EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */,
+				9369174CBAA851246D8E26A1 /* libPods-Microsoft TasksTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +135,10 @@
 		3815BCDF3B86DDADB63BCC4F /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */,
-				32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */,
+				09D8D78AE447DC85DA3FB388 /* Pods-Microsoft Tasks.debug.xcconfig */,
+				2F23DE40C999A59719D83FB8 /* Pods-Microsoft Tasks.release.xcconfig */,
+				C246CB4E51A78EA44C845C92 /* Pods-Microsoft TasksTests.debug.xcconfig */,
+				8DA08EE92A4D9F941E261E35 /* Pods-Microsoft TasksTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -166,6 +172,8 @@
 				FB3F00DF18C7016200173598 /* CoreData.framework */,
 				FB3F00F718C7016200173598 /* XCTest.framework */,
 				075B6E5720AC4E29872664F4 /* libPods.a */,
+				FBA254F7A6D5CF6FF71831FF /* libPods-Microsoft Tasks.a */,
+				A77AE6C280E4F43F0755FBA7 /* libPods-Microsoft TasksTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -243,11 +251,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB3F010818C7016200173598 /* Build configuration list for PBXNativeTarget "Microsoft Tasks" */;
 			buildPhases = (
-				242E920A0FC14065B8E09F12 /* Check Pods Manifest.lock */,
 				FB3F00D218C7016200173598 /* Sources */,
 				FB3F00D318C7016200173598 /* Frameworks */,
 				FB3F00D418C7016200173598 /* Resources */,
-				2E16D7D83C534279873FC06F /* Copy Pods Resources */,
 				B844A9A71AEF103A00224ED9 /* ShellScript */,
 			);
 			buildRules = (
@@ -263,11 +269,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB3F010B18C7016200173598 /* Build configuration list for PBXNativeTarget "Microsoft TasksTests" */;
 			buildPhases = (
-				573F442CE68680C3300FD91C /* Check Pods Manifest.lock */,
+				573F442CE68680C3300FD91C /* [CP] Check Pods Manifest.lock */,
 				FB3F00F218C7016200173598 /* Sources */,
 				FB3F00F318C7016200173598 /* Frameworks */,
 				FB3F00F418C7016200173598 /* Resources */,
-				AD96A739D75DFECDEA53C42D /* Copy Pods Resources */,
+				AD96A739D75DFECDEA53C42D /* [CP] Copy Pods Resources */,
+				45B8A496F713E5AED4F30A63 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -286,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = samples;
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = Microsoft;
 				TargetAttributes = {
 					FB3F00D518C7016200173598 = {
@@ -344,14 +351,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		242E920A0FC14065B8E09F12 /* Check Pods Manifest.lock */ = {
+		45B8A496F713E5AED4F30A63 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Microsoft TasksTests/Pods-Microsoft TasksTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		573F442CE68680C3300FD91C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -359,49 +381,19 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		2E16D7D83C534279873FC06F /* Copy Pods Resources */ = {
+		AD96A739D75DFECDEA53C42D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		573F442CE68680C3300FD91C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AD96A739D75DFECDEA53C42D /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Microsoft TasksTests/Pods-Microsoft TasksTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B844A9A71AEF103A00224ED9 /* ShellScript */ = {
@@ -498,6 +490,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -552,7 +545,7 @@
 		};
 		FB3F010918C7016200173598 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = 09D8D78AE447DC85DA3FB388 /* Pods-Microsoft Tasks.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -569,6 +562,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.windowsazure.activedirectory.samples.microsofttasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -578,7 +572,7 @@
 		};
 		FB3F010A18C7016200173598 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 2F23DE40C999A59719D83FB8 /* Pods-Microsoft Tasks.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -595,6 +589,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.microsoft.windowsazure.activedirectory.samples.microsofttasks;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -604,7 +599,7 @@
 		};
 		FB3F010C18C7016200173598 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */;
+			baseConfigurationReference = C246CB4E51A78EA44C845C92 /* Pods-Microsoft TasksTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Microsoft Tasks.app/Microsoft Tasks";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -619,6 +614,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "Microsoft TasksTests/Microsoft TasksTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.windowsazure.activedirectory.samples.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -627,7 +623,7 @@
 		};
 		FB3F010D18C7016200173598 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */;
+			baseConfigurationReference = 8DA08EE92A4D9F941E261E35 /* Pods-Microsoft TasksTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Microsoft Tasks.app/Microsoft Tasks";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -638,6 +634,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
 				INFOPLIST_FILE = "Microsoft TasksTests/Microsoft TasksTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.microsoft.windowsazure.activedirectory.samples.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
