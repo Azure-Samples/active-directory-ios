@@ -1,5 +1,5 @@
-source 'https://github.com/CocoaPods/Specs.git'
-link_with ['Microsoft Tasks', 'Microsoft TasksTests']
-xcodeproj 'Microsoft Tasks'
+target 'Microsoft Tasks' do
 
 pod 'ADALiOS'
+
+end
