@@ -1,8 +1,7 @@
 #import "SamplesSelectUserViewController.h"
-#import <ADAL/ADAuthenticationSettings.h>
-#import <ADAL/ADAL.h>
+#import <ADAuthenticationSettings.h>
+#import "ADALiOS/ADAuthenticationContext.h"
 #import "SamplesApplicationData.h"
-#import <ADAL/ADTokenCacheItem.h>
 #import "samplesTaskListTableViewController.h"
 
 @interface SamplesSelectUserViewController ()
@@ -37,8 +36,8 @@
 -(void) loadData
 {
     ADAuthenticationError* error;
-    ADKeychainTokenCache* cache = [ADKeychainTokenCache new];
-    NSArray* array = [cache allItems:&error];
+    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+    NSArray* array = [cache allItemsWithError:&error];
     
     if (error)
     {
@@ -53,12 +52,12 @@
     {
         NSMutableSet* users = [NSMutableSet new];
         self.userList = [NSMutableArray new];
-        for(ADTokenCacheItem* item in array)
+        for(ADTokenCacheStoreItem* item in array)
         {
             ADUserInformation *user = item.userInformation;
             if (!item.userInformation)
             {
-                user = [ADUserInformation userInformationWithIdToken:@"Unknown user" error:nil];
+                user = [ADUserInformation userInformationWithUserId:@"Unknown user" error:nil];
             }
             if (![users containsObject:user.userId])
             {
@@ -109,7 +108,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserPrototypeCell" forIndexPath:indexPath];
     
-    ADTokenCacheItem *userItem = [self.userList objectAtIndex:indexPath.row];
+    ADTokenCacheStoreItem *userItem = [self.userList objectAtIndex:indexPath.row];
     if(userItem)
     {
         if(userItem.userInformation){
@@ -133,7 +132,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    ADTokenCacheItem *userItem = [self.userList objectAtIndex:indexPath.row];
+    ADTokenCacheStoreItem *userItem = [self.userList objectAtIndex:indexPath.row];
     [self getToken:userItem];
     
     //tappedItem.completed = !tappedItem.completed;
@@ -143,7 +142,7 @@
     
 }
 
-- (void) getToken:(ADTokenCacheItem*) userItem
+- (void) getToken:(ADTokenCacheStoreItem*) userItem
 {
     SamplesApplicationData* appData = [SamplesApplicationData getInstance];
     ADAuthenticationError *error;
@@ -192,7 +191,7 @@
                               else
                               {
                                   SamplesApplicationData* data = [SamplesApplicationData getInstance];
-                                  data.userItem = result.tokenCacheItem;
+                                  data.userItem = result.tokenCacheStoreItem;
                                   [self cancelPressed:self];
                               }
                           }];

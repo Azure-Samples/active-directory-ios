@@ -1,9 +1,9 @@
 #import <Foundation/Foundation.h>
-#import <ADAL/ADAuthenticationResult.h>
+#import <ADALiOS/ADAuthenticationResult.h>
 
 @interface SamplesApplicationData : NSObject
 
-@property (strong) ADTokenCacheItem *userItem;
+@property (strong) ADTokenCacheStoreItem *userItem;
 @property (strong) NSString* taskWebApiUrlString;
 @property (strong) NSString* authority;
 @property (strong) NSString* clientId;

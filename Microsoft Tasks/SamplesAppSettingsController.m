@@ -1,6 +1,6 @@
 #import "SamplesAppSettingsController.h"
 #import "SamplesApplicationData.h"
-#import <ADAL/ADAL.h>
+#import <ADALiOS/ADAL.h>
 
 @interface SamplesAppSettingsController ()
 
@@ -63,11 +63,9 @@
 
 - (IBAction)clearKeychainPressed:(id)sender
 {
-    
+    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
+    [cache removeAllWithError:nil];
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
-    ADKeychainTokenCache* cache = [ADKeychainTokenCache new];
-    [cache removeAllForClientId:data.clientId error:nil];
-    
     data.userItem = nil;
     
     // This clears cookies for new sign-in flow. We shouldn't need to do this. Server should accept PROMPT_ALWAYS
