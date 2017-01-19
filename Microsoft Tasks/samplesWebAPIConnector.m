@@ -9,10 +9,10 @@
 
 #import "SamplesApplicationData.h"
 #import "samplesWebAPIConnector.h"
-#import "ADALiOS/ADAuthenticationContext.h"
+#import "ADAL/ADAuthenticationContext.h"
 #import "samplesTaskItem.h"
 #import "samplesPolicyData.h"
-#import "ADALiOS/ADAuthenticationSettings.h"
+#import "ADAL/ADAuthenticationSettings.h"
 #import "NSDictionary+UrlEncoding.h"
 
 @implementation samplesWebAPIConnector
@@ -71,8 +71,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         }   
         else
         {
-            data.userItem = result.tokenCacheStoreItem;
-            completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+            data.userItem = result.tokenCacheItem;
+            completionBlock(result.tokenCacheItem.accessToken, nil);
         }
     }];
 }
@@ -115,8 +115,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                               else
                               {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                                  data.userItem = result.tokenCacheItem;
+                                  completionBlock(result.tokenCacheItem.accessToken, nil);
                               }
                           }];
 }
@@ -159,8 +159,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                               else
                               {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                                  data.userItem = result.tokenCacheItem;
+                                  completionBlock(result.tokenCacheItem.userInformation, nil);
                               }
                           }];
 }
@@ -202,8 +202,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                               else
                               {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                                  data.userItem = result.tokenCacheItem;
+                                  completionBlock(result.tokenCacheItem.userInformation, nil);
                               }
                           }];
 }
@@ -476,7 +476,9 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
 
 +(void) signOut
 {
-    [authContext.tokenCacheStore removeAllWithError:nil];
+ //   ADKeychainTokenCache* cache = [ADKeychainTokenCache new];
+ //   [cache removeAllForClientId: clientId error:nil];
+    
     
     NSHTTPCookie *cookie;
     
