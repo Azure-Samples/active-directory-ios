@@ -1,20 +1,28 @@
-#Microsoft Azure Active Directory Native Client for iOS (iPhone)
+---
+services: active-directory
+platforms: ios
+author: brandwe
+---
+
+# Integrate Azure AD into an iOS application
+
+**NOTE regarding iOS 9:**
+
+Apple has released iOS 9 which includes support for App Transport Security (ATS). ATS restricts apps from accessing the internet unless they meet several security requirements incuding TLS 1.2 and SHA-256. While Microsoft's APIs support these standards some third party APIs and content delivery networks we use have yet to be upgraded. This means that any app that relies on Azure Active Directory or Microsoft Accounts will fail when compiled with iOS 9. For now our recommendation is to disable ATS, which reverts to iOS 8 functionality. Please refer to this [technote from Apple](https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/) for more informtaion.
+
+----
 
 
 This sample shows how to build an iOS application that calls a web API that requires a Work Account for authentication. This sample uses the Active Directory authentication library for iOS to do the interactive OAuth 2.0 authorization code flow with public client.
-
-**What is a Work Account?**
-
-*A Work Account is an identity you use to get work done no matter if at your business or on a college campus. Anywhere you need to get access to your work life you'll use a Work Account. The Work Account can be tied to an Active Directory server running in your datacenter or live completely in the cloud like when you use Office365. A Work Account will be how your users know that they are accessing their important documents and data backed my Microsoft security.*
 
 
 ## Quick Start
 
 Getting started with the sample is easy. It is configured to run out of the box with minimal setup. If you'd like a more detailed walkthrough including how to setup the REST API and register an Azure AD Directory follow the walk-through here.
 
-### Step 1: Download the iOS B2C Native Client Sample code
+### Step 1: Download the iOS Native Client Sample code
 
-* `$ git clone git@github.com:AzureADSamples/NativeClient-iOS.git`
+* `$ git clone git@github.com:Azure-Samples/active-directory-ios.git`
 
 ### Step 2: Download Cocoapods (if you don't already have it)
 
@@ -36,7 +44,7 @@ You should see the following output:
 $ pod install
 Analyzing dependencies
 
-Pre-downloading: `ADALiOS` from `https://github.com/AzureAD/azure-activedirectory-library-for-objc.git`, branch `B2C-ADAL`
+Pre-downloading: `ADALiOS` from `https://github.com/Azure-Samples/azure-activedirectory-library-for-objc.git`, branch `B2C-ADAL`
 Downloading dependencies
 Installing ADALiOS (1.2.2)
 Generating Pods project
@@ -93,4 +101,4 @@ Replace the information in the plist file with your Web API settings.
 
 ##### NOTE
 
-The current defaults are set up to work with our [Azure Active Directory Sample REST API Service for Node.js](https://github.com/AzureADSamples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
+The current defaults are set up to work with our [Azure Active Directory Sample REST API Service for Node.js](https://github.com/Azure-Samples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
