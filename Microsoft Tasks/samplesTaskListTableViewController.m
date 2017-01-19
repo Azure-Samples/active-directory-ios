@@ -11,7 +11,7 @@
 #import "samplesTaskItem.h"
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
-#import "ADALiOS/ADAuthenticationContext.h"
+#import "ADAL/ADAuthenticationContext.h"
 #import "SamplesSelectUserViewController.h"
 
 @interface samplesTaskListTableViewController ()
