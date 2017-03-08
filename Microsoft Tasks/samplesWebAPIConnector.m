@@ -246,7 +246,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                         keyValuePairs = [tasks objectAtIndex:i];
                         
                         samplesTaskItem *s = [[samplesTaskItem alloc]init];
-                        s.itemName = [keyValuePairs valueForKey:@"task"];
+                        s.itemName = [keyValuePairs valueForKey:@"Text"];
                         
                         [sampleTaskItems addObject:s];
                     }
@@ -446,7 +446,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
     
     if (task.itemName){
-        [dictionary setValue:task.itemName forKey:@"task"];
+        [dictionary setValue:task.itemName forKey:@"Text"];
     }
     
     return dictionary;
