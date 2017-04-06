@@ -67,7 +67,7 @@ The iOS format for a Redirect URI is:
 <app-scheme>://<bundle-id>
 ```
 
-- 	**aap-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
+- 	**app-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
 - 	**bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
 
 An example would be: ***mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks***
