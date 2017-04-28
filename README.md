@@ -1,7 +1,7 @@
 ---
 services: active-directory
 platforms: ios
-author: xerners
+author: brandwe
 ---
 
 # Integrate Azure AD into an iOS application
