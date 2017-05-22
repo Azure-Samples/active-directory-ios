@@ -36,22 +36,8 @@ Run the following command in your terminal:
 
 `$ pod install`
 
-This will download and build ADAL for iOS for you and configure your Microsoft Tasks B2C.xcodeproj to use the correct dependencies.
+This will download and build ADAL for iOS for you and configure your Microsoft Tasks.xcodeproj to use the correct dependencies.
 
-You should see the following output:
-
-```
-$ pod install
-Analyzing dependencies
-
-Pre-downloading: `ADALiOS` from `https://github.com/Azure-Samples/azure-activedirectory-library-for-objc.git`, branch `B2C-ADAL`
-Downloading dependencies
-Installing ADALiOS (1.2.2)
-Generating Pods project
-Integrating client project
-
-[!] Please close any current Xcode sessions and use `Microsoft Tasks.xcworkspace` for this project from now on.
-```
 ### Step 4: Run the application in Xcode
 
 Launch XCode and load the `Microsoft Tasks.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
