@@ -10,46 +10,23 @@
 		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
-		A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		B82906B71AE6C98300E1977C /* NSDictionary+UrlEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906B61AE6C98300E1977C /* NSDictionary+UrlEncoding.m */; };
 		B82906B91AE6CA8100E1977C /* samplesPolicyData.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906B81AE6CA8100E1977C /* samplesPolicyData.m */; };
 		B82906BD1AE6CD1100E1977C /* samplesShowClaimsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906BC1AE6CD1100E1977C /* samplesShowClaimsViewController.m */; };
 		B82906C01AE6DA2A00E1977C /* samplesLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B82906BF1AE6DA2A00E1977C /* samplesLoginViewController.m */; };
-		EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 075B6E5720AC4E29872664F4 /* libPods.a */; };
 		FB33714918CA5B7E00234804 /* settings.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB33714818CA5B7E00234804 /* settings.plist */; };
 		FB3BF22018D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
-		FB3BF22118D0106C007E645E /* samplesWebAPIConnector.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3BF21F18D0106C007E645E /* samplesWebAPIConnector.m */; };
 		FB3BF23518D03A88007E645E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */; };
-		FB3BF23618D03A88007E645E /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */; };
-		FB3F00DA18C7016200173598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00D918C7016200173598 /* Foundation.framework */; };
-		FB3F00DC18C7016200173598 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DB18C7016200173598 /* CoreGraphics.framework */; };
-		FB3F00DE18C7016200173598 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DD18C7016200173598 /* UIKit.framework */; };
 		FB3F00E018C7016200173598 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DF18C7016200173598 /* CoreData.framework */; };
 		FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3F00E418C7016200173598 /* InfoPlist.strings */; };
 		FB3F00E818C7016200173598 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F00E718C7016200173598 /* main.m */; };
 		FB3F00EC18C7016200173598 /* samplesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F00EB18C7016200173598 /* samplesAppDelegate.m */; };
 		FB3F00EF18C7016200173598 /* Microsoft_Tasks.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB3F00ED18C7016200173598 /* Microsoft_Tasks.xcdatamodeld */; };
 		FB3F00F118C7016200173598 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB3F00F018C7016200173598 /* Images.xcassets */; };
-		FB3F00F818C7016200173598 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00F718C7016200173598 /* XCTest.framework */; };
-		FB3F00F918C7016200173598 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00D918C7016200173598 /* Foundation.framework */; };
-		FB3F00FA18C7016200173598 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DD18C7016200173598 /* UIKit.framework */; };
-		FB3F00FB18C7016200173598 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB3F00DF18C7016200173598 /* CoreData.framework */; };
-		FB3F010318C7016200173598 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FB3F010118C7016200173598 /* InfoPlist.strings */; };
-		FB3F010518C7016200173598 /* Microsoft_TasksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F010418C7016200173598 /* Microsoft_TasksTests.m */; };
 		FB3F011618C7092700173598 /* sampleAddTaskItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F011518C7092700173598 /* sampleAddTaskItemViewController.m */; };
 		FB3F011C18C709FE00173598 /* samplesTaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F011B18C709FE00173598 /* samplesTaskListTableViewController.m */; };
 		FB3F011F18C713E600173598 /* samplesTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F011E18C713E600173598 /* samplesTaskItem.m */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		FB3F00FC18C7016200173598 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = FB3F00CE18C7016200173598 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FB3F00D518C7016200173598;
-			remoteInfo = "Microsoft Tasks";
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		075B6E5720AC4E29872664F4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,8 +53,6 @@
 		FB3BF23218D03A88007E645E /* Main_iPhone.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main_iPhone.storyboard; sourceTree = "<group>"; };
 		FB3F00D618C7016200173598 /* Microsoft Tasks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Microsoft Tasks.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB3F00D918C7016200173598 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		FB3F00DB18C7016200173598 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		FB3F00DD18C7016200173598 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FB3F00DF18C7016200173598 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FB3F00E318C7016200173598 /* Microsoft Tasks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Microsoft Tasks-Info.plist"; sourceTree = "<group>"; };
 		FB3F00E518C7016200173598 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -87,11 +62,7 @@
 		FB3F00EB18C7016200173598 /* samplesAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = samplesAppDelegate.m; sourceTree = "<group>"; };
 		FB3F00EE18C7016200173598 /* Microsoft_Tasks.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Microsoft_Tasks.xcdatamodel; sourceTree = "<group>"; };
 		FB3F00F018C7016200173598 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		FB3F00F618C7016200173598 /* Microsoft TasksTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Microsoft TasksTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB3F00F718C7016200173598 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		FB3F010018C7016200173598 /* Microsoft TasksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Microsoft TasksTests-Info.plist"; sourceTree = "<group>"; };
-		FB3F010218C7016200173598 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		FB3F010418C7016200173598 /* Microsoft_TasksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Microsoft_TasksTests.m; sourceTree = "<group>"; };
 		FB3F011418C7092700173598 /* sampleAddTaskItemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sampleAddTaskItemViewController.h; sourceTree = "<group>"; };
 		FB3F011518C7092700173598 /* sampleAddTaskItemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = sampleAddTaskItemViewController.m; sourceTree = "<group>"; };
 		FB3F011A18C709FE00173598 /* samplesTaskListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesTaskListTableViewController.h; sourceTree = "<group>"; };
@@ -105,23 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB3F00DC18C7016200173598 /* CoreGraphics.framework in Frameworks */,
 				FB3F00E018C7016200173598 /* CoreData.framework in Frameworks */,
-				FB3F00DE18C7016200173598 /* UIKit.framework in Frameworks */,
-				FB3F00DA18C7016200173598 /* Foundation.framework in Frameworks */,
-				A7C8E8174A44140EEB0E7EF2 /* libPods.a in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB3F00F318C7016200173598 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB3F00F818C7016200173598 /* XCTest.framework in Frameworks */,
-				FB3F00FB18C7016200173598 /* CoreData.framework in Frameworks */,
-				FB3F00FA18C7016200173598 /* UIKit.framework in Frameworks */,
-				FB3F00F918C7016200173598 /* Foundation.framework in Frameworks */,
-				EC01CD8C7777703E90A7F804 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -141,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				FB3F00E118C7016200173598 /* Microsoft Tasks */,
-				FB3F00FE18C7016200173598 /* Microsoft TasksTests */,
 				FB3F00D818C7016200173598 /* Frameworks */,
 				FB3F00D718C7016200173598 /* Products */,
 				3815BCDF3B86DDADB63BCC4F /* Pods */,
@@ -152,7 +106,6 @@
 			isa = PBXGroup;
 			children = (
 				FB3F00D618C7016200173598 /* Microsoft Tasks.app */,
-				FB3F00F618C7016200173598 /* Microsoft TasksTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -161,8 +114,6 @@
 			isa = PBXGroup;
 			children = (
 				FB3F00D918C7016200173598 /* Foundation.framework */,
-				FB3F00DB18C7016200173598 /* CoreGraphics.framework */,
-				FB3F00DD18C7016200173598 /* UIKit.framework */,
 				FB3F00DF18C7016200173598 /* CoreData.framework */,
 				FB3F00F718C7016200173598 /* XCTest.framework */,
 				075B6E5720AC4E29872664F4 /* libPods.a */,
@@ -218,24 +169,6 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FB3F00FE18C7016200173598 /* Microsoft TasksTests */ = {
-			isa = PBXGroup;
-			children = (
-				FB3F010418C7016200173598 /* Microsoft_TasksTests.m */,
-				FB3F00FF18C7016200173598 /* Supporting Files */,
-			);
-			path = "Microsoft TasksTests";
-			sourceTree = "<group>";
-		};
-		FB3F00FF18C7016200173598 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				FB3F010018C7016200173598 /* Microsoft TasksTests-Info.plist */,
-				FB3F010118C7016200173598 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -259,26 +192,6 @@
 			productReference = FB3F00D618C7016200173598 /* Microsoft Tasks.app */;
 			productType = "com.apple.product-type.application";
 		};
-		FB3F00F518C7016200173598 /* Microsoft TasksTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = FB3F010B18C7016200173598 /* Build configuration list for PBXNativeTarget "Microsoft TasksTests" */;
-			buildPhases = (
-				573F442CE68680C3300FD91C /* Check Pods Manifest.lock */,
-				FB3F00F218C7016200173598 /* Sources */,
-				FB3F00F318C7016200173598 /* Frameworks */,
-				FB3F00F418C7016200173598 /* Resources */,
-				AD96A739D75DFECDEA53C42D /* Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				FB3F00FD18C7016200173598 /* PBXTargetDependency */,
-			);
-			name = "Microsoft TasksTests";
-			productName = "Microsoft TasksTests";
-			productReference = FB3F00F618C7016200173598 /* Microsoft TasksTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,9 +210,6 @@
 							};
 						};
 					};
-					FB3F00F518C7016200173598 = {
-						TestTargetID = FB3F00D518C7016200173598;
-					};
 				};
 			};
 			buildConfigurationList = FB3F00D118C7016200173598 /* Build configuration list for PBXProject "Microsoft Tasks" */;
@@ -315,7 +225,6 @@
 			projectRoot = "";
 			targets = (
 				FB3F00D518C7016200173598 /* Microsoft Tasks */,
-				FB3F00F518C7016200173598 /* Microsoft TasksTests */,
 			);
 		};
 /* End PBXProject section */
@@ -329,15 +238,6 @@
 				FB3F00E618C7016200173598 /* InfoPlist.strings in Resources */,
 				FB3F00F118C7016200173598 /* Images.xcassets in Resources */,
 				FB33714918CA5B7E00234804 /* settings.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		FB3F00F418C7016200173598 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB3F010318C7016200173598 /* InfoPlist.strings in Resources */,
-				FB3BF23618D03A88007E645E /* Main_iPhone.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -360,36 +260,6 @@
 			showEnvVarsInLog = 0;
 		};
 		2E16D7D83C534279873FC06F /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		573F442CE68680C3300FD91C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		AD96A739D75DFECDEA53C42D /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -441,38 +311,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FB3F00F218C7016200173598 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FB3F010518C7016200173598 /* Microsoft_TasksTests.m in Sources */,
-				FB3BF22118D0106C007E645E /* samplesWebAPIConnector.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		FB3F00FD18C7016200173598 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = FB3F00D518C7016200173598 /* Microsoft Tasks */;
-			targetProxy = FB3F00FC18C7016200173598 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		FB3F00E418C7016200173598 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
 				FB3F00E518C7016200173598 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
-		FB3F010118C7016200173598 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FB3F010218C7016200173598 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -566,7 +411,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
 				INFOPLIST_FILE = "Microsoft Tasks/Microsoft Tasks-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -592,55 +437,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
 				INFOPLIST_FILE = "Microsoft Tasks/Microsoft Tasks-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		FB3F010C18C7016200173598 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 268C6853C490B04D8D505AD7 /* Pods.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Microsoft Tasks.app/Microsoft Tasks";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "Microsoft TasksTests/Microsoft TasksTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		FB3F010D18C7016200173598 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 32C2DA3BB2D20EAD1E82DBA0 /* Pods.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Microsoft Tasks.app/Microsoft Tasks";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Microsoft Tasks/Microsoft Tasks-Prefix.pch";
-				INFOPLIST_FILE = "Microsoft TasksTests/Microsoft TasksTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -661,15 +464,6 @@
 			buildConfigurations = (
 				FB3F010918C7016200173598 /* Debug */,
 				FB3F010A18C7016200173598 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		FB3F010B18C7016200173598 /* Build configuration list for PBXNativeTarget "Microsoft TasksTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				FB3F010C18C7016200173598 /* Debug */,
-				FB3F010D18C7016200173598 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
