@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 Microsoft. All rights reserved.
 //
 
+#import <ADAL/ADAL.h>
 #import "samplesTaskListTableViewController.h"
 #import "SamplesApplicationData.h"
 #import "samplesTaskItem.h"
 #import "sampleAddTaskItemViewController.h"
 #import "samplesWebAPIConnector.h"
-#import "ADALiOS/ADAuthenticationContext.h"
 #import "SamplesSelectUserViewController.h"
 
 @interface samplesTaskListTableViewController ()
@@ -61,7 +61,7 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.tableView reloadData];
                 SamplesApplicationData* appData = [SamplesApplicationData getInstance];
-                if(appData.userItem && appData.userItem.userInformation)
+                if(appData.userItem && appData.userItem.userInformation.userId)
                 {
                     [self.userLabel setText:appData.userItem.userInformation.userId];
                 }
@@ -96,7 +96,7 @@
         [self loadData];
     }
     
-    if(appData.userItem && appData.userItem.userInformation)
+    if(appData.userItem && appData.userItem.userInformation.userId)
     {
         [self.userLabel setText:appData.userItem.userInformation.userId];    }
     else

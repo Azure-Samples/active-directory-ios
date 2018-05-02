@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <ADAL/ADAL.h>
 #import "samplesTaskItem.h"
 #import "samplesPolicyData.h"
-#import "ADALiOS/ADAuthenticationContext.h"
 
 @interface samplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
 

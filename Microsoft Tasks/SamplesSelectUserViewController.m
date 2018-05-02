@@ -1,6 +1,5 @@
+#import <ADAL/ADAL.h>
 #import "SamplesSelectUserViewController.h"
-#import <ADAuthenticationSettings.h>
-#import "ADALiOS/ADAuthenticationContext.h"
 #import "SamplesApplicationData.h"
 #import "samplesTaskListTableViewController.h"
 
@@ -35,29 +34,19 @@
 
 -(void) loadData
 {
-    ADAuthenticationError* error;
-    id<ADTokenCacheStoring> cache = [ADAuthenticationSettings sharedInstance].defaultTokenCacheStore;
-    NSArray* array = [cache allItemsWithError:&error];
+    ADKeychainTokenCache* cache = [ADKeychainTokenCache new];
+    NSArray* allItems = [cache allItems:nil];
     
-    if (error)
-    {
-        UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"%@", error.errorDetails] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
-        
-        [alertView setDelegate:self];
-        
-        dispatch_async(dispatch_get_main_queue(),^ {
-            [alertView show];
-        });
-    } else
-    {
+   
         NSMutableSet* users = [NSMutableSet new];
         self.userList = [NSMutableArray new];
-        for(ADTokenCacheStoreItem* item in array)
+    
+         for (ADTokenCacheItem* item in allItems)
         {
             ADUserInformation *user = item.userInformation;
             if (!item.userInformation)
             {
-                user = [ADUserInformation userInformationWithUserId:@"Unknown user" error:nil];
+                user = [ADUserInformation userInformationWithIdToken:@"Unknown User" error:nil];
             }
             if (![users containsObject:user.userId])
             {
@@ -71,7 +60,6 @@
         dispatch_async(dispatch_get_main_queue(), ^{
             [self.tableView reloadData];
         });
-    }
 }
 
 - (IBAction)cancelPressed:(id)sender
@@ -108,7 +96,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"UserPrototypeCell" forIndexPath:indexPath];
     
-    ADTokenCacheStoreItem *userItem = [self.userList objectAtIndex:indexPath.row];
+    ADTokenCacheItem *userItem = [self.userList objectAtIndex:indexPath.row];
     if(userItem)
     {
         if(userItem.userInformation){
@@ -132,7 +120,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    ADTokenCacheStoreItem *userItem = [self.userList objectAtIndex:indexPath.row];
+    ADTokenCacheItem *userItem = [self.userList objectAtIndex:indexPath.row];
     [self getToken:userItem];
     
     //tappedItem.completed = !tappedItem.completed;
@@ -142,7 +130,7 @@
     
 }
 
-- (void) getToken:(ADTokenCacheStoreItem*) userItem
+- (void) getToken:(ADTokenCacheItem*) userItem
 {
     SamplesApplicationData* appData = [SamplesApplicationData getInstance];
     ADAuthenticationError *error;
@@ -191,7 +179,7 @@
                               else
                               {
                                   SamplesApplicationData* data = [SamplesApplicationData getInstance];
-                                  data.userItem = result.tokenCacheStoreItem;
+                                  data.userItem = result.tokenCacheItem;
                                   [self cancelPressed:self];
                               }
                           }];

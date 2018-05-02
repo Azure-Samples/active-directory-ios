@@ -6,11 +6,12 @@
 //  Copyright (c) 2015 Microsoft. All rights reserved.
 //
 
+#import <ADAL/ADAL.h>
 #import "samplesLoginViewController.h"
 #import "samplesWebAPIConnector.h"
 #import "samplesShowClaimsViewController.h"
 #import "samplesPolicyData.h"
-#import "samplesApplicationData.h"
+#import "SamplesApplicationData.h"
 
 @interface samplesLoginViewController ()
 
