@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B715F2B355EFD41DCCDFEBA /* Pods_Microsoft_Tasks.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2ECFF46106517DE8849B89B1 /* Pods_Microsoft_Tasks.framework */; };
 		97C15AF41A27FDF0004A0419 /* SamplesSelectUserViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */; };
 		97C15AF71A280BEF004A0419 /* SamplesApplicationData.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF61A280BEF004A0419 /* SamplesApplicationData.m */; };
 		97C15AFA1A29C9F3004A0419 /* SamplesAppSettingsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 97C15AF91A29C9F3004A0419 /* SamplesAppSettingsController.m */; };
@@ -26,9 +27,11 @@
 		FB3F011618C7092700173598 /* sampleAddTaskItemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F011518C7092700173598 /* sampleAddTaskItemViewController.m */; };
 		FB3F011C18C709FE00173598 /* samplesTaskListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F011B18C709FE00173598 /* samplesTaskListTableViewController.m */; };
 		FB3F011F18C713E600173598 /* samplesTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = FB3F011E18C713E600173598 /* samplesTaskItem.m */; };
+		FB76EEA921063B85006C67F2 /* ADAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FB76EEA821063B85006C67F2 /* ADAL.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2ECFF46106517DE8849B89B1 /* Pods_Microsoft_Tasks.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Microsoft_Tasks.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		971963C41A6845950026BC5F /* Microsoft Tasks.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Microsoft Tasks.entitlements"; sourceTree = "<group>"; };
 		97C15AF01A27FAD6004A0419 /* SamplesSelectUserViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SamplesSelectUserViewController.h; sourceTree = "<group>"; };
 		97C15AF31A27FDF0004A0419 /* SamplesSelectUserViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SamplesSelectUserViewController.m; sourceTree = "<group>"; };
@@ -67,6 +70,7 @@
 		FB3F011B18C709FE00173598 /* samplesTaskListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesTaskListTableViewController.m; sourceTree = "<group>"; };
 		FB3F011D18C713E600173598 /* samplesTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = samplesTaskItem.h; sourceTree = "<group>"; };
 		FB3F011E18C713E600173598 /* samplesTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = samplesTaskItem.m; sourceTree = "<group>"; };
+		FB76EEA821063B85006C67F2 /* ADAL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ADAL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,7 +78,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB76EEA921063B85006C67F2 /* ADAL.framework in Frameworks */,
 				FB3F00E018C7016200173598 /* CoreData.framework in Frameworks */,
+				2B715F2B355EFD41DCCDFEBA /* Pods_Microsoft_Tasks.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +117,10 @@
 		FB3F00D818C7016200173598 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FB76EEA821063B85006C67F2 /* ADAL.framework */,
 				FB3F00D918C7016200173598 /* Foundation.framework */,
 				FB3F00DF18C7016200173598 /* CoreData.framework */,
+				2ECFF46106517DE8849B89B1 /* Pods_Microsoft_Tasks.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
