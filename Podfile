@@ -1,5 +1,7 @@
+use_frameworks!
+
 target 'Microsoft Tasks' do
 
-pod 'ADALiOS'
+pod 'ADAL'
 
 end

@@ -1,21 +1,39 @@
+//------------------------------------------------------------------------------
 //
-//  samplesWebAPIConnector.m
-//  Microsoft Tasks
+// Copyright (c) Microsoft Corporation.
+// All rights reserved.
 //
-//  Created by Brandon Werner on 3/11/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
+// This code is licensed under the MIT License.
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files(the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions :
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+//------------------------------------------------------------------------------
 
 
+#import <ADAL/ADAL.h>
 #import "SamplesApplicationData.h"
-#import "samplesWebAPIConnector.h"
-#import "ADALiOS/ADAuthenticationContext.h"
-#import "samplesTaskItem.h"
-#import "samplesPolicyData.h"
-#import "ADALiOS/ADAuthenticationSettings.h"
+#import "SamplesWebAPIConnector.h"
+#import "SamplesTaskItem.h"
+#import "SamplesPolicyData.h"
 #import "NSDictionary+UrlEncoding.h"
 
-@implementation samplesWebAPIConnector
+@implementation SamplesWebAPIConnector
 
 ADAuthenticationContext* authContext;
 bool loadedApplicationSettings;
@@ -62,7 +80,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_AUTO
                                    userId:data.userItem.userInformation.userId
-                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+                     extraQueryParameters: nil
                           completionBlock:^(ADAuthenticationResult *result) {
         
         if (result.status != AD_SUCCEEDED)
@@ -71,8 +89,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         }   
         else
         {
-            data.userItem = result.tokenCacheStoreItem;
-            completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+            data.userItem = result.tokenCacheItem;
+            completionBlock(result.tokenCacheItem.accessToken, nil);
         }
     }];
 }
@@ -115,8 +133,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                               else
                               {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.accessToken, nil);
+                                  data.userItem = result.tokenCacheItem;
+                                  completionBlock(result.tokenCacheItem.accessToken, nil);
                               }
                           }];
 }
@@ -159,8 +177,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                               else
                               {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                                  data.userItem = result.tokenCacheItem;
+                                  completionBlock(result.tokenCacheItem.userInformation, nil);
                               }
                           }];
 }
@@ -192,7 +210,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               redirectUri:redirectUri
                            promptBehavior:AD_PROMPT_ALWAYS
                                    userId:nil
-                     extraQueryParameters: @"nux=1" // if this strikes you as strange it was legacy to display the correct mobile UX. You most likely won't need it in your code.
+                     extraQueryParameters:nil
 
                           completionBlock:^(ADAuthenticationResult *result) {
                               
@@ -202,8 +220,8 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                               }
                               else
                               {
-                                  data.userItem = result.tokenCacheStoreItem;
-                                  completionBlock(result.tokenCacheStoreItem.userInformation, nil);
+                                  data.userItem = result.tokenCacheItem;
+                                  completionBlock(result.tokenCacheItem.userInformation, nil);
                               }
                           }];
 }
@@ -217,6 +235,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     }
     
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    NSURLSession *session = [NSURLSession sharedSession];
     
     [self craftRequest:[self.class trimString:data.taskWebApiUrlString]
                 parent:parent
@@ -229,9 +248,9 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
         else
         {
             
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
+
             
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,  NSError *error) {
                 
                 if (error == nil && data != nil){
                     
@@ -245,7 +264,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
                     {
                         keyValuePairs = [tasks objectAtIndex:i];
                         
-                        samplesTaskItem *s = [[samplesTaskItem alloc]init];
+                        SamplesTaskItem *s = [[SamplesTaskItem alloc]init];
                         s.itemName = [keyValuePairs valueForKey:@"Text"];
                         
                         [sampleTaskItems addObject:s];
@@ -264,7 +283,7 @@ completionHandler:(void (^) (NSString*, NSError*))completionBlock;
     
 }
 
-+(void) addTask:(samplesTaskItem*)task
++(void) addTask:(SamplesTaskItem*)task
          parent:(UIViewController*) parent
 completionBlock:(void (^) (bool, NSError* error)) completionBlock
 {
@@ -274,6 +293,8 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }
     
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    NSURLSession *session = [NSURLSession sharedSession];
+    
     [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
         
         if (error != nil)
@@ -290,9 +311,8 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
             [request addValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
             [request setHTTPBody:requestBody];
             
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
             
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,  NSError *error) {
                 
                 NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@", content);
@@ -310,7 +330,7 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }];
 }
 
-+(void) deleteTask:(samplesTaskItem*)task
++(void) deleteTask:(SamplesTaskItem*)task
          parent:(UIViewController*) parent
 completionBlock:(void (^) (bool, NSError* error)) completionBlock
 {
@@ -320,6 +340,8 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
     }
     
     SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    NSURLSession *session = [NSURLSession sharedSession];
+    
     [self craftRequest:data.taskWebApiUrlString parent:parent completionHandler:^(NSMutableURLRequest* request, NSError* error){
         
         if (error != nil)
@@ -338,9 +360,9 @@ completionBlock:(void (^) (bool, NSError* error)) completionBlock
             
             NSLog(@"%@", request);
             
-            NSOperationQueue *queue = [[NSOperationQueue alloc]init];
             
-            [NSURLConnection sendAsynchronousRequest:request queue:queue completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            
+            [session dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response,  NSError *error) {
                 
                 NSString* content = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                 NSLog(@"%@", content);
@@ -388,7 +410,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
 // Although not yet used in this sample, this demonstrates how you could pass policies to the server.
 // See the Native-iOS-B2C sample for more information.
 
-+(void) doPolicy:(samplesPolicyData *)policy
++(void) doPolicy:(SamplesPolicyData *)policy
           parent:(UIViewController*) parent
  completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock
 {
@@ -441,7 +463,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
 
 // Here we have some converstion helpers that allow us to parse passed items in to dictionaries for URLEncoding later.
 
-+(NSDictionary*) convertTaskToDictionary:(samplesTaskItem*)task
++(NSDictionary*) convertTaskToDictionary:(SamplesTaskItem*)task
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
     
@@ -452,7 +474,7 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
     return dictionary;
 }
 
-+(NSDictionary*) convertPolicyToDictionary:(samplesPolicyData*)policy
++(NSDictionary*) convertPolicyToDictionary:(SamplesPolicyData*)policy
 {
     NSMutableDictionary* dictionary = [[NSMutableDictionary alloc]init];
     
@@ -476,7 +498,13 @@ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) complet
 
 +(void) signOut
 {
-    [authContext.tokenCacheStore removeAllWithError:nil];
+    
+    SamplesApplicationData* data = [SamplesApplicationData getInstance];
+    
+    // We remove the user from the keychain with a particular userID.
+    
+    ADKeychainTokenCache* cache = [ADKeychainTokenCache new];
+    [cache removeAllForUserId:data.userItem.userInformation.userId clientId:data.userItem.clientId error:nil];
     
     NSHTTPCookie *cookie;
     

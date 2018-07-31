@@ -8,8 +8,8 @@
         <!--My Tasks-->
         <scene sceneID="9uk-Og-QtR">
             <objects>
-                <tableViewController storyboardIdentifier="HomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cdM-uN-w6S" customClass="samplesTaskListTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="42" sectionHeaderHeight="22" sectionFooterHeight="22" id="yaA-Mr-Sg6">
+                <tableViewController storyboardIdentifier="HomeView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cdM-uN-w6S" customClass="SamplesTaskListTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" separatorStyle="default" rowHeight="42" sectionHeaderHeight="22" sectionFooterHeight="22" id="yaA-Mr-Sg6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -70,7 +70,7 @@
         <!--Add New Task-->
         <scene sceneID="dff-cz-dcj">
             <objects>
-                <viewController storyboardIdentifier="addTaskView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75H-2L-TOK" customClass="sampleAddTaskItemViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="addTaskView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="75H-2L-TOK" customClass="SampleAddTaskItemViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="lK8-IB-rLX"/>
                         <viewControllerLayoutGuide type="bottom" id="R7O-rQ-48b"/>
@@ -130,7 +130,7 @@
         <scene sceneID="s9K-uJ-1mM">
             <objects>
                 <tableViewController storyboardIdentifier="SelectUserView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="9sT-06-rlI" customClass="SamplesSelectUserViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="CC0-LZ-LHA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" separatorStyle="default" rowHeight="50" sectionHeaderHeight="22" sectionFooterHeight="22" id="CC0-LZ-LHA">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -167,7 +167,7 @@
         <!--Log In To Microsoft Tasks-->
         <scene sceneID="qTK-ws-Atn">
             <objects>
-                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wCZ-wz-A5S" customClass="samplesLoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wCZ-wz-A5S" customClass="SamplesLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3L2-Ok-BFL"/>
                         <viewControllerLayoutGuide type="bottom" id="Ppn-Dy-5Du"/>
@@ -207,7 +207,7 @@
         <!--Claims Received-->
         <scene sceneID="V9L-h6-qMQ">
             <objects>
-                <viewController storyboardIdentifier="ClaimsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="voh-Oe-Hk5" customClass="samplesShowClaimsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ClaimsView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="voh-Oe-Hk5" customClass="SamplesShowClaimsViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="RPl-aD-S49"/>
                         <viewControllerLayoutGuide type="bottom" id="1hp-QH-FVm"/>
@@ -359,7 +359,7 @@
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="App Settings" id="dL5-NP-uEf">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="save" id="iay-Ql-pev">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="iay-Ql-pev">
                             <connections>
                                 <action selector="savePressed:" destination="HOc-yr-4fG" id="g6w-Fi-gVD"/>
                             </connections>
