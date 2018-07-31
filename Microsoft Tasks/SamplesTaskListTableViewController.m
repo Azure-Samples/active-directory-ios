@@ -1,20 +1,39 @@
+//------------------------------------------------------------------------------
 //
-//  samplesTaskListTableViewController.m
-//  Microsoft Tasks
+// Copyright (c) Microsoft Corporation.
+// All rights reserved.
 //
-//  Created by Brandon Werner on 3/4/14.
-//  Copyright (c) 2014 Microsoft. All rights reserved.
+// This code is licensed under the MIT License.
 //
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files(the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and / or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions :
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+// THE SOFTWARE.
+//
+//------------------------------------------------------------------------------
 
 #import <ADAL/ADAL.h>
-#import "samplesTaskListTableViewController.h"
+#import "SamplesTaskListTableViewController.h"
 #import "SamplesApplicationData.h"
-#import "samplesTaskItem.h"
-#import "sampleAddTaskItemViewController.h"
-#import "samplesWebAPIConnector.h"
+#import "SamplesTaskItem.h"
+#import "SampleAddTaskItemViewController.h"
+#import "SamplesWebAPIConnector.h"
 #import "SamplesSelectUserViewController.h"
 
-@interface samplesTaskListTableViewController ()
+@interface SamplesTaskListTableViewController ()
 
 @property NSMutableArray *taskItems;
 @property ADAuthenticationContext *authContext;
@@ -22,7 +41,7 @@
 
 @end
 
-@implementation samplesTaskListTableViewController
+@implementation SamplesTaskListTableViewController
 
 -(void)loadData {
     
@@ -41,7 +60,7 @@
     // Load data from the webservice
     if (appData.userItem) {
         
-    [samplesWebAPIConnector getTaskList:^(NSArray *tasks, NSError* error) {
+    [SamplesWebAPIConnector getTaskList:^(NSArray *tasks, NSError* error) {
         
         if (error != nil && appData.userItem)
         {
@@ -140,7 +159,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TaskPrototypeCell" forIndexPath:indexPath];
     
-    samplesTaskItem *taskItem = [self.taskItems objectAtIndex:indexPath.row];
+    SamplesTaskItem *taskItem = [self.taskItems objectAtIndex:indexPath.row];
     cell.textLabel.text = taskItem.itemName;
     
     if (taskItem.completed) {
@@ -155,7 +174,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [tableView deselectRowAtIndexPath:indexPath animated:NO];
-    samplesTaskItem *tappedItem = [self.taskItems objectAtIndex:indexPath.row];
+    SamplesTaskItem *tappedItem = [self.taskItems objectAtIndex:indexPath.row];
     tappedItem.completed = !tappedItem.completed;
     [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
 }
@@ -174,18 +193,27 @@
  if (editingStyle == UITableViewCellEditingStyleDelete) {
      
          
-         samplesTaskItem *selectedItem = [self.taskItems objectAtIndex:indexPath.row];
-         [samplesWebAPIConnector deleteTask:selectedItem parent:self completionBlock:^(bool success, NSError* error) {
+         SamplesTaskItem *selectedItem = [self.taskItems objectAtIndex:indexPath.row];
+         [SamplesWebAPIConnector deleteTask:selectedItem parent:self completionBlock:^(bool success, NSError* error) {
             
              if (error != nil) {
 
-                 UIAlertView *alertView = [[UIAlertView alloc]initWithTitle:nil message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] delegate:nil cancelButtonTitle:@"Retry" otherButtonTitles:@"Cancel", nil];
+                 UIAlertController *alert = [UIAlertController
+                                             alertControllerWithTitle:@"Error connecting to Task Service"
+                                             message:[[NSString alloc]initWithFormat:@"Error : %@", error.localizedDescription] preferredStyle:UIAlertControllerStyleAlert];
                  
-                 [alertView setDelegate:self];
                  
-                 dispatch_async(dispatch_get_main_queue(),^ {
-                     [alertView show];
-                 });
+                 UIAlertAction* noButton = [UIAlertAction
+                                            actionWithTitle:@"Cancel"
+                                            style:UIAlertActionStyleDefault
+                                            handler:^(UIAlertAction * action) {
+                                                
+                                                [self dismissViewControllerAnimated:YES completion:nil];
+                                            }];
+                 
+                 [alert addAction:noButton];
+                 
+                 [self presentViewController:alert animated:YES completion:nil];
              }
              
              }];

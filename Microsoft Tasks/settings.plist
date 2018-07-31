@@ -5,11 +5,11 @@
 	<key>authority</key>
 	<string>https://login.microsoftonline.com/common</string>
 	<key>clientId</key>
-	<string>e6d65cc4-f9e8-444a-9ba6-c3c82ce8086b</string>
+	<string>8bb4b890-775a-4d80-b196-0fe802e6ec80</string>
 	<key>resourceString</key>
 	<string>http://localhost:3000/tasks</string>
 	<key>redirectUri</key>
-	<string>urn:ietf:wg:oauth:2.0:oob</string>
+	<string>mstasks://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
 	<key>userId</key>
 	<string></string>
 	<key>taskWebAPI</key>

@@ -25,32 +25,32 @@
 //
 //------------------------------------------------------------------------------
 
-#import "SamplesApplicationData.h"
+#import <Foundation/Foundation.h>
+#import <ADAL/ADAL.h>
+#import "SamplesTaskItem.h"
+#import "SamplesPolicyData.h"
 
-@implementation SamplesApplicationData
+@interface SamplesWebAPIConnector : NSObject<NSURLConnectionDataDelegate>
 
-+(id) getInstance
-{
-    static SamplesApplicationData *instance = nil;
-    static dispatch_once_t onceToken;
-    
-    dispatch_once(&onceToken, ^{
-        instance = [[self alloc] init];
-        NSDictionary *dictionary = [NSDictionary dictionaryWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"settings" ofType:@"plist"]];
-        NSString* va = [dictionary objectForKey:@"fullScreen"];
-        NSString* sc = [dictionary objectForKey:@"showClaims"];
-        instance.fullScreen = [va boolValue];
-        instance.showClaims = [sc boolValue];
-        instance.clientId = [dictionary objectForKey:@"clientId"];
-        instance.authority = [dictionary objectForKey:@"authority"];
-        instance.resourceId = [dictionary objectForKey:@"resourceString"];
-        instance.redirectUriString = [dictionary objectForKey:@"redirectUri"];
-        instance.taskWebApiUrlString = [dictionary objectForKey:@"taskWebAPI"];
-        instance.correlationId = [dictionary objectForKey:@"correlationId"];
-        
-    });
-    
-    return instance;
-}
++(void) getTaskList:(void (^) (NSArray*, NSError* error))completionBlock
+             parent:(UIViewController*) parent;
+
++(void) addTask:(SamplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock;
+
++(void) deleteTask:(SamplesTaskItem*)task
+         parent:(UIViewController*) parent
+completionBlock:(void (^) (bool, NSError* error)) completionBlock;
+
++(void) doPolicy:(SamplesPolicyData*)policy
+          parent:(UIViewController*) parent
+ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock;
+
++(void) doLogin:(BOOL)prompt
+          parent:(UIViewController*) parent
+ completionBlock:(void (^) (ADUserInformation* userInfo, NSError* error)) completionBlock;
+
++(void) signOut;
 
 @end
