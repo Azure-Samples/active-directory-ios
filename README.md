@@ -1,36 +1,71 @@
----
-services: active-directory
-platforms: ios
+--- 
+Services: active-directory
+platforms: iOS
 author: brandwe
+level: 100
+client: iOS Mobile App
+service: Microsoft Graph
+endpoint: AAD V1
 ---
-
-# Integrate Azure AD into an iOS application
-
-**NOTE regarding iOS 9:**
-
-Apple has released iOS 9 which includes support for App Transport Security (ATS). ATS restricts apps from accessing the internet unless they meet several security requirements incuding TLS 1.2 and SHA-256. While Microsoft's APIs support these standards some third party APIs and content delivery networks we use have yet to be upgraded. This means that any app that relies on Azure Active Directory or Microsoft Accounts will fail when compiled with iOS 9. For now our recommendation is to disable ATS, which reverts to iOS 8 functionality. Please refer to this [technote from Apple](https://developer.apple.com/library/prerelease/ios/technotes/App-Transport-Security-Technote/) for more informtaion.
-
-----
+# ADAL Swift Microsoft Graph API Sample 
 
 
-This sample shows how to build an iOS application that calls a web API that requires a Work Account for authentication. This sample uses the Active Directory authentication library for iOS to do the interactive OAuth 2.0 authorization code flow with public client.
+| [Getting Started](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-ios)| [Library](https://github.com/AzureAD/azure-activedirectory-library-for-objc) | [API Reference](http://cocoadocs.org/docsets/ADAL/2.5.1/) | [Support](README.md#community-help-and-support)
+| --- | --- | --- | --- |
 
 
-## Quick Start
+The ADAL Objective C library gives your app the ability to begin using the
+[Microsoft Azure Cloud](https://cloud.microsoft.com) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/en-us/services/active-directory/) using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycles your application should experience, including:
 
-Getting started with the sample is easy. It is configured to run out of the box with minimal setup. If you'd like a more detailed walkthrough including how to setup the REST API and register an Azure AD Directory follow the walk-through here.
+* Get a token for the Microsoft Graph
+* Refresh a token
+* Call the Microsoft Graph
+* Sign out the user
 
-### Step 1: Download the iOS Native Client Sample code
+## Scenario
+
+This app can be used for all Azure AD accounts. It demonstrates how a developer can build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
+
+![Topology](./images/topology.PNG)
+
+## Steps to Run
+
+### Register & Configure your app
+
+You will need to have a native client application registered with Microsoft using the 
+[Azure portal](https://portal.azure.com). 
+
+1. Getting to app registration
+    - Navigate to the [Azure portal](https://aad.portal.azure.com).  
+    - Click on ***Azure Active Directory*** > ***App Registrations***. 
+
+2. Create the app
+    - Click ***New application registration***.  
+    - Enter an app name in the ***Name*** field. 
+    - In ***Application type***, select `Native`. 
+    - In ***Redirect URI***, enter `urn:ietf:wg:oauth:2.0:oob`.  
+
+3. Configure Microsoft Graph
+    - Select ***Settings*** > ***Required Permissions***.
+    - Click ***Add***, inside ***Select an API*** select ***Microsoft Graph***. 
+    - Select the permission `Sign in and read user profile` > Hit `Select` to save. 
+        - This permission maps to the `User.Read` scope. 
+
+4. Congrats! Your app is successfully configured. In the next section, you'll need:
+    - `Application ID`
+    - `Redirect URI`
+
+### Get the code
 
 * `$ git clone git@github.com:Azure-Samples/active-directory-ios.git`
 
-### Step 2: Download Cocoapods (if you don't already have it)
+1. Download Cocoapods (if you don't already have it)
 
 CocoaPods is the dependency manager for Swift and Objective-C Cocoa projects. It has thousands of libraries and can help you scale your projects elegantly. To install on OS X 10.9 and greater simply run the following command in your terminal:
 
 `$ sudo gem install cocoapods`
 
-### Step 3: Build the sample and pull down ADAL for iOS automatically
+2. Build the sample and pull down ADAL for iOS automatically
 
 Run the following command in your terminal:
 
@@ -43,62 +78,76 @@ You should see the following output:
 ```
 $ pod install
 Analyzing dependencies
-
-Pre-downloading: `ADALiOS` from `https://github.com/Azure-Samples/azure-activedirectory-library-for-objc.git`, branch `B2C-ADAL`
 Downloading dependencies
-Installing ADALiOS (1.2.2)
+Installing ADAL (2.5.2)
 Generating Pods project
 Integrating client project
 
-[!] Please close any current Xcode sessions and use `Microsoft Tasks.xcworkspace` for this project from now on.
+[!] Please close any current Xcode sessions and use `QuickStart.xcworkspace` for this project from now on.
+Sending stats
+Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
 ```
-### Step 4: Run the application in Xcode
+3.  Run the application in Xcode
 
-Launch XCode and load the `Microsoft Tasks.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
+Launch XCode and load the `QuickStart.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
 
 
-#### Step 5. Determine what your Redirect URI will be for iOS
+4. Configure the `ViewController.swift` file with your app information
 
-In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
+You will need to configure your application to work with the Azure AD tenant you've created.
 
-The iOS format for a Redirect URI is:
-
-```
-<app-scheme>://<bundle-id>
-```
-
-- 	**aap-scheme** - This is registered in your XCode project. It is how other applications can call you. You can find this under Info.plist -> URL types -> URL Identifier. You should create one if you don't already have one or more configured.
-- 	**bundle-id** - This is the Bundle Identifier found under "identity" un your project settings in XCode.
-
-An example would be: ***mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks***
-
-### Step 6: Configure the settings.plist file with your Web API information
-
-You will need to configure your application to work with the Azure AD tenant you've created. Under "Supporting Files"you will find a settings.plist file. It contains the following information:
-
-```XML
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>authority</key>
-	<string>https://login.microsoftonline.com/common</string>
-	<key>clientId</key>
-	<string>xxxxxxx-xxxxxx-xxxxxxx-xxxxxxx</string>
-	<key>resourceString</key>
-	<string>https://localhost/todolistservice</string>
-	<key>redirectUri</key>
-	<string>mstodo://com.microsoft.windowsazure.activedirectory.samples.microsofttasks</string>
-	<key>userId</key>
-	<string>user@domain.com</string>
-	<key>taskWebAPI</key>
-	<string>https://localhost/api/todolist/</string>
-</dict>
-</plist>
+-	In the QuickStart project, open the file `ViewController.swift`.  Replace the values of the elements in the section to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
+    -	The `kClientID` is the clientId of your application you copied from the portal.
+    -	The `kRedirectUri` is the redirect url you registered in the portal.
 ```
 
-Replace the information in the plist file with your Web API settings.
 
-##### NOTE
+## Important Info
 
-The current defaults are set up to work with our [Azure Active Directory Sample REST API Service for Node.js](https://github.com/Azure-Samples/WebAPI-Nodejs). You will need to specify the clientID of your Web API, however. If you are running your own API, you will need to update the endpoints as required.
+1. Checkout the [ADAL Objective C Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-objc/wiki) for more info on the library mechanics and how to configure new scenarios and capabilities. 
+2. In Native scenarios, the app will use an embedded Webview and will not leave the app. The `Redirect URI` can be arbitrary. 
+3. Find any problems or have requests? Feel free to create an issue or post on Stackoverflow with 
+tag `azure-active-directory`. 
+
+## Feedback, Community Help, and Support
+
+We use [Stack Overflow](http://stackoverflow.com/questions/tagged/adal) with the community to 
+provide support. We highly recommend you ask your questions on Stack Overflow first and browse 
+existing issues to see if someone has asked your question before. 
+
+If you find and bug or have a feature request, please raise the issue 
+on [GitHub Issues](../../issues). 
+
+To provide a recommendation, visit 
+our [User Voice page](https://feedback.azure.com/forums/169401-azure-active-directory).
+
+## Contribute
+
+We enthusiastically welcome contributions and feedback. You can clone the repo and start 
+contributing now. Read our [Contribution Guide](Contributing.md) for more information.
+
+This project has adopted the 
+[Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
+For more information see 
+the [Code of Conduct FAQ](https://opensource.microsoft.com/codeofconduct/faq/) or contact 
+[opencode@microsoft.com](mailto:opencode@microsoft.com) with any additional questions or comments.
+
+## Security Library
+
+This library controls how users sign-in and access services. We recommend you always take the 
+latest version of our library in your app when possible. We 
+use [semantic versioning](http://semver.org) so you can control the risk associated with updating 
+your app. As an example, always downloading the latest minor version number (e.g. x.*y*.x) ensures 
+you get the latest security and feature enhanements but our API surface remains the same. You 
+can always see the latest version and release notes under the Releases tab of GitHub.
+
+## Security Reporting
+
+If you find a security issue with our libraries or services please report it 
+to [secure@microsoft.com](mailto:secure@microsoft.com) with as much detail as possible. Your 
+submission may be eligible for a bounty through the [Microsoft Bounty](http://aka.ms/bugbounty) 
+program. Please do not post security issues to GitHub Issues or any other public site. We will 
+contact you shortly upon receiving the information. We encourage you to get notifications of when 
+security incidents occur by 
+visiting [this page](https://technet.microsoft.com/en-us/security/dd252948) and subscribing 
+to Security Advisory Alerts.
