@@ -71,6 +71,10 @@ Run the following command in your terminal:
 
 `$ pod install`
 
+This will download and build ADAL for iOS for you and configure your Microsoft Tasks.xcodeproj to use the correct dependencies.
+
+### Step 4: Run the application in Xcode
+
 This will download and build ADAL for iOS for you and configure your QuickStart.xcodeproj to use the correct dependencies.
 
 You should see the following output:
