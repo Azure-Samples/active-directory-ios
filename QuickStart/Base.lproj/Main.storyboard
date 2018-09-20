@@ -8,71 +8,89 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
-    <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
-            <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuickStart" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logging" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98g-dc-BPL">
-                                <rect key="frame" x="16" y="277" width="62" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rX-Vv-T1i">
-                                <rect key="frame" x="131" y="100" width="99" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Call Graph API"/>
-                                <connections>
-                                    <action selector="callGraphButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q20-F9-75h"/>
-                                </connections>
-                            </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" layoutMarginsFollowReadableWidth="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXW-2z-J7K">
-                                <rect key="frame" x="16" y="324" width="343" height="291"/>
-                                <autoresizingMask key="autoresizingMask"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <accessibility key="accessibilityConfiguration">
-                                    <accessibilityTraits key="traits" updatesFrequently="YES"/>
-                                </accessibility>
-                                <directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9u4-b8-vmX">
-                                <rect key="frame" x="163" y="138" width="48" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Logout"/>
-                                <connections>
-                                    <action selector="signoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R7Y-43-8OI"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Microsoft Authentication Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifd-fu-zjm">
-                                <rect key="frame" x="64" y="43" width="246" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                    <connections>
-                        <outlet property="loggingText" destination="qXW-2z-J7K" id="uqO-Yw-AsK"/>
-                        <outlet property="signoutButton" destination="9u4-b8-vmX" id="OCh-qk-ldv"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="140" y="137.18140929535232"/>
-        </scene>
-    </scenes>
+<scenes>
+<!--View Controller-->
+<scene sceneID="tne-QT-ifu">
+<objects>
+<viewController id="BYZ-38-t0r" customClass="ViewController" customModule="QuickStart" customModuleProvider="target" sceneMemberID="viewController">
+<layoutGuides>
+<viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+<viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+</layoutGuides>
+<view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+<rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+<autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+<subviews>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2rX-Vv-T1i">
+<rect key="frame" x="138" y="100" width="99" height="30"/>
+<state key="normal" title="Call Graph API"/>
+<connections>
+<action selector="callGraphButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Q20-F9-75h"/>
+</connections>
+</button>
+<textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" editable="NO" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qXW-2z-J7K">
+<rect key="frame" x="16" y="316" width="343" height="382"/>
+<color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+<accessibility key="accessibilityConfiguration">
+<accessibilityTraits key="traits" updatesFrequently="YES"/>
+</accessibility>
+<directionalEdgeInsets key="directionalLayoutMargins" top="8" leading="8" bottom="8" trailing="8"/>
+<fontDescription key="fontDescription" type="system" pointSize="14"/>
+<textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+</textView>
+<button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9u4-b8-vmX">
+<rect key="frame" x="163.33333333333334" y="138" width="48.333333333333343" height="30"/>
+<state key="normal" title="Logout"/>
+<connections>
+<action selector="signoutButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="R7Y-43-8OI"/>
+</connections>
+</button>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Microsoft Authentication Library" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ifd-fu-zjm">
+<rect key="frame" x="64" y="60" width="247" height="21"/>
+<constraints>
+<constraint firstAttribute="width" secondItem="ifd-fu-zjm" secondAttribute="height" multiplier="82:7" constant="1.0000000000000284" id="oj8-ft-AHI"/>
+</constraints>
+<fontDescription key="fontDescription" type="system" pointSize="17"/>
+<nil key="textColor"/>
+<nil key="highlightedColor"/>
+</label>
+<label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Authentication And Graph API Log" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="98g-dc-BPL">
+<rect key="frame" x="57.333333333333343" y="277" width="260.66666666666663" height="21"/>
+<fontDescription key="fontDescription" type="system" pointSize="17"/>
+<nil key="textColor"/>
+<nil key="highlightedColor"/>
+</label>
+</subviews>
+<color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+<constraints>
+<constraint firstItem="ifd-fu-zjm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="1jD-rR-B2W"/>
+<constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qXW-2z-J7K" secondAttribute="bottom" constant="80" id="4tX-6a-aQ2"/>
+<constraint firstItem="ifd-fu-zjm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9R9-dL-ttx"/>
+<constraint firstItem="2rX-Vv-T1i" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AJk-6d-3XE"/>
+<constraint firstItem="qXW-2z-J7K" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="AvP-KW-MIE"/>
+<constraint firstItem="9u4-b8-vmX" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="163.33333333333334" id="Cah-65-jCz"/>
+<constraint firstItem="98g-dc-BPL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EE4-5e-i7S"/>
+<constraint firstAttribute="trailing" secondItem="qXW-2z-J7K" secondAttribute="trailing" constant="16" id="FWo-yp-Y77"/>
+<constraint firstItem="2rX-Vv-T1i" firstAttribute="top" secondItem="ifd-fu-zjm" secondAttribute="bottom" constant="19" id="Gdn-pz-sE7"/>
+<constraint firstItem="98g-dc-BPL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="233" id="Ijz-BV-Ga4"/>
+<constraint firstItem="2rX-Vv-T1i" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="56" id="Lp8-b1-fGs"/>
+<constraint firstItem="ifd-fu-zjm" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q7t-2d-Wga"/>
+<constraint firstItem="2rX-Vv-T1i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="138" id="Z4K-g7-gz9"/>
+<constraint firstItem="qXW-2z-J7K" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="272" id="fYx-WQ-Vjt"/>
+<constraint firstItem="ifd-fu-zjm" firstAttribute="centerX" secondItem="9u4-b8-vmX" secondAttribute="centerX" id="sPQ-zQ-ecw"/>
+<constraint firstItem="ifd-fu-zjm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="48" id="xek-fW-PhR"/>
+<constraint firstItem="9u4-b8-vmX" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="yoZ-Uq-Odd"/>
+<constraint firstItem="9u4-b8-vmX" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="94" id="zef-ZX-VyF"/>
+</constraints>
+</view>
+<connections>
+<outlet property="loggingText" destination="qXW-2z-J7K" id="uqO-Yw-AsK"/>
+<outlet property="signoutButton" destination="9u4-b8-vmX" id="OCh-qk-ldv"/>
+</connections>
+</viewController>
+<placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+</objects>
+<point key="canvasLocation" x="140" y="136.69950738916256"/>
+</scene>
+</scenes>
 </document>
