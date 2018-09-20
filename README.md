@@ -65,7 +65,7 @@ CocoaPods is the dependency manager for Swift and Objective-C Cocoa projects. It
 
 `$ sudo gem install cocoapods`
 
-2. Build the sample and pull down ADAL for iOS automatically
+1. Build the sample and pull down ADAL for iOS automatically
 
 Run the following command in your terminal:
 
@@ -91,12 +91,12 @@ Integrating client project
 Sending stats
 Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
 ```
-3.  Run the application in Xcode
+1.  Run the application in Xcode
 
 Launch XCode and load the `QuickStart.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
 
 
-4. Configure the `ViewController.swift` file with your app information
+1. Configure the `ViewController.swift` file with your app information
 
 You will need to configure your application to work with the Azure AD tenant you've created.
 
@@ -104,7 +104,6 @@ You will need to configure your application to work with the Azure AD tenant you
     -	The `kClientID` is the clientId of your application you copied from the portal.
     -	The `kRedirectUri` is the redirect url you registered in the portal.
 ```
-
 
 ## Important Info
 
