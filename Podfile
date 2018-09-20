@@ -1,7 +1,6 @@
 use_frameworks!
 
-target 'Microsoft Tasks' do
-
+target 'QuickStart' do
+  use_frameworks!
 pod 'ADAL'
-
-end
+end 
