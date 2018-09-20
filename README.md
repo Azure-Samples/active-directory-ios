@@ -26,7 +26,7 @@ The ADAL Objective C library gives your app the ability to begin using the
 
 This app can be used for all Azure AD accounts. It demonstrates how a developer can build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
-![Topology](./images/topology.PNG)
+![Topology](./images/iosintro.png)
 
 ## Steps to Run
 
@@ -65,7 +65,7 @@ CocoaPods is the dependency manager for Swift and Objective-C Cocoa projects. It
 
 `$ sudo gem install cocoapods`
 
-2. Build the sample and pull down ADAL for iOS automatically
+1. Build the sample and pull down ADAL for iOS automatically
 
 Run the following command in your terminal:
 
@@ -91,19 +91,19 @@ Integrating client project
 Sending stats
 Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
 ```
-3.  Run the application in Xcode
+
+1.  Run the application in Xcode
 
 Launch XCode and load the `QuickStart.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
 
 
-4. Configure the `ViewController.swift` file with your app information
+1. Configure the `ViewController.swift` file with your app information
 
 You will need to configure your application to work with the Azure AD tenant you've created.
 
 -	In the QuickStart project, open the file `ViewController.swift`.  Replace the values of the elements in the section to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
     -	The `kClientID` is the clientId of your application you copied from the portal.
     -	The `kRedirectUri` is the redirect url you registered in the portal.
-```
 
 
 ## Important Info
