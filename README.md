@@ -26,7 +26,7 @@ The ADAL Objective C library gives your app the ability to begin using the
 
 This app can be used for all Azure AD accounts. It demonstrates how a developer can build apps to connect with enterprise users and access their Azure + O365 data via the Microsoft Graph.  During the auth flow, end users will be required to sign in and consent to the permissions of the application, and in some cases may require an admin to consent to the app.  The majority of the logic in this sample shows how to auth an end user and make a basic call to the Microsoft Graph.
 
-![Topology](./images/topology.PNG)
+![Topology](./images/iosintro.png)
 
 ## Steps to Run
 
