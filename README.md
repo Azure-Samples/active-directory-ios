@@ -91,6 +91,7 @@ Integrating client project
 Sending stats
 Pod installation complete! There is 1 dependency from the Podfile and 1 total pod installed.
 ```
+
 1.  Run the application in Xcode
 
 Launch XCode and load the `QuickStart.xcworkspace` file. The application will run in an emulator as soon as it is loaded.
@@ -103,7 +104,7 @@ You will need to configure your application to work with the Azure AD tenant you
 -	In the QuickStart project, open the file `ViewController.swift`.  Replace the values of the elements in the section to reflect the values you input into the Azure Portal.  Your code will reference these values whenever it uses ADAL.
     -	The `kClientID` is the clientId of your application you copied from the portal.
     -	The `kRedirectUri` is the redirect url you registered in the portal.
-```
+
 
 ## Important Info
 
