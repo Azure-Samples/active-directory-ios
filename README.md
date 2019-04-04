@@ -13,6 +13,11 @@ endpoint: AAD V1
 | [Getting Started](https://docs.microsoft.com/en-us/azure/active-directory/develop/active-directory-devquickstarts-ios)| [Library](https://github.com/AzureAD/azure-activedirectory-library-for-objc) | [API Reference](http://cocoadocs.org/docsets/ADAL/2.5.1/) | [Support](README.md#community-help-and-support)
 | --- | --- | --- | --- |
 
+> There's a newer version of this sample! Check it out: https://github.com/azure-samples/ms-identity-ios-swift-native
+>
+> This newer sample takes advantage of the Microsoft identity platform (formerly Azure AD v2.0).
+>
+> While still in public preview, every component is supported in production environments.
 
 The ADAL Objective C library gives your app the ability to begin using the
 [Microsoft Azure Cloud](https://cloud.microsoft.com) by supporting [Microsoft Azure Active Directory accounts](https://azure.microsoft.com/en-us/services/active-directory/) using industry standard OAuth2 and OpenID Connect. This sample demonstrates all the normal lifecycles your application should experience, including:
