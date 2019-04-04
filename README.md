@@ -128,7 +128,7 @@ our [User Voice page](https://feedback.azure.com/forums/169401-azure-active-dire
 ## Contribute
 
 We enthusiastically welcome contributions and feedback. You can clone the repo and start 
-contributing now. Read our [Contribution Guide](Contributing.md) for more information.
+contributing now. Read our [Contribution Guide](CONTRIBUTING.md) for more information.
 
 This project has adopted the 
 [Microsoft Open Source Code of Conduct](https://opensource.microsoft.com/codeofconduct/). 
