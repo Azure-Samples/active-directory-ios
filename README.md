@@ -41,20 +41,18 @@ You will need to have a native client application registered with Microsoft usin
 [Azure portal](https://portal.azure.com). 
 
 1. Getting to app registration
-    - Navigate to the [Azure portal](https://aad.portal.azure.com).  
-    - Click on ***Azure Active Directory*** > ***App Registrations***. 
-
+    - Navigate to the [App registrations](https://go.microsoft.com/fwlink/?linkid=2083908) experience.
 2. Create the app
-    - Click ***New application registration***.  
-    - Enter an app name in the ***Name*** field. 
-    - In ***Application type***, select `Native`. 
-    - In ***Redirect URI***, enter `urn:ietf:wg:oauth:2.0:oob`.  
+    - Click ***New registration***.  
+    - Enter an app name in the ***Name*** field.
+    - In ***Supported account types***, select `Accounts in any origanizational directory and personal Microsoft accounts`.
+    - In ***Redirect URI (optional)***, select `Public client (mobile & desktop)` and enter `urn:ietf:wg:oauth:2.0:oob`as the URI.  
 
-3. Configure Microsoft Graph
-    - Select ***Settings*** > ***Required Permissions***.
-    - Click ***Add***, inside ***Select an API*** select ***Microsoft Graph***. 
-    - Select the permission `Sign in and read user profile` > Hit `Select` to save. 
-        - This permission maps to the `User.Read` scope. 
+3. Configure Microsoft Graph API Access
+    - Select ***API Permissions*** 
+    - Select ***Add a permission***, and then select ***Microsoft Graph***. 
+    - Select `Delegated permissions` and select the permissions `offline_access`, `openid`, and `profile`. We'll also need `User.Read`, but this is selected by default for us already. 
+    - Hit ***Add permissions*** to save.
 
 4. Congrats! Your app is successfully configured. In the next section, you'll need:
     - `Application ID`
