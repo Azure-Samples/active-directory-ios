@@ -57,6 +57,7 @@ You will need to have a native client application registered with Microsoft usin
 4. Congrats! Your app is successfully configured. In the next section, you'll need:
     - `Application ID`
     - `Redirect URI`
+    - `Entitlements` (Optional)
 
 ### Get the code
 
@@ -108,6 +109,9 @@ You will need to configure your application to work with the Azure AD tenant you
     -	The `kClientID` is the clientId of your application you copied from the portal.
     -	The `kRedirectUri` is the redirect url you registered in the portal.
 
+Extra steps if you are building on your own Xcode project with Azure AD tenant you've created,
+- In the ```Signing & capatibilities``` tap, add ```Keychain Sharing``` if you don't have one
+- Add `com.microsoft.adalcache` into ```Keychain Groups``` 
 
 ## Important Info
 

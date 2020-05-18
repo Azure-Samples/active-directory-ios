@@ -74,7 +74,13 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        signoutButton.isEnabled = (currentAccount()?.accessToken != nil)
+        
+        if let currentAccount = currentAccount(),
+            currentAccount.accessToken != nil {
+            signoutButton.isEnabled = true
+        } else {
+            signoutButton.isEnabled = false
+        }
     }
     
     /**
@@ -90,7 +96,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
     func acquireToken(completion: @escaping (_ success: Bool) -> Void) {
         
         guard let applicationContext = self.applicationContext else { return }
-        
+        guard let kRedirectUri = kRedirectUri else { return }
         /**
          
          Acquire a token for an account
@@ -105,43 +111,32 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
          flow completes, or encounters an error.
          */
         
-        applicationContext.acquireToken(withResource: kGraphURI, clientId: kClientID, redirectUri:kRedirectUri){ (result) in
-            
-            guard let result = result else {
-                
-                self.updateLogging(text: "Could not acquire token: No result returned")
-                completion(false)
-                return
-            }
+        applicationContext.acquireToken(withResource: kGraphURI, clientId: kClientID, redirectUri: kRedirectUri){ (result) in
             
             if (result.status != AD_SUCCEEDED) {
                 
-                if result.error.domain == ADAuthenticationErrorDomain
-                    && result.error.code == ADErrorCode.ERROR_UNEXPECTED.rawValue {
-                    
-                    self.updateLogging(text: "Unexpected internal error occured: \(result.error.description))");
-                    completion(false)
-                    
-                } else {
-                    
-                    self.updateLogging(text: result.error.description)
-                    
+                if let error = result.error {
+                    if error.domain == ADAuthenticationErrorDomain, error.code == ADErrorCode.ERROR_UNEXPECTED.rawValue {
+                        self.updateLogging(text: "Unexpected internal error occured: \(error.description))");
+                        completion(false)
+                    } else {
+                        self.updateLogging(text: error.description)
+                    }
                 }
-                
                 completion(false)
-                
+            } else {
+                self.updateLogging(text: "Access token is \(String(describing: result.accessToken))")
+                self.updateSignoutButton(enabled: true)
+                completion(true)
             }
-            
-            self.updateLogging(text: "Access token is \(String(describing: result.accessToken))")
-            self.updateSignoutButton(enabled: true)
-            completion(true)
         }
     }
     
     func acquireTokenSilently(completion: @escaping (_ success: Bool) -> Void) {
         
         guard let applicationContext = self.applicationContext else { return }
-        
+        guard let kRedirectUri = kRedirectUri else { return }
+
         /**
          
          Acquire a token for an existing account silently
@@ -158,46 +153,38 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         
         
         
-        applicationContext.acquireTokenSilent(withResource: kGraphURI, clientId: kClientID, redirectUri:kRedirectUri) { (result) in
-            
-            guard let result = result else {
-                
-                self.updateLogging(text: "Could not acquire token: No result returned")
-                completion(false)
-                return
-            }
+        applicationContext.acquireTokenSilent(withResource: kGraphURI, clientId: kClientID, redirectUri: kRedirectUri) { (result) in
             
             if (result.status != AD_SUCCEEDED) {
                 
                 // USER_INPUT_NEEDED means we need to ask the user to sign-in. This usually happens
                 // when the user's Refresh Token is expired or if the user has changed their password
                 // among other possible reasons.
-                
-                if result.error.domain == ADAuthenticationErrorDomain
-                    && result.error.code == ADErrorCode.ERROR_SERVER_USER_INPUT_NEEDED.rawValue {
-                    
-                    DispatchQueue.main.async {
-                        self.acquireToken() { (success) -> Void in
-                            if success {
-                                completion(true)
-                            } else {
-                                self.updateLogging(text: "After determining we needed user input, could not acquire token: \(result.error.description)")
-                                completion(false)
+                if let error = result.error {
+                    if error.domain == ADAuthenticationErrorDomain,
+                        error.code == ADErrorCode.ERROR_SERVER_USER_INPUT_NEEDED.rawValue {
+                        
+                        DispatchQueue.main.async {
+                            self.acquireToken() { (success) -> Void in
+                                if success {
+                                    completion(true)
+                                } else {
+                                    self.updateLogging(text: "After determining we needed user input, could not acquire token: \(error.description)")
+                                    completion(false)
+                                }
                             }
-                            
                         }
+                    } else {
+                        self.updateLogging(text: "Could not acquire token silently: \(error.description)")
                     }
-                    
-                } else {
-                    self.updateLogging(text: "Could not acquire token silently: \(result.error.description)")
                 }
-                
-                completion(false)
-            }
             
-            self.updateLogging(text: "Refreshed Access token is \(String(describing: result.accessToken))")
-            self.updateSignoutButton(enabled: true)
-            completion(true)
+                completion(false)
+            } else {
+                self.updateLogging(text: "Refreshed Access token is \(String(describing: result.accessToken))")
+                self.updateSignoutButton(enabled: true)
+                completion(true)
+            }
         }
     }
     
@@ -270,7 +257,6 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
                     }
                 }
             } else {
-                
                 self.updateLogging(text: "Couldn't get access token and we were told to not retry.")
             }
             return
