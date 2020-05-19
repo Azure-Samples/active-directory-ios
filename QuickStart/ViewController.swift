@@ -112,13 +112,12 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
          */
         
         applicationContext.acquireToken(withResource: kGraphURI, clientId: kClientID, redirectUri: kRedirectUri){ (result) in
-            
             if (result.status != AD_SUCCEEDED) {
                 
                 if let error = result.error {
-                    if error.domain == ADAuthenticationErrorDomain, error.code == ADErrorCode.ERROR_UNEXPECTED.rawValue {
+                    if error.domain == ADAuthenticationErrorDomain,
+                        error.code == ADErrorCode.ERROR_UNEXPECTED.rawValue {
                         self.updateLogging(text: "Unexpected internal error occured: \(error.description))");
-                        completion(false)
                     } else {
                         self.updateLogging(text: error.description)
                     }
