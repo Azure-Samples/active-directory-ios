@@ -175,10 +175,10 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
                         }
                     } else {
                         self.updateLogging(text: "Could not acquire token silently: \(error.description)")
+                        completion(false)
                     }
                 }
             
-                completion(false)
             } else {
                 self.updateLogging(text: "Refreshed Access token is \(String(describing: result.accessToken))")
                 self.updateSignoutButton(enabled: true)
