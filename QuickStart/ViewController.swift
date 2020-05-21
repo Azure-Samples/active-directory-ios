@@ -37,12 +37,12 @@ import ADAL
 class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate {
     
     // Update the below to your client ID you received in the portal. The below is for running the demo only
-    let kClientID = "1e305e96-7362-45a3-bab5-cb56f46df4c1"
+    let kClientID = "227fe97b-c455-4039-b618-5af215c48d71"
     
     // These settings you don't need to edit unless you wish to attempt deeper scenarios with the app.
     let kGraphURI = "https://graph.microsoft.com"
     let kAuthority = "https://login.microsoftonline.com/common"
-    let kRedirectUri = URL(string: "urn:ietf:wg:oauth:2.0:oob")
+    let kRedirectUri = URL(string: "adal-sample-app://com.microsoft.identity.client.sample.quickstart")
     let defaultSession = URLSession(configuration: .default)
     
     var applicationContext : ADAuthenticationContext?
@@ -67,6 +67,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
          */
         
         self.applicationContext = ADAuthenticationContext(authority: kAuthority, error: nil)
+        self.applicationContext?.credentialsType = AD_CREDENTIALS_AUTO
         super.viewDidLoad()
         
     }
