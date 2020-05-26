@@ -58,7 +58,7 @@ You will need to have a native client application registered with Microsoft usin
     - `Application ID`
     - `Redirect URI`
     - `Entitlements`
-     - Is required for building your own Xcode project
+        - Is required for building your own Xcode project
 
 ### Get the code
 
@@ -113,6 +113,24 @@ You will need to configure your application to work with the Azure AD tenant you
 If you are adding ADAL to an existing Xcode project or you've created a new one on your own, you'll also need to enable Keychain Sharing.
 - In the ```Signing & capabilities``` tap, add ```Keychain Sharing``` if you don't have one
 - Add `com.microsoft.adalcache` into ```Keychain Groups``` 
+
+If your app supports `Brokered Authentication`, you will need to update the `CFBundleURLSchemes` name
+- In the QuickStart project, open the file `Info.plist`. replace the `CFBundleURLSchemes` with your scheme name
+```
+<key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleTypeRole</key>
+            <string>Editor</string>
+            <key>CFBundleURLName</key>
+            <string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                 <string>adal-sample-app</string>
+            </array>
+            </dict>
+    </array>
+```
 
 ## Important Info
 

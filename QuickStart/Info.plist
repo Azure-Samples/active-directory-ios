@@ -24,7 +24,9 @@
 			<key>CFBundleURLName</key>
 			<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 			<key>CFBundleURLSchemes</key>
-			<array/>
+            <array>
+                 <string>adal-sample-app</string>
+             </array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
@@ -52,5 +54,10 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+         <string>msauth</string>
+         <string>msauthv3</string>
+    </array>
 </dict>
 </plist>
