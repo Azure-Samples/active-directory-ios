@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
     let kRedirectUri = URL(string: "adal-sample-app://com.microsoft.identity.client.sample.quickstart")
     let defaultSession = URLSession(configuration: .default)
     
-    var applicationContext : ADAuthenticationContext?
+    var applicationContext : ADALAuthenticationContext?
     var dataTask: URLSessionDataTask?
     
     @IBOutlet weak var loggingText: UITextView!
@@ -66,7 +66,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
          not interested in the specific error pass in nil.
          */
         
-        self.applicationContext = ADAuthenticationContext(authority: kAuthority, error: nil)
+        self.applicationContext = ADALAuthenticationContext(authority: kAuthority, error: nil)
         self.applicationContext?.credentialsType = AD_CREDENTIALS_AUTO
         super.viewDidLoad()
         
@@ -117,7 +117,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
                 
                 if let error = result.error {
                     if error.domain == ADAuthenticationErrorDomain,
-                        error.code == ADErrorCode.ERROR_UNEXPECTED.rawValue {
+                        error.code == ADALErrorCode.AD_ERROR_UNEXPECTED.rawValue {
                         self.updateLogging(text: "Unexpected internal error occured: \(error.description))");
                     } else {
                         self.updateLogging(text: error.description)
@@ -162,7 +162,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
                 // among other possible reasons.
                 if let error = result.error {
                     if error.domain == ADAuthenticationErrorDomain,
-                        error.code == ADErrorCode.ERROR_SERVER_USER_INPUT_NEEDED.rawValue {
+                        error.code == ADALErrorCode.AD_ERROR_SERVER_USER_INPUT_NEEDED.rawValue {
                         
                         DispatchQueue.main.async {
                             self.acquireToken() { (success) -> Void in
@@ -188,7 +188,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         }
     }
     
-    func currentAccount() -> ADTokenCacheItem? {
+    func currentAccount() -> ADALTokenCacheItem? {
         
         
         // We retrieve our current account by getting the last account from cache. This isn't best practice. You should rely
@@ -196,7 +196,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
         // In multi-account applications, account should be retrieved by home account identifier or username instead
         
         
-        guard let cachedTokens = ADKeychainTokenCache.defaultKeychain().allItems(nil) else {
+        guard let cachedTokens = ADALKeychainTokenCache.defaultKeychain().allItems(nil) else {
             self.updateLogging(text: "Didn't find a default cache. This is very unusual.")
             
             return nil
@@ -330,7 +330,7 @@ class ViewController: UIViewController, UITextFieldDelegate, URLSessionDelegate 
             return
         }
         
-        ADKeychainTokenCache.defaultKeychain().removeAll(forUserId: account, clientId: kClientID, error: nil)
+        ADALKeychainTokenCache.defaultKeychain().removeAll(forUserId: account, clientId: kClientID, error: nil)
         self.signoutButton.isEnabled = false
         self.updateLogging(text: "Removed account for: \(account)" )
     }
